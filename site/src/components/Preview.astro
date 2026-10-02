@@ -1,0 +1,19 @@
+---
+import { assetUrl } from '~/lib/catalog';
+import type { Part } from '~/lib/catalog-types';
+
+type Props = { part: Part; eager?: boolean };
+
+const { part, eager = false } = Astro.props;
+---
+
+<div class="preview">
+  <img
+    src={assetUrl(part.files.svg)}
+    alt={`Line drawing of ${part.title}`}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    width="400"
+    height="300"
+  />
+</div>

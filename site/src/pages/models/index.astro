@@ -1,0 +1,250 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import Preview from '~/components/Preview.astro';
+import { catalog, familyUrl, formatSize, materialOptions } from '~/lib/catalog';
+
+const materials = materialOptions();
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Models',
+    description: `All ${catalog.parts.length} printable parts in ${catalog.families.length} families, with sizes, materials and downloads.`,
+    tableOfContents: false,
+  }}
+>
+  <p>
+    Every part in the library. Open a part for its 3D view, print notes and STL/STEP downloads.
+  </p>
+
+  <div class="not-content">
+    <form class="filters" id="catalogue-filters" aria-label="Filter models">
+      <div class="field search">
+        <label for="filter-q">Search</label>
+        <input
+          id="filter-q"
+          name="q"
+          type="search"
+          placeholder="crate, rail, magnet…"
+          autocomplete="off"
+        />
+      </div>
+      <div class="field">
+        <label for="filter-family">Family</label>
+        <select id="filter-family" name="family">
+          <option value="">All families</option>
+          {catalog.families.map((family) => <option value={family.module}>{family.title}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="filter-material">Material</label>
+        <select id="filter-material" name="material">
+          <option value="">Any material</option>
+          {materials.map((tag) => <option value={tag}>{tag}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="filter-sort">Sort by</label>
+        <select id="filter-sort" name="sort">
+          <option value="catalogue">Catalogue order</option>
+          <option value="name">Name</option>
+          <option value="size">Size (volume)</option>
+        </select>
+      </div>
+      <fieldset class="field view">
+        <legend>Cards</legend>
+        <label><input type="radio" name="view" value="detailed" checked /> Detailed</label>
+        <label><input type="radio" name="view" value="compact" /> Compact</label>
+      </fieldset>
+    </form>
+
+    <p class="status">
+      <span id="catalogue-count" aria-live="polite">{catalog.parts.length} parts</span>
+      <button type="button" id="catalogue-reset" hidden>Clear filters</button>
+    </p>
+
+    <ul class="cards" id="catalogue" data-view="detailed">
+      {
+        catalog.parts.map((part) => (
+          <li
+            class="card"
+            data-family={part.module}
+            data-materials={part.materials.join(' ')}
+            data-order={part.order}
+            data-name={part.title.toLowerCase()}
+            data-volume={part.size.x * part.size.y * part.size.z}
+            data-search={[part.title, part.slug, part.family, part.blurb, part.material]
+              .join(' ')
+              .toLowerCase()}
+          >
+            <Preview part={part} />
+            <p class="title">
+              <a href={`${familyUrl(part.module)}#${part.slug}`}>{part.title}</a>
+            </p>
+            <dl>
+              <dt class="detail">Family</dt>
+              <dd class="detail">{part.family}</dd>
+              <dt>Size</dt>
+              <dd>{formatSize(part.size)}</dd>
+              <dt class="detail">Material</dt>
+              <dd class="detail">{part.materials.join(', ')}</dd>
+            </dl>
+            <p class="blurb detail">{part.blurb}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p id="catalogue-empty" hidden>No parts match these filters.</p>
+  </div>
+</StarlightPage>
+
+<script>
+  import '~/scripts/catalogue';
+</script>
+
+<style>
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: end;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0;
+  }
+
+  .field.search {
+    flex: 1 1 14rem;
+  }
+
+  .field label,
+  .field legend {
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+
+  .filters input[type='search'],
+  .filters select {
+    width: 100%;
+    height: 2.4rem;
+    padding: 0 0.5rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    font: inherit;
+  }
+
+  .field.view {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0;
+    border: 0;
+  }
+
+  .field.view legend {
+    float: left;
+    margin-inline-end: 0.25rem;
+  }
+
+  .field.view label {
+    display: inline-flex;
+    gap: 0.3rem;
+    align-items: center;
+    color: var(--sl-color-white);
+  }
+
+  .status {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+  }
+
+  .status button {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    background: transparent;
+    color: var(--sl-color-white);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cards[data-view='compact'] {
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  }
+
+  .cards[data-view='compact'] .detail {
+    display: none;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0.6rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+  }
+
+  .card[hidden] {
+    display: none;
+  }
+
+  .card p,
+  .card dl {
+    margin: 0;
+  }
+
+  .card .title {
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .card .title a {
+    color: var(--sl-color-white);
+  }
+
+  .card .title a:hover {
+    color: var(--sl-color-text-accent);
+  }
+
+  .card dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 0.5rem;
+    font-size: var(--sl-text-xs);
+    color: var(--sl-color-gray-2);
+  }
+
+  .card dt {
+    font-weight: 600;
+  }
+
+  .card dd {
+    margin: 0;
+  }
+
+  .card .blurb {
+    font-size: var(--sl-text-xs);
+    color: var(--sl-color-gray-3);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

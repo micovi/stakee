@@ -1,0 +1,60 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import PreviewRow from '~/components/PreviewRow.astro';
+import docsJson from '~/generated/docs.json';
+import { catalog } from '~/lib/catalog';
+import type { DocEntry } from '~/lib/catalog-types';
+import { sitePath } from '~/lib/repo';
+
+const base = import.meta.env.BASE_URL;
+const docs: DocEntry[] = docsJson;
+const hasGettingStarted = docs.some((doc) => doc.slug === 'getting-started');
+const actions = [
+  { text: 'Browse models', link: sitePath(base, 'models/'), icon: 'right-arrow' },
+  ...(hasGettingStarted
+    ? [
+        {
+          text: 'Getting started',
+          link: sitePath(base, 'docs/getting-started/'),
+          variant: 'minimal' as const,
+        },
+      ]
+    : []),
+];
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Stakee',
+    description: 'Parametric, stackable, 3D-printable storage for electronics hackers.',
+    template: 'splash',
+    hero: {
+      tagline:
+        'Parametric, stackable, 3D-printable storage for the parts, tools and boards on an electronics bench.',
+      actions,
+    },
+  }}
+>
+  <h2>What Stakee is</h2>
+  <ul>
+    <li>
+      <strong>One grid, everything stacks.</strong> Every part sits on a 42 mm grid with 7 mm height
+      units and stacks on any crate of the same footprint.
+    </li>
+    <li>
+      <strong>Print-ready files.</strong> All {catalog.parts.length} parts come as STL for your slicer
+      and STEP for CAD, with material and print notes.
+    </li>
+    <li>
+      <strong>Parametric.</strong> Crates, caps, dividers and label tiles are generated in Python
+      (build123d), so <code>uv run stakee box 3x2x6</code> makes the size you need.
+      The <a href={sitePath(base, 'configurator/')}>configurator</a> builds the command for you.
+    </li>
+    <li>
+      <strong>Made for electronics.</strong> Bag libraries, drawer cabinets, ESD crates, wire
+      dispensers and inserts for dev boards and soldering.
+    </li>
+  </ul>
+
+  <PreviewRow />
+</StarlightPage>

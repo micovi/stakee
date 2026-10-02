@@ -1,0 +1,148 @@
+---
+import { assetUrl, formatSize } from '~/lib/catalog';
+import type { Part } from '~/lib/catalog-types';
+import type { ViewerPart } from '~/scripts/viewer';
+
+type Props = { parts: Part[] };
+
+const { parts } = Astro.props;
+const first = parts[0];
+const viewerParts: ViewerPart[] = parts.map((part) => ({
+  slug: part.slug,
+  title: part.title,
+  stl: assetUrl(part.files.stl),
+  color: part.color,
+  size: formatSize(part.size),
+}));
+---
+
+<div class="viewer not-content" id="viewer-root" data-parts={JSON.stringify(viewerParts)}>
+  <div class="stage" id="viewer-stage">
+    <p class="status" id="viewer-status" role="status"></p>
+    <noscript><p class="status">The 3D viewer needs JavaScript. The previews and downloads below work without it.</p></noscript>
+  </div>
+  <div class="controls">
+    <div class="field">
+      <label for="viewer-part">Part</label>
+      <select id="viewer-part">
+        {parts.map((part) => <option value={part.slug}>{part.title}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="viewer-color">Filament colour</label>
+      <input id="viewer-color" type="color" value={first?.color ?? '#ff4f93'} />
+    </div>
+    <label class="check"><input id="viewer-wireframe" type="checkbox" /> Wireframe</label>
+    <label class="check"><input id="viewer-rotate" type="checkbox" /> Auto-rotate</label>
+    <label class="check"><input id="viewer-grid" type="checkbox" checked /> 42 mm grid</label>
+    <button type="button" id="viewer-reset">Reset view</button>
+  </div>
+  <p class="size">
+    Size: <output id="viewer-size" for="viewer-part">{first ? formatSize(first.size) : ''}</output>
+  </p>
+</div>
+
+<script>
+  import { mountViewer } from '~/scripts/viewer';
+
+  mountViewer();
+</script>
+
+<style>
+  .viewer {
+    margin-top: 1rem;
+  }
+
+  .stage {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    max-height: 28rem;
+    width: 100%;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+    overflow: hidden;
+  }
+
+  .stage :global(canvas) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+  }
+
+  .status {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    color: var(--sl-color-gray-2);
+    pointer-events: none;
+  }
+
+  .status:empty {
+    display: none;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: end;
+    margin-top: 0.75rem;
+  }
+
+  .controls[hidden] {
+    display: none;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .field label {
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+
+  select,
+  button {
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  input[type='color'] {
+    width: 3rem;
+    height: 2.1rem;
+    padding: 0.1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    background: transparent;
+  }
+
+  .check {
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
+    padding-bottom: 0.4rem;
+  }
+
+  .size {
+    margin-top: 0.5rem;
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+  }
+</style>
