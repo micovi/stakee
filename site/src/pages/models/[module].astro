@@ -1,0 +1,156 @@
+---
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import type { GetStaticPaths } from 'astro';
+import Preview from '~/components/Preview.astro';
+import Viewer from '~/components/Viewer.astro';
+import { assetUrl, catalog, formatSize, partsOf } from '~/lib/catalog';
+import type { Family } from '~/lib/catalog-types';
+import { blobUrl, rawUrl } from '~/lib/repo';
+
+export const getStaticPaths = (() =>
+  catalog.families.map((family) => ({
+    params: { module: family.module },
+    props: { family },
+  }))) satisfies GetStaticPaths;
+
+type Props = { family: Family };
+
+const { family } = Astro.props;
+const parts = partsOf(family);
+const markdown = await createMarkdownProcessor();
+const description = (await markdown.render(family.description)).code;
+---
+
+<StarlightPage
+  frontmatter={{ title: family.title, description: family.summary }}
+  headings={[
+    { depth: 2, slug: 'viewer', text: '3D view' },
+    { depth: 2, slug: 'parts', text: 'Parts' },
+    { depth: 2, slug: 'how-it-works', text: 'How it works' },
+  ]}
+>
+  <p>{family.summary}</p>
+  <p>
+    {parts.length} part{parts.length === 1 ? '' : 's'}.
+    Source: <a href={blobUrl(`models/${family.module}/README.md`)}>models/{family.module}</a> on GitHub.
+  </p>
+
+  <h2 id="viewer">3D view</h2>
+  <Viewer parts={parts} />
+
+  <h2 id="parts">Parts</h2>
+  <table class="parts">
+    <thead>
+      <tr>
+        <th scope="col">Preview</th>
+        <th scope="col">Part</th>
+        <th scope="col">Files</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        parts.map((part) => (
+          <tr id={part.slug}>
+            <td class="thumb">
+              <Preview part={part} />
+            </td>
+            <td>
+              <strong>{part.title}</strong>
+              <p>{part.blurb}</p>
+              <dl>
+                <dt>Size</dt>
+                <dd>{formatSize(part.size)}</dd>
+                <dt>Material</dt>
+                <dd>{part.material}</dd>
+                <dt>Print notes</dt>
+                <dd>{part.printNotes}</dd>
+              </dl>
+              <button type="button" class="show-3d" data-part={part.slug}>
+                Show in 3D view
+              </button>
+            </td>
+            <td class="files">
+              <ul>
+                <li>
+                  <a href={assetUrl(part.files.stl)} download>Download STL</a>
+                </li>
+                <li>
+                  <a href={rawUrl(part.files.step)}>Download STEP</a>
+                </li>
+                <li>
+                  <a href={rawUrl(part.files.stl)}>STL from GitHub</a>
+                </li>
+                <li>
+                  <a href={blobUrl(part.files.stl)}>View on GitHub</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+
+  <h2 id="how-it-works">How it works</h2>
+  <Fragment set:html={description} />
+</StarlightPage>
+
+<style>
+  .parts td {
+    vertical-align: top;
+  }
+
+  .parts .thumb {
+    width: 9rem;
+    min-width: 7rem;
+  }
+
+  .parts p,
+  .parts dl,
+  .parts ul {
+    margin-top: 0.4rem;
+  }
+
+  .parts dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.2rem 0.75rem;
+    font-size: var(--sl-text-sm);
+  }
+
+  .parts dt {
+    font-weight: 600;
+  }
+
+  .parts dd {
+    margin: 0;
+  }
+
+  .parts .files ul {
+    padding: 0;
+    list-style: none;
+    font-size: var(--sl-text-sm);
+    white-space: nowrap;
+  }
+
+  .parts .files li {
+    margin: 0;
+  }
+
+  .show-3d {
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    background: transparent;
+    color: var(--sl-color-white);
+    font: inherit;
+    font-size: var(--sl-text-sm);
+    cursor: pointer;
+  }
+
+  .show-3d:hover {
+    border-color: var(--sl-color-accent);
+  }
+</style>

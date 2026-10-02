@@ -1,0 +1,50 @@
+---
+import Preview from '~/components/Preview.astro';
+import { catalog, familyUrl, partsOf } from '~/lib/catalog';
+
+const picks = catalog.families.slice(0, 6).flatMap((family) => {
+  const first = partsOf(family)[0];
+  return first ? [{ family, part: first }] : [];
+});
+---
+
+<ul class="preview-row" aria-label="Some of the model families">
+  {
+    picks.map(({ family, part }) => (
+      <li>
+        <a href={familyUrl(family.module)}>
+          <Preview part={part} eager />
+          <span>{family.title}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .preview-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .preview-row li {
+    margin: 0;
+  }
+
+  .preview-row a {
+    display: grid;
+    gap: 0.25rem;
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-sm);
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .preview-row a:hover span {
+    color: var(--sl-color-accent-high);
+    text-decoration: underline;
+  }
+</style>

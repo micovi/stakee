@@ -1,0 +1,238 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import {
+  boxCommand,
+  DEFAULT_OPTIONS,
+  LIP_CLEARANCE_RANGE,
+  MAX_HEIGHT,
+  MAX_UNITS,
+  MIN_HEIGHT,
+} from '~/lib/geometry';
+
+const opts = DEFAULT_OPTIONS;
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Box configurator',
+    description:
+      'Pick a crate size, dividers and label, get the exact stakee box command and the resulting sizes.',
+    tableOfContents: false,
+  }}
+>
+  <p>
+    Choose a crate and copy the command. Run it from the repo root to get STL and STEP
+    files in <code>out/</code>. Sizes use the same formulas as the generator (<code>stakee/core.py</code>).
+  </p>
+
+  <div class="not-content configurator">
+    <form id="box-form" aria-describedby="box-errors">
+      <fieldset>
+        <legend>Size</legend>
+        <div class="field">
+          <label for="box-nx">Width, NX (× 42 mm)</label>
+          <input id="box-nx" name="nx" type="number" min="1" max={MAX_UNITS} step="1" value={opts.nx} required />
+        </div>
+        <div class="field">
+          <label for="box-ny">Depth, NY (× 42 mm)</label>
+          <input id="box-ny" name="ny" type="number" min="1" max={MAX_UNITS} step="1" value={opts.ny} required />
+        </div>
+        <div class="field">
+          <label for="box-h">Height, H (× 7 mm)</label>
+          <input id="box-h" name="h" type="number" min={MIN_HEIGHT} max={MAX_HEIGHT} step="1" value={opts.h} required />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Dividers (compartments)</legend>
+        <div class="field">
+          <label for="box-across">A, across X</label>
+          <input id="box-across" name="across" type="number" min="1" step="1" value={opts.across} required />
+        </div>
+        <div class="field">
+          <label for="box-along">B, along Y</label>
+          <input id="box-along" name="along" type="number" min="1" step="1" value={opts.along} required />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Options</legend>
+        <div class="field wide">
+          <label for="box-label">Label text (optional)</label>
+          <input id="box-label" name="label" type="text" maxlength="40" autocomplete="off" value={opts.label} />
+        </div>
+        <div class="field">
+          <label for="box-lip">Lip clearance (mm)</label>
+          <input
+            id="box-lip"
+            name="lipClearance"
+            type="number"
+            min={LIP_CLEARANCE_RANGE[0]}
+            max={LIP_CLEARANCE_RANGE[1]}
+            step="0.05"
+            value={opts.lipClearance}
+            required
+          />
+        </div>
+        <label class="check"><input name="cap" type="checkbox" checked={opts.cap} /> Matching cap</label>
+        <label class="check"><input name="noMagnets" type="checkbox" checked={opts.noMagnets} /> No magnet pockets</label>
+        <label class="check"><input name="noSockets" type="checkbox" checked={opts.noSockets} /> No stack-clip sockets</label>
+      </fieldset>
+    </form>
+
+    <div id="box-errors" class="errors" role="alert" hidden>
+      <p>The CLI would reject this:</p>
+      <ul id="box-error-list"></ul>
+    </div>
+
+    <h2>Command</h2>
+    <div class="command">
+      <pre><code id="box-command">{boxCommand(opts)}</code></pre>
+      <button type="button" id="box-copy">Copy</button>
+      <span id="box-copied" class="copied" role="status"></span>
+    </div>
+
+    <h2>Result</h2>
+    <dl class="result" id="box-result" aria-live="polite"></dl>
+    <noscript><p>The size calculator needs JavaScript; the command above is for the default 2×2×3 crate.</p></noscript>
+  </div>
+</StarlightPage>
+
+<script>
+  import { mountConfigurator } from '~/scripts/configurator';
+
+  mountConfigurator();
+</script>
+
+<style>
+  .configurator h2 {
+    margin-top: 1.5rem;
+    font-size: var(--sl-text-h4);
+  }
+
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: end;
+    margin: 0;
+    padding: 0.75rem 1rem 1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+  }
+
+  legend {
+    padding: 0 0.25rem;
+    font-weight: 600;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .field.wide {
+    flex: 1 1 14rem;
+  }
+
+  .field label {
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+
+  input[type='number'],
+  input[type='text'] {
+    width: 100%;
+    min-width: 7rem;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    font: inherit;
+  }
+
+  input[aria-invalid='true'] {
+    border-color: var(--sl-color-red);
+  }
+
+  .check {
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
+    padding-bottom: 0.4rem;
+  }
+
+  .errors {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--sl-color-red);
+    border-radius: 0.5rem;
+    background: var(--sl-color-red-low);
+    color: var(--sl-color-red-high);
+  }
+
+  .errors[hidden] {
+    display: none;
+  }
+
+  .errors p,
+  .errors ul {
+    margin: 0;
+  }
+
+  .errors ul {
+    padding-inline-start: 1.25rem;
+  }
+
+  .command {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .command pre {
+    flex: 1 1 20rem;
+    margin: 0;
+    padding: 0.6rem 0.8rem;
+    overflow-x: auto;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    background: var(--sl-color-gray-6);
+  }
+
+  .command button {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .copied {
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+  }
+
+  .result {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.35rem 1rem;
+  }
+
+  .result :global(dt) {
+    font-weight: 600;
+  }
+
+  .result :global(dd) {
+    margin: 0;
+  }
+</style>
