@@ -1,0 +1,122 @@
+{
+  "shelf-2x1": {
+    "slug": "shelf-2x1",
+    "title": "Wall shelf 2x1",
+    "blurb": "Hangs on the wall cleat; its top is a grid of stacking lips, so any 2x1 footprint of crates (or smaller ones, cell by cell) seats exactly as on another crate. Bumper 42 mm below the hook keeps it from tipping forward.",
+    "material": "PETG or ASA (load-bearing, PLA creeps)",
+    "print_notes": "On its side (an end face on the bed), no supports: the hook, back plate and brace are one constant profile. 4 walls, 25% gyroid. Design load 2 kg.",
+    "color": "#6b8f71",
+    "footprint": "2x1",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      41.5,
+      60.9
+    ],
+    "files": {
+      "stl": "models/wallrail/stl/shelf-2x1.stl",
+      "step": "models/wallrail/step/shelf-2x1.step",
+      "svg": "models/wallrail/preview/shelf-2x1.svg"
+    }
+  },
+  "shelf-2x2": {
+    "slug": "shelf-2x2",
+    "title": "Wall shelf 2x2",
+    "blurb": "Hangs on the wall cleat; its top is a grid of stacking lips, so any 2x2 footprint of crates (or smaller ones, cell by cell) seats exactly as on another crate. Bumper 52 mm below the hook keeps it from tipping forward.",
+    "material": "PETG or ASA (load-bearing, PLA creeps)",
+    "print_notes": "On its side (an end face on the bed), no supports: the hook, back plate and brace are one constant profile. 4 walls, 25% gyroid. Design load 2 kg.",
+    "color": "#6b8f71",
+    "footprint": "2x2",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      71.1
+    ],
+    "files": {
+      "stl": "models/wallrail/stl/shelf-2x2.stl",
+      "step": "models/wallrail/step/shelf-2x2.step",
+      "svg": "models/wallrail/preview/shelf-2x2.svg"
+    }
+  },
+  "shelf-3x2": {
+    "slug": "shelf-3x2",
+    "title": "Wall shelf 3x2",
+    "blurb": "Hangs on the wall cleat; its top is a grid of stacking lips, so any 3x2 footprint of crates (or smaller ones, cell by cell) seats exactly as on another crate. Bumper 52 mm below the hook keeps it from tipping forward.",
+    "material": "PETG or ASA (load-bearing, PLA creeps)",
+    "print_notes": "On its side (an end face on the bed), no supports: the hook, back plate and brace are one constant profile. 4 walls, 25% gyroid. Design load 2 kg.",
+    "color": "#6b8f71",
+    "footprint": "3x2",
+    "assembly": null,
+    "size_mm": [
+      125.5,
+      83.5,
+      71.1
+    ],
+    "files": {
+      "stl": "models/wallrail/stl/shelf-3x2.stl",
+      "step": "models/wallrail/step/shelf-3x2.step",
+      "svg": "models/wallrail/preview/shelf-3x2.svg"
+    }
+  },
+  "shelf-4x1": {
+    "slug": "shelf-4x1",
+    "title": "Wall shelf strip 4x1",
+    "blurb": "Hangs on the wall cleat; its top is a grid of stacking lips, so any 4x1 footprint of crates (or smaller ones, cell by cell) seats exactly as on another crate. Bumper 42 mm below the hook keeps it from tipping forward.",
+    "material": "PETG or ASA (load-bearing, PLA creeps)",
+    "print_notes": "On its side (an end face on the bed), no supports: the hook, back plate and brace are one constant profile. 4 walls, 25% gyroid. Design load 2 kg.",
+    "color": "#6b8f71",
+    "footprint": "4x1",
+    "assembly": null,
+    "size_mm": [
+      167.5,
+      41.5,
+      60.9
+    ],
+    "files": {
+      "stl": "models/wallrail/stl/shelf-4x1.stl",
+      "step": "models/wallrail/step/shelf-4x1.step",
+      "svg": "models/wallrail/preview/shelf-4x1.svg"
+    }
+  },
+  "wall-cleat-2": {
+    "slug": "wall-cleat-2",
+    "title": "Wall cleat 2 cells",
+    "blurb": "45 deg French cleat, 83.5 mm long, 2 countersunk holes for 4 mm wood screws on a 42 mm pitch. Butt strips end to end; shelves slide anywhere along it.",
+    "material": "PETG or ASA",
+    "print_notes": "Front face (the countersunk side) on the bed, bevel facing up, no supports. 4 walls, 30% infill. Use at least 2 screws with wall anchors.",
+    "color": "#a0754f",
+    "footprint": "2x1",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      10.0,
+      30.0
+    ],
+    "files": {
+      "stl": "models/wallrail/stl/wall-cleat-2.stl",
+      "step": "models/wallrail/step/wall-cleat-2.step",
+      "svg": "models/wallrail/preview/wall-cleat-2.svg"
+    }
+  },
+  "wall-cleat-4": {
+    "slug": "wall-cleat-4",
+    "title": "Wall cleat 4 cells",
+    "blurb": "45 deg French cleat, 167.5 mm long, 4 countersunk holes for 4 mm wood screws on a 42 mm pitch. Butt strips end to end; shelves slide anywhere along it.",
+    "material": "PETG or ASA",
+    "print_notes": "Front face (the countersunk side) on the bed, bevel facing up, no supports. 4 walls, 30% infill. Use at least 2 screws with wall anchors.",
+    "color": "#a0754f",
+    "footprint": "4x1",
+    "assembly": null,
+    "size_mm": [
+      167.5,
+      10.0,
+      30.0
+    ],
+    "files": {
+      "stl": "models/wallrail/stl/wall-cleat-4.stl",
+      "step": "models/wallrail/step/wall-cleat-4.step",
+      "svg": "models/wallrail/preview/wall-cleat-4.svg"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "magtray-2x2": {
+    "slug": "magtray-2x2",
+    "title": "Magnetic repair tray 2x2",
+    "blurb": "9 numbered compartments, one per disassembly step, each with a hidden magnet that grabs M2/M2.5 screws. Seats on any crate as a cap and crates stack on top of it, so a half-done repair can be put away.",
+    "material": "PLA or PETG + 10x2 mm N52 disc magnets",
+    "print_notes": "Upright (foot on the bed), no supports, 0.2 mm layers including the first. Insert a pause at z = 3.0 mm (before the first layer over the pockets, i.e. after the 2.8 mm layer): drop 9 10x2 mm N52 magnets into the pockets, resume. The 0.6 mm ceiling prints on top of them; magnet polarity does not matter.",
+    "color": "#e0529c",
+    "footprint": "2x2x1",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      11.0
+    ],
+    "files": {
+      "stl": "models/magtray/stl/magtray-2x2.stl",
+      "step": "models/magtray/step/magtray-2x2.step",
+      "svg": "models/magtray/preview/magtray-2x2.svg"
+    }
+  },
+  "magtray-3x2": {
+    "slug": "magtray-3x2",
+    "title": "Magnetic repair tray 3x2",
+    "blurb": "12 numbered compartments, one per disassembly step, each with a hidden magnet that grabs M2/M2.5 screws. Seats on any crate as a cap and crates stack on top of it, so a half-done repair can be put away.",
+    "material": "PLA or PETG + 10x2 mm N52 disc magnets",
+    "print_notes": "Upright (foot on the bed), no supports, 0.2 mm layers including the first. Insert a pause at z = 3.0 mm (before the first layer over the pockets, i.e. after the 2.8 mm layer): drop 12 10x2 mm N52 magnets into the pockets, resume. The 0.6 mm ceiling prints on top of them; magnet polarity does not matter.",
+    "color": "#e0529c",
+    "footprint": "3x2x1",
+    "assembly": null,
+    "size_mm": [
+      125.5,
+      83.5,
+      11.0
+    ],
+    "files": {
+      "stl": "models/magtray/stl/magtray-3x2.stl",
+      "step": "models/magtray/step/magtray-3x2.step",
+      "svg": "models/magtray/preview/magtray-3x2.svg"
+    }
+  }
+}

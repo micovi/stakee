@@ -1,0 +1,32 @@
+[project]
+name = "stakee"
+version = "0.1.0"
+description = "Stackable, parametric 3D-printable storage for electronics hackers"
+requires-python = ">=3.13"
+dependencies = [
+    "build123d==0.13.0",
+    "trimesh==5.1.0",
+]
+
+[project.scripts]
+stakee = "stakee.cli:main"
+stakee-build = "stakee.build:main"
+
+[build-system]
+requires = ["uv_build>=0.8.0,<0.9"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "ruff==0.16.10",
+]

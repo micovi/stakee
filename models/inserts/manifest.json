@@ -1,0 +1,74 @@
+{
+  "dev-board-dock": {
+    "slug": "dev-board-dock",
+    "title": "Dev-board dock",
+    "blurb": "Holds a Pi Zero / Zero 2 W and a Pico on locating pegs and an ESP32 DevKitC in an edge cradle, 10 mm off the floor so header tails never take the weight.",
+    "material": "PLA or PETG",
+    "print_notes": "Plate on the bed, no supports, 0.2 mm layers, 3 walls, 15% infill. Pegs are 2.35/1.7 mm: print slower for the top 3 mm or ream with a drill.",
+    "color": "#3fa7d6",
+    "footprint": "for 3x2x6",
+    "assembly": [
+      0.0,
+      0.0,
+      5.5
+    ],
+    "size_mm": [
+      120.9,
+      78.9,
+      14.4
+    ],
+    "files": {
+      "stl": "models/inserts/stl/dev-board-dock.stl",
+      "step": "models/inserts/step/dev-board-dock.step",
+      "svg": "models/inserts/preview/dev-board-dock.svg"
+    }
+  },
+  "solder-station": {
+    "slug": "solder-station",
+    "title": "Solder station insert",
+    "blurb": "Pockets for a 10 ml flux syringe (lying diagonally), a 40 mm wick reel on a spin axle with a feed slot, a 22 mm solder tube and a 30 mm tip-tinner tin.",
+    "material": "PETG or ASA (it lives next to the iron); never rest the hot tip on any print",
+    "print_notes": "Upright, no supports, 3 walls, 10-15% infill. Round trough bottoms print as steep overhangs and come out fine; the 1 mm ribs between pockets need 0.4 mm nozzle.",
+    "color": "#e4572e",
+    "footprint": "for 3x2x6",
+    "assembly": [
+      0.0,
+      0.0,
+      5.5
+    ],
+    "size_mm": [
+      120.9,
+      78.9,
+      20.0
+    ],
+    "files": {
+      "stl": "models/inserts/stl/solder-station.stl",
+      "step": "models/inserts/step/solder-station.step",
+      "svg": "models/inserts/preview/solder-station.svg"
+    }
+  },
+  "parts-grid-2x2": {
+    "slug": "parts-grid-2x2",
+    "title": "Small-parts grid 4x4",
+    "blurb": "Lift-out tray of sixteen 18 mm cups with 5 mm scooped floors for SMD parts, screws and standoffs; swap whole trays between crates.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright, no supports, 2 walls, 15% infill.",
+    "color": "#8e7dbe",
+    "footprint": "for 2x2x3",
+    "assembly": [
+      0.0,
+      0.0,
+      5.5
+    ],
+    "size_mm": [
+      78.9,
+      78.9,
+      14.0
+    ],
+    "files": {
+      "stl": "models/inserts/stl/parts-grid-2x2.stl",
+      "step": "models/inserts/step/parts-grid-2x2.step",
+      "svg": "models/inserts/preview/parts-grid-2x2.svg"
+    }
+  }
+}

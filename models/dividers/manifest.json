@@ -1,0 +1,362 @@
+{
+  "rail-x-2x2x3": {
+    "slug": "rail-x-2x2x3",
+    "title": "X rail 2x2x3",
+    "blurb": "Full-width, 13.5 mm tall, notched from below; hook plates hang on it.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#f0c419",
+    "footprint": "for 2x2x3",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      1.5,
+      13.5
+    ],
+    "files": {
+      "stl": "models/dividers/stl/rail-x-2x2x3.stl",
+      "step": "models/dividers/step/rail-x-2x2x3.step",
+      "svg": "models/dividers/preview/rail-x-2x2x3.svg"
+    }
+  },
+  "rail-y-2x2x3": {
+    "slug": "rail-y-2x2x3",
+    "title": "Y rail 2x2x3",
+    "blurb": "Full-depth rail notched from the top: goes in first, X rails drop over it.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#e8a33d",
+    "footprint": "for 2x2x3",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      1.5,
+      13.5
+    ],
+    "files": {
+      "stl": "models/dividers/stl/rail-y-2x2x3.stl",
+      "step": "models/dividers/step/rail-y-2x2x3.step",
+      "svg": "models/dividers/preview/rail-y-2x2x3.svg"
+    }
+  },
+  "hook-21-2x2x3": {
+    "slug": "hook-21-2x2x3",
+    "title": "Hook plate 21 mm 2x2x3",
+    "blurb": "From a front/back wall slot to an X rail 18.8 mm away.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#4fb3bf",
+    "footprint": "for 2x2x3",
+    "assembly": null,
+    "size_mm": [
+      21.3,
+      1.5,
+      14.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/hook-21-2x2x3.stl",
+      "step": "models/dividers/step/hook-21-2x2x3.step",
+      "svg": "models/dividers/preview/hook-21-2x2x3.svg"
+    }
+  },
+  "hook-42-2x2x3": {
+    "slug": "hook-42-2x2x3",
+    "title": "Hook plate 42 mm 2x2x3",
+    "blurb": "From a front/back wall slot to an X rail 39.8 mm away.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#4fb3bf",
+    "footprint": "for 2x2x3",
+    "assembly": null,
+    "size_mm": [
+      42.3,
+      1.5,
+      14.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/hook-42-2x2x3.stl",
+      "step": "models/dividers/step/hook-42-2x2x3.step",
+      "svg": "models/dividers/preview/hook-42-2x2x3.svg"
+    }
+  },
+  "bridge-21-2x2x3": {
+    "slug": "bridge-21-2x2x3",
+    "title": "Bridge 21 mm 2x2x3",
+    "blurb": "Hangs between two X rails 21 mm apart, at any position along them.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#7d8ce0",
+    "footprint": "for 2x2x3",
+    "assembly": null,
+    "size_mm": [
+      25.2,
+      1.2,
+      14.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/bridge-21-2x2x3.stl",
+      "step": "models/dividers/step/bridge-21-2x2x3.step",
+      "svg": "models/dividers/preview/bridge-21-2x2x3.svg"
+    }
+  },
+  "bridge-42-2x2x3": {
+    "slug": "bridge-42-2x2x3",
+    "title": "Bridge 42 mm 2x2x3",
+    "blurb": "Hangs between two X rails 42 mm apart, at any position along them.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#7d8ce0",
+    "footprint": "for 2x2x3",
+    "assembly": null,
+    "size_mm": [
+      46.2,
+      1.2,
+      14.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/bridge-42-2x2x3.stl",
+      "step": "models/dividers/step/bridge-42-2x2x3.step",
+      "svg": "models/dividers/preview/bridge-42-2x2x3.svg"
+    }
+  },
+  "rail-x-2x2x6": {
+    "slug": "rail-x-2x2x6",
+    "title": "X rail 2x2x6",
+    "blurb": "Full-width, 34.5 mm tall, notched from below; hook plates hang on it.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#f0c419",
+    "footprint": "for 2x2x6",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      1.5,
+      34.5
+    ],
+    "files": {
+      "stl": "models/dividers/stl/rail-x-2x2x6.stl",
+      "step": "models/dividers/step/rail-x-2x2x6.step",
+      "svg": "models/dividers/preview/rail-x-2x2x6.svg"
+    }
+  },
+  "rail-y-2x2x6": {
+    "slug": "rail-y-2x2x6",
+    "title": "Y rail 2x2x6",
+    "blurb": "Full-depth rail notched from the top: goes in first, X rails drop over it.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#e8a33d",
+    "footprint": "for 2x2x6",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      1.5,
+      34.5
+    ],
+    "files": {
+      "stl": "models/dividers/stl/rail-y-2x2x6.stl",
+      "step": "models/dividers/step/rail-y-2x2x6.step",
+      "svg": "models/dividers/preview/rail-y-2x2x6.svg"
+    }
+  },
+  "hook-21-2x2x6": {
+    "slug": "hook-21-2x2x6",
+    "title": "Hook plate 21 mm 2x2x6",
+    "blurb": "From a front/back wall slot to an X rail 18.8 mm away.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#4fb3bf",
+    "footprint": "for 2x2x6",
+    "assembly": null,
+    "size_mm": [
+      21.3,
+      1.5,
+      35.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/hook-21-2x2x6.stl",
+      "step": "models/dividers/step/hook-21-2x2x6.step",
+      "svg": "models/dividers/preview/hook-21-2x2x6.svg"
+    }
+  },
+  "hook-42-2x2x6": {
+    "slug": "hook-42-2x2x6",
+    "title": "Hook plate 42 mm 2x2x6",
+    "blurb": "From a front/back wall slot to an X rail 39.8 mm away.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#4fb3bf",
+    "footprint": "for 2x2x6",
+    "assembly": null,
+    "size_mm": [
+      42.3,
+      1.5,
+      35.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/hook-42-2x2x6.stl",
+      "step": "models/dividers/step/hook-42-2x2x6.step",
+      "svg": "models/dividers/preview/hook-42-2x2x6.svg"
+    }
+  },
+  "bridge-21-2x2x6": {
+    "slug": "bridge-21-2x2x6",
+    "title": "Bridge 21 mm 2x2x6",
+    "blurb": "Hangs between two X rails 21 mm apart, at any position along them.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#7d8ce0",
+    "footprint": "for 2x2x6",
+    "assembly": null,
+    "size_mm": [
+      25.2,
+      1.2,
+      35.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/bridge-21-2x2x6.stl",
+      "step": "models/dividers/step/bridge-21-2x2x6.step",
+      "svg": "models/dividers/preview/bridge-21-2x2x6.svg"
+    }
+  },
+  "bridge-42-2x2x6": {
+    "slug": "bridge-42-2x2x6",
+    "title": "Bridge 42 mm 2x2x6",
+    "blurb": "Hangs between two X rails 42 mm apart, at any position along them.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#7d8ce0",
+    "footprint": "for 2x2x6",
+    "assembly": null,
+    "size_mm": [
+      46.2,
+      1.2,
+      35.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/bridge-42-2x2x6.stl",
+      "step": "models/dividers/step/bridge-42-2x2x6.step",
+      "svg": "models/dividers/preview/bridge-42-2x2x6.svg"
+    }
+  },
+  "rail-x-3x2x6": {
+    "slug": "rail-x-3x2x6",
+    "title": "X rail 3x2x6",
+    "blurb": "Full-width, 34.5 mm tall, notched from below; hook plates hang on it.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#f0c419",
+    "footprint": "for 3x2x6",
+    "assembly": null,
+    "size_mm": [
+      122.7,
+      1.5,
+      34.5
+    ],
+    "files": {
+      "stl": "models/dividers/stl/rail-x-3x2x6.stl",
+      "step": "models/dividers/step/rail-x-3x2x6.step",
+      "svg": "models/dividers/preview/rail-x-3x2x6.svg"
+    }
+  },
+  "rail-y-3x2x6": {
+    "slug": "rail-y-3x2x6",
+    "title": "Y rail 3x2x6",
+    "blurb": "Full-depth rail notched from the top: goes in first, X rails drop over it.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#e8a33d",
+    "footprint": "for 3x2x6",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      1.5,
+      34.5
+    ],
+    "files": {
+      "stl": "models/dividers/stl/rail-y-3x2x6.stl",
+      "step": "models/dividers/step/rail-y-3x2x6.step",
+      "svg": "models/dividers/preview/rail-y-3x2x6.svg"
+    }
+  },
+  "hook-21-3x2x6": {
+    "slug": "hook-21-3x2x6",
+    "title": "Hook plate 21 mm 3x2x6",
+    "blurb": "From a front/back wall slot to an X rail 18.8 mm away.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#4fb3bf",
+    "footprint": "for 3x2x6",
+    "assembly": null,
+    "size_mm": [
+      21.3,
+      1.5,
+      35.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/hook-21-3x2x6.stl",
+      "step": "models/dividers/step/hook-21-3x2x6.step",
+      "svg": "models/dividers/preview/hook-21-3x2x6.svg"
+    }
+  },
+  "hook-42-3x2x6": {
+    "slug": "hook-42-3x2x6",
+    "title": "Hook plate 42 mm 3x2x6",
+    "blurb": "From a front/back wall slot to an X rail 39.8 mm away.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#4fb3bf",
+    "footprint": "for 3x2x6",
+    "assembly": null,
+    "size_mm": [
+      42.3,
+      1.5,
+      35.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/hook-42-3x2x6.stl",
+      "step": "models/dividers/step/hook-42-3x2x6.step",
+      "svg": "models/dividers/preview/hook-42-3x2x6.svg"
+    }
+  },
+  "bridge-21-3x2x6": {
+    "slug": "bridge-21-3x2x6",
+    "title": "Bridge 21 mm 3x2x6",
+    "blurb": "Hangs between two X rails 21 mm apart, at any position along them.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#7d8ce0",
+    "footprint": "for 3x2x6",
+    "assembly": null,
+    "size_mm": [
+      25.2,
+      1.2,
+      35.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/bridge-21-3x2x6.stl",
+      "step": "models/dividers/step/bridge-21-3x2x6.step",
+      "svg": "models/dividers/preview/bridge-21-3x2x6.svg"
+    }
+  },
+  "bridge-42-3x2x6": {
+    "slug": "bridge-42-3x2x6",
+    "title": "Bridge 42 mm 3x2x6",
+    "blurb": "Hangs between two X rails 42 mm apart, at any position along them.",
+    "material": "PLA (rails) \u00b7 PETG (hook plates and bridges, the hooks flex better)",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#7d8ce0",
+    "footprint": "for 3x2x6",
+    "assembly": null,
+    "size_mm": [
+      46.2,
+      1.2,
+      35.7
+    ],
+    "files": {
+      "stl": "models/dividers/stl/bridge-42-3x2x6.stl",
+      "step": "models/dividers/step/bridge-42-3x2x6.step",
+      "svg": "models/dividers/preview/bridge-42-3x2x6.svg"
+    }
+  }
+}

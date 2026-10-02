@@ -1,0 +1,122 @@
+{
+  "stack-clip": {
+    "slug": "stack-clip",
+    "title": "Stack clip",
+    "blurb": "Bayonet clip that locks two stacked crates (or a crate and a handle cap) together at the seam, so the stack lifts as one and the clip cannot be pulled straight off. Fits every box height.",
+    "material": "PETG (PLA is too brittle for the hooks and detent finger)",
+    "print_notes": "Print on its side, the detent-finger end (opposite the hooks) on the bed, so the hooks grow straight up from their stems; no supports, 100% infill, thin walls / Arachne on (hooks are 0.55 mm). To fit: tab down, push both hooks into the socket windows, slide 5 mm the way the hooks point until the detent clicks. To remove: slide back 5 mm, pull the tab. Two per side, four per seam.",
+    "color": "#3d9df2",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      5.9,
+      14.0,
+      16.6
+    ],
+    "files": {
+      "stl": "models/kit/stl/stack-clip.stl",
+      "step": "models/kit/step/stack-clip.step",
+      "svg": "models/kit/preview/stack-clip.svg"
+    }
+  },
+  "tote-cap-2x2": {
+    "slug": "tote-cap-2x2",
+    "title": "Tote handle cap 2x2",
+    "blurb": "Cap with a carry handle and clip sockets: clip it to the top crate and the whole stack becomes a grab-and-go tote.",
+    "material": "PETG",
+    "print_notes": "Print on its front face (-Y on the bed): the handle profile then has only vertical walls and 45 deg window sides, and the L clip sockets only bridge 1.6 mm; no supports. 4 walls, 20% infill.",
+    "color": "#2bb673",
+    "footprint": "2x2",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      50.0
+    ],
+    "files": {
+      "stl": "models/kit/stl/tote-cap-2x2.stl",
+      "step": "models/kit/step/tote-cap-2x2.step",
+      "svg": "models/kit/preview/tote-cap-2x2.svg"
+    }
+  },
+  "tote-cap-3x2": {
+    "slug": "tote-cap-3x2",
+    "title": "Tote handle cap 3x2",
+    "blurb": "Cap with a carry handle and clip sockets: clip it to the top crate and the whole stack becomes a grab-and-go tote.",
+    "material": "PETG",
+    "print_notes": "Print on its front face (-Y on the bed): the handle profile then has only vertical walls and 45 deg window sides, and the L clip sockets only bridge 1.6 mm; no supports. 4 walls, 20% infill.",
+    "color": "#2bb673",
+    "footprint": "3x2",
+    "assembly": null,
+    "size_mm": [
+      125.5,
+      83.5,
+      50.0
+    ],
+    "files": {
+      "stl": "models/kit/stl/tote-cap-3x2.stl",
+      "step": "models/kit/step/tote-cap-3x2.step",
+      "svg": "models/kit/preview/tote-cap-3x2.svg"
+    }
+  },
+  "nfc-cap-2x2": {
+    "slug": "nfc-cap-2x2",
+    "title": "NFC label cap 2x2",
+    "blurb": "Lid hiding a 25 mm NTAG215 under a swappable label tile: tap a phone to open the box's inventory page.",
+    "material": "PETG or PLA",
+    "print_notes": "Upright, no supports. Stick the NTAG215 in the round pocket, then snap the label tile over it.",
+    "color": "#9b6bf2",
+    "footprint": "2x2",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      7.2
+    ],
+    "files": {
+      "stl": "models/kit/stl/nfc-cap-2x2.stl",
+      "step": "models/kit/step/nfc-cap-2x2.step",
+      "svg": "models/kit/preview/nfc-cap-2x2.svg"
+    }
+  },
+  "nfc-label-tile": {
+    "slug": "nfc-label-tile",
+    "title": "NFC label tile",
+    "blurb": "Snap-in label tile with embossed text; covers the NFC tag in the NFC cap.",
+    "material": "PLA or PETG, two colours",
+    "print_notes": "Flat, text up, no supports. Filament swap at z = 1.6 mm for coloured text. Edit the text in make_label_tile().",
+    "color": "#f2f2f2",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      53.0,
+      30.0,
+      2.2
+    ],
+    "files": {
+      "stl": "models/kit/stl/nfc-label-tile.stl",
+      "step": "models/kit/step/nfc-label-tile.step",
+      "svg": "models/kit/preview/nfc-label-tile.svg"
+    }
+  },
+  "tool-rack-cap-2x2": {
+    "slug": "tool-rack-cap-2x2",
+    "title": "Tool rack cap 2x2",
+    "blurb": "Cap with a rack for four screwdrivers, flush cutters, wire strippers and three tweezers, so your hand tools ride on top of the stack.",
+    "material": "PETG (TPU 95A for a softer, rattle-free rack)",
+    "print_notes": "Upright, no supports (the L clip sockets in the rim only bridge 0.6-1.2 mm). 3 walls, 15% infill.",
+    "color": "#e85d4a",
+    "footprint": "2x2",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      39.0
+    ],
+    "files": {
+      "stl": "models/kit/stl/tool-rack-cap-2x2.stl",
+      "step": "models/kit/step/tool-rack-cap-2x2.step",
+      "svg": "models/kit/preview/tool-rack-cap-2x2.svg"
+    }
+  }
+}

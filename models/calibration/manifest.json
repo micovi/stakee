@@ -1,0 +1,122 @@
+{
+  "lip-coupon-15": {
+    "slug": "lip-coupon-15",
+    "title": "Lip coupon 0.15 mm",
+    "blurb": "Stacking lip cut with 0.15 mm clearance (marked 15). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and use it as LIP_CLEARANCE in core.py (now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
+    "material": "The filament you will print the crates in",
+    "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
+    "color": "#e05d5d",
+    "footprint": "1x1x2",
+    "assembly": null,
+    "size_mm": [
+      41.5,
+      41.5,
+      18.0
+    ],
+    "files": {
+      "stl": "models/calibration/stl/lip-coupon-15.stl",
+      "step": "models/calibration/step/lip-coupon-15.step",
+      "svg": "models/calibration/preview/lip-coupon-15.svg"
+    }
+  },
+  "lip-coupon-25": {
+    "slug": "lip-coupon-25",
+    "title": "Lip coupon 0.25 mm",
+    "blurb": "Stacking lip cut with 0.25 mm clearance (marked 25). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and use it as LIP_CLEARANCE in core.py (now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
+    "material": "The filament you will print the crates in",
+    "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
+    "color": "#f0c419",
+    "footprint": "1x1x2",
+    "assembly": null,
+    "size_mm": [
+      41.5,
+      41.5,
+      18.0
+    ],
+    "files": {
+      "stl": "models/calibration/stl/lip-coupon-25.stl",
+      "step": "models/calibration/step/lip-coupon-25.step",
+      "svg": "models/calibration/preview/lip-coupon-25.svg"
+    }
+  },
+  "lip-coupon-35": {
+    "slug": "lip-coupon-35",
+    "title": "Lip coupon 0.35 mm",
+    "blurb": "Stacking lip cut with 0.35 mm clearance (marked 35). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and use it as LIP_CLEARANCE in core.py (now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
+    "material": "The filament you will print the crates in",
+    "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
+    "color": "#5dbb63",
+    "footprint": "1x1x2",
+    "assembly": null,
+    "size_mm": [
+      41.5,
+      41.5,
+      18.0
+    ],
+    "files": {
+      "stl": "models/calibration/stl/lip-coupon-35.stl",
+      "step": "models/calibration/step/lip-coupon-35.step",
+      "svg": "models/calibration/preview/lip-coupon-35.svg"
+    }
+  },
+  "lip-probe": {
+    "slug": "lip-probe",
+    "title": "Lip probe 1x1x2",
+    "blurb": "A plain default 1x1x2 crate whose feet are the gauge for the lip coupons. Lower it onto each coupon by hand, then let go: it should drop the last few mm on its own and come to rest flat, with a 0.75 mm shadow gap all round.",
+    "material": "The filament you will print the crates in",
+    "print_notes": "Upright, no supports, exactly the settings of your real crates (the feet are what is tested), 2 walls, 15% infill. About 11.3 cm\u00b3; keeps working as a crate.",
+    "color": "#8a8f98",
+    "footprint": "1x1x2",
+    "assembly": null,
+    "size_mm": [
+      41.5,
+      41.5,
+      18.0
+    ],
+    "files": {
+      "stl": "models/calibration/stl/lip-probe.stl",
+      "step": "models/calibration/step/lip-probe.step",
+      "svg": "models/calibration/preview/lip-probe.svg"
+    }
+  },
+  "slot-strip": {
+    "slug": "slot-strip",
+    "title": "Divider slot strip",
+    "blurb": "Two 1.6 x 0.8 mm divider slots exactly as in every crate, one in an X wall and one in a Y wall (printers often differ between axes). Use it with the slot sample comb.",
+    "material": "The filament you will print the crates in",
+    "print_notes": "Floor on the bed, no supports, same settings as the crates. About 1.9 cm\u00b3.",
+    "color": "#4f8fbf",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      22.0,
+      22.0,
+      14.0
+    ],
+    "files": {
+      "stl": "models/calibration/stl/slot-strip.stl",
+      "step": "models/calibration/step/slot-strip.step",
+      "svg": "models/calibration/preview/slot-strip.svg"
+    }
+  },
+  "slot-samples": {
+    "slug": "slot-samples",
+    "title": "Divider end samples",
+    "blurb": "Divider ends 1.2 / 1.4 / 1.5 / 1.55 mm thick. Press each finger's tip edge into both slots of the strip: the 1.2 mm plate must slide freely (if not, your slots print narrow). Pick the thickest end that goes in by hand in both slots and stays put when you turn the strip upside down; set END_THICKNESS in stakee/modules/dividers.py to it (now 1.5).",
+    "material": "The filament you will print the dividers in",
+    "print_notes": "Flat, labels up, no supports, 100% infill, same layer height as the dividers: at 0.2 mm layers the slicer rounds 1.5 and 1.55 to whole layers, use 0.1 mm or less to see the difference. About 1.5 cm\u00b3.",
+    "color": "#c47ed6",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      48.0,
+      20.0,
+      2.4
+    ],
+    "files": {
+      "stl": "models/calibration/stl/slot-samples.stl",
+      "step": "models/calibration/step/slot-samples.step",
+      "svg": "models/calibration/preview/slot-samples.svg"
+    }
+  }
+}

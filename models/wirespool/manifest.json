@@ -1,0 +1,90 @@
+{
+  "wire-dispenser-4x2x9": {
+    "slug": "wire-dispenser-4x2x9",
+    "title": "Wire dispenser crate 4x2x9",
+    "blurb": "Holds 6 spools of 52 x 23 mm (hole 12) on a lift-out axle; pull each colour through its own rounded eyelet in the front wall. Pinch slot between the middle eyelets parks a cut end.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright, no supports: the eyelet ledge has a 45 deg underside and the 2.6 mm eyelets bridge cleanly. 3 walls, 15% infill. Ream eyelets with a 2.5 mm drill if your printer runs tight. No divider slots on this variant.",
+    "color": "#c9a227",
+    "footprint": "4x2x9",
+    "assembly": null,
+    "size_mm": [
+      167.5,
+      83.5,
+      67.0
+    ],
+    "files": {
+      "stl": "models/wirespool/stl/wire-dispenser-4x2x9.stl",
+      "step": "models/wirespool/step/wire-dispenser-4x2x9.step",
+      "svg": "models/wirespool/preview/wire-dispenser-4x2x9.svg"
+    }
+  },
+  "wire-cradle-frame-4x2x9": {
+    "slug": "wire-cradle-frame-4x2x9",
+    "title": "Spool cradle frame 4x2x9",
+    "blurb": "Drops onto the dispenser floor: two open-top U-cradles hold the axle so you lift the whole spool set out to swap one. Rails locate it against the end walls.",
+    "material": "PETG (PLA ok)",
+    "print_notes": "Flat on its rails, U-cradles up, no supports. 3 walls, 20% infill.",
+    "color": "#0f8b8d",
+    "footprint": "4x2",
+    "assembly": [
+      0.0,
+      0.0,
+      5.5
+    ],
+    "size_mm": [
+      162.9,
+      78.9,
+      35.5
+    ],
+    "files": {
+      "stl": "models/wirespool/stl/wire-cradle-frame-4x2x9.stl",
+      "step": "models/wirespool/step/wire-cradle-frame-4x2x9.step",
+      "svg": "models/wirespool/preview/wire-cradle-frame-4x2x9.svg"
+    }
+  },
+  "wire-axle-8mm": {
+    "slug": "wire-axle-8mm",
+    "title": "Spool axle 8 mm",
+    "blurb": "8 mm rod, 161.5 mm long. Or skip printing: cut an 8 mm steel rod or M8 threaded rod to the same length.",
+    "material": "PETG (stiffer and less creep-prone than PLA under the spool load)",
+    "print_notes": "Lying on its 0.5 mm flat along X, no supports, 4 walls, 40% infill; needs a bed at least 165 mm long (print diagonally on smaller beds).",
+    "color": "#1d3557",
+    "footprint": "",
+    "assembly": [
+      0.0,
+      0.0,
+      31.979999999999997
+    ],
+    "size_mm": [
+      161.5,
+      8.0,
+      7.5
+    ],
+    "files": {
+      "stl": "models/wirespool/stl/wire-axle-8mm.stl",
+      "step": "models/wirespool/step/wire-axle-8mm.step",
+      "svg": "models/wirespool/preview/wire-axle-8mm.svg"
+    }
+  },
+  "wire-spool-washer-8mm": {
+    "slug": "wire-spool-washer-8mm",
+    "title": "Spool spacer washer",
+    "blurb": "18/8.6 x 1.5 mm washer between neighbouring spools so each spins on its own. Print 5.",
+    "material": "PETG",
+    "print_notes": "Flat, no supports, 100% infill. Smooth side (bed side) toward a spool.",
+    "color": "#8d99ae",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      18.0,
+      18.0,
+      1.5
+    ],
+    "files": {
+      "stl": "models/wirespool/stl/wire-spool-washer-8mm.stl",
+      "step": "models/wirespool/step/wire-spool-washer-8mm.step",
+      "svg": "models/wirespool/preview/wire-spool-washer-8mm.svg"
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "pocket-base-2x1x4": {
+    "slug": "pocket-base-2x1x4",
+    "title": "Pocket box base 2x1x4",
+    "blurb": "Carry box with Stakee feet: 16 mm deep inside, three hinge knuckles at the back, a snap tab at the front. Closed with its lid it stacks like a 2x1x4 crate.",
+    "material": "PETG (the latch tab flexes; PLA tabs crack)",
+    "print_notes": "Upright on its feet, no supports: the knuckles and the back recess are chamfered 45 deg. 4 walls so the 1.6 mm tab is solid perimeters. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "2x1x4",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      41.5,
+      27.0
+    ],
+    "files": {
+      "stl": "models/pocket/stl/pocket-base-2x1x4.stl",
+      "step": "models/pocket/step/pocket-base-2x1x4.step",
+      "svg": "models/pocket/preview/pocket-base-2x1x4.svg"
+    }
+  },
+  "pocket-lid-2x1": {
+    "slug": "pocket-lid-2x1",
+    "title": "Pocket box lid 2x1",
+    "blurb": "Hinged lid with two knuckles at the back, a notch the latch clicks into, a full stacking lip on top and a label recess in its floor.",
+    "material": "PETG",
+    "print_notes": "On its flat underside, no supports (knuckle chamfers 45 deg). Hinge: push a 82.5 mm length of 1.75 mm filament through all five knuckles from one side.",
+    "color": "#f2a03d",
+    "footprint": "2x1",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      41.5,
+      10.5
+    ],
+    "files": {
+      "stl": "models/pocket/stl/pocket-lid-2x1.stl",
+      "step": "models/pocket/step/pocket-lid-2x1.step",
+      "svg": "models/pocket/preview/pocket-lid-2x1.svg"
+    }
+  },
+  "pocket-divider-2x1": {
+    "slug": "pocket-divider-2x1",
+    "title": "Pocket box divider 2x1",
+    "blurb": "Plate for the slots at x = 21 mm: a cable bay beside the board.",
+    "material": "PLA or PETG",
+    "print_notes": "Flat, no supports.",
+    "color": "#f2f2f2",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      38.7,
+      1.2,
+      15.7
+    ],
+    "files": {
+      "stl": "models/pocket/stl/pocket-divider-2x1.stl",
+      "step": "models/pocket/step/pocket-divider-2x1.step",
+      "svg": "models/pocket/preview/pocket-divider-2x1.svg"
+    }
+  },
+  "pocket-base-2x2x4": {
+    "slug": "pocket-base-2x2x4",
+    "title": "Pocket box base 2x2x4",
+    "blurb": "Carry box with Stakee feet: 16 mm deep inside, three hinge knuckles at the back, a snap tab at the front. Closed with its lid it stacks like a 2x2x4 crate.",
+    "material": "PETG (the latch tab flexes; PLA tabs crack)",
+    "print_notes": "Upright on its feet, no supports: the knuckles and the back recess are chamfered 45 deg. 4 walls so the 1.6 mm tab is solid perimeters. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "2x2x4",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      27.0
+    ],
+    "files": {
+      "stl": "models/pocket/stl/pocket-base-2x2x4.stl",
+      "step": "models/pocket/step/pocket-base-2x2x4.step",
+      "svg": "models/pocket/preview/pocket-base-2x2x4.svg"
+    }
+  },
+  "pocket-lid-2x2": {
+    "slug": "pocket-lid-2x2",
+    "title": "Pocket box lid 2x2",
+    "blurb": "Hinged lid with two knuckles at the back, a notch the latch clicks into, a full stacking lip on top and a label recess in its floor.",
+    "material": "PETG",
+    "print_notes": "On its flat underside, no supports (knuckle chamfers 45 deg). Hinge: push a 82.5 mm length of 1.75 mm filament through all five knuckles from one side.",
+    "color": "#f2a03d",
+    "footprint": "2x2",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      10.5
+    ],
+    "files": {
+      "stl": "models/pocket/stl/pocket-lid-2x2.stl",
+      "step": "models/pocket/step/pocket-lid-2x2.step",
+      "svg": "models/pocket/preview/pocket-lid-2x2.svg"
+    }
+  },
+  "pocket-divider-2x2": {
+    "slug": "pocket-divider-2x2",
+    "title": "Pocket box divider 2x2",
+    "blurb": "Plate for the slots at x = 21 mm: a cable bay beside the board.",
+    "material": "PLA or PETG",
+    "print_notes": "Flat, no supports.",
+    "color": "#f2f2f2",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      1.2,
+      15.7
+    ],
+    "files": {
+      "stl": "models/pocket/stl/pocket-divider-2x2.stl",
+      "step": "models/pocket/step/pocket-divider-2x2.step",
+      "svg": "models/pocket/preview/pocket-divider-2x2.svg"
+    }
+  }
+}

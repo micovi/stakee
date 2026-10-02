@@ -1,0 +1,442 @@
+{
+  "crate-2x4x17": {
+    "slug": "crate-2x4x17",
+    "title": "Bag Library crate 2x4x17",
+    "blurb": "Files 70x100 mm component bags upright like a card index (cavity 80x164x114 mm, still cappable and stackable). Thumb window in front, index cards key into the side-wall slots.",
+    "material": "PETG (PETG-ESD if you also keep unbagged ICs in it)",
+    "print_notes": "Upright, no supports (window arch bridges fine), 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#7fb3a6",
+    "footprint": "2x4x17",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      167.5,
+      123.0
+    ],
+    "files": {
+      "stl": "models/baglib/stl/crate-2x4x17.stl",
+      "step": "models/baglib/step/crate-2x4x17.step",
+      "svg": "models/baglib/preview/crate-2x4x17.svg"
+    }
+  },
+  "cap-2x4": {
+    "slug": "cap-2x4",
+    "title": "Cap 2x4",
+    "blurb": "Lid for the Bag Library crate; seats in the stacking lip, label on top.",
+    "material": "PETG",
+    "print_notes": "Upside down (plate on the bed), no supports.",
+    "color": "#f2a03d",
+    "footprint": "2x4",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      167.5,
+      7.2
+    ],
+    "files": {
+      "stl": "models/baglib/stl/cap-2x4.stl",
+      "step": "models/baglib/step/cap-2x4.step",
+      "svg": "models/baglib/preview/cap-2x4.svg"
+    }
+  },
+  "card-2x-res": {
+    "slug": "card-2x-res",
+    "title": "Index card RES (2-wide)",
+    "blurb": "Divider card with an embossed RES tab; drops into any side-wall slot of the 2x4x17 crate. Tabs are staggered across 3 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-2x-res.stl",
+      "step": "models/baglib/step/card-2x-res.step",
+      "svg": "models/baglib/preview/card-2x-res.svg"
+    }
+  },
+  "card-2x-cap": {
+    "slug": "card-2x-cap",
+    "title": "Index card CAP (2-wide)",
+    "blurb": "Divider card with an embossed CAP tab; drops into any side-wall slot of the 2x4x17 crate. Tabs are staggered across 3 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-2x-cap.stl",
+      "step": "models/baglib/step/card-2x-cap.step",
+      "svg": "models/baglib/preview/card-2x-cap.svg"
+    }
+  },
+  "card-2x-ic": {
+    "slug": "card-2x-ic",
+    "title": "Index card IC (2-wide)",
+    "blurb": "Divider card with an embossed IC tab; drops into any side-wall slot of the 2x4x17 crate. Tabs are staggered across 3 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-2x-ic.stl",
+      "step": "models/baglib/step/card-2x-ic.step",
+      "svg": "models/baglib/preview/card-2x-ic.svg"
+    }
+  },
+  "card-2x-mcu": {
+    "slug": "card-2x-mcu",
+    "title": "Index card MCU (2-wide)",
+    "blurb": "Divider card with an embossed MCU tab; drops into any side-wall slot of the 2x4x17 crate. Tabs are staggered across 3 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-2x-mcu.stl",
+      "step": "models/baglib/step/card-2x-mcu.step",
+      "svg": "models/baglib/preview/card-2x-mcu.svg"
+    }
+  },
+  "card-2x-conn": {
+    "slug": "card-2x-conn",
+    "title": "Index card CONN (2-wide)",
+    "blurb": "Divider card with an embossed CONN tab; drops into any side-wall slot of the 2x4x17 crate. Tabs are staggered across 3 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-2x-conn.stl",
+      "step": "models/baglib/step/card-2x-conn.step",
+      "svg": "models/baglib/preview/card-2x-conn.svg"
+    }
+  },
+  "card-2x-led": {
+    "slug": "card-2x-led",
+    "title": "Index card LED (2-wide)",
+    "blurb": "Divider card with an embossed LED tab; drops into any side-wall slot of the 2x4x17 crate. Tabs are staggered across 3 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-2x-led.stl",
+      "step": "models/baglib/step/card-2x-led.step",
+      "svg": "models/baglib/preview/card-2x-led.svg"
+    }
+  },
+  "card-2x-pwr": {
+    "slug": "card-2x-pwr",
+    "title": "Index card PWR (2-wide)",
+    "blurb": "Divider card with an embossed PWR tab; drops into any side-wall slot of the 2x4x17 crate. Tabs are staggered across 3 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-2x-pwr.stl",
+      "step": "models/baglib/step/card-2x-pwr.step",
+      "svg": "models/baglib/preview/card-2x-pwr.svg"
+    }
+  },
+  "card-2x-misc": {
+    "slug": "card-2x-misc",
+    "title": "Index card MISC (2-wide)",
+    "blurb": "Divider card with an embossed MISC tab; drops into any side-wall slot of the 2x4x17 crate. Tabs are staggered across 3 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      80.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-2x-misc.stl",
+      "step": "models/baglib/step/card-2x-misc.step",
+      "svg": "models/baglib/preview/card-2x-misc.svg"
+    }
+  },
+  "follower-2x": {
+    "slug": "follower-2x",
+    "title": "Bag follower (2-wide)",
+    "blurb": "Ribbed wedge that slides behind the last bag so a half-empty row stays upright; lift it out by the top of the front plate.",
+    "material": "PETG",
+    "print_notes": "As modelled (base plate on the bed), no supports, 20% infill. Drop a few washers between the ribs if it needs more weight.",
+    "color": "#c45b4a",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      78.5,
+      45.0,
+      70.0
+    ],
+    "files": {
+      "stl": "models/baglib/stl/follower-2x.stl",
+      "step": "models/baglib/step/follower-2x.step",
+      "svg": "models/baglib/preview/follower-2x.svg"
+    }
+  },
+  "crate-4x3x17": {
+    "slug": "crate-4x3x17",
+    "title": "Bag Library crate 4x3x17",
+    "blurb": "Files 150x100 mm component bags upright like a card index (cavity 164x122x114 mm, still cappable and stackable). Thumb window in front, index cards key into the side-wall slots.",
+    "material": "PETG (PETG-ESD if you also keep unbagged ICs in it)",
+    "print_notes": "Upright, no supports (window arch bridges fine), 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#7fb3a6",
+    "footprint": "4x3x17",
+    "assembly": null,
+    "size_mm": [
+      167.5,
+      125.5,
+      123.0
+    ],
+    "files": {
+      "stl": "models/baglib/stl/crate-4x3x17.stl",
+      "step": "models/baglib/step/crate-4x3x17.step",
+      "svg": "models/baglib/preview/crate-4x3x17.svg"
+    }
+  },
+  "cap-4x3": {
+    "slug": "cap-4x3",
+    "title": "Cap 4x3",
+    "blurb": "Lid for the Bag Library crate; seats in the stacking lip, label on top.",
+    "material": "PETG",
+    "print_notes": "Upside down (plate on the bed), no supports.",
+    "color": "#f2a03d",
+    "footprint": "4x3",
+    "assembly": null,
+    "size_mm": [
+      167.5,
+      125.5,
+      7.2
+    ],
+    "files": {
+      "stl": "models/baglib/stl/cap-4x3.stl",
+      "step": "models/baglib/step/cap-4x3.step",
+      "svg": "models/baglib/preview/cap-4x3.svg"
+    }
+  },
+  "card-4x-res": {
+    "slug": "card-4x-res",
+    "title": "Index card RES (4-wide)",
+    "blurb": "Divider card with an embossed RES tab; drops into any side-wall slot of the 4x3x17 crate. Tabs are staggered across 5 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      164.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-4x-res.stl",
+      "step": "models/baglib/step/card-4x-res.step",
+      "svg": "models/baglib/preview/card-4x-res.svg"
+    }
+  },
+  "card-4x-cap": {
+    "slug": "card-4x-cap",
+    "title": "Index card CAP (4-wide)",
+    "blurb": "Divider card with an embossed CAP tab; drops into any side-wall slot of the 4x3x17 crate. Tabs are staggered across 5 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      164.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-4x-cap.stl",
+      "step": "models/baglib/step/card-4x-cap.step",
+      "svg": "models/baglib/preview/card-4x-cap.svg"
+    }
+  },
+  "card-4x-ic": {
+    "slug": "card-4x-ic",
+    "title": "Index card IC (4-wide)",
+    "blurb": "Divider card with an embossed IC tab; drops into any side-wall slot of the 4x3x17 crate. Tabs are staggered across 5 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      164.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-4x-ic.stl",
+      "step": "models/baglib/step/card-4x-ic.step",
+      "svg": "models/baglib/preview/card-4x-ic.svg"
+    }
+  },
+  "card-4x-mcu": {
+    "slug": "card-4x-mcu",
+    "title": "Index card MCU (4-wide)",
+    "blurb": "Divider card with an embossed MCU tab; drops into any side-wall slot of the 4x3x17 crate. Tabs are staggered across 5 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      164.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-4x-mcu.stl",
+      "step": "models/baglib/step/card-4x-mcu.step",
+      "svg": "models/baglib/preview/card-4x-mcu.svg"
+    }
+  },
+  "card-4x-conn": {
+    "slug": "card-4x-conn",
+    "title": "Index card CONN (4-wide)",
+    "blurb": "Divider card with an embossed CONN tab; drops into any side-wall slot of the 4x3x17 crate. Tabs are staggered across 5 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      164.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-4x-conn.stl",
+      "step": "models/baglib/step/card-4x-conn.step",
+      "svg": "models/baglib/preview/card-4x-conn.svg"
+    }
+  },
+  "card-4x-led": {
+    "slug": "card-4x-led",
+    "title": "Index card LED (4-wide)",
+    "blurb": "Divider card with an embossed LED tab; drops into any side-wall slot of the 4x3x17 crate. Tabs are staggered across 5 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      164.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-4x-led.stl",
+      "step": "models/baglib/step/card-4x-led.step",
+      "svg": "models/baglib/preview/card-4x-led.svg"
+    }
+  },
+  "card-4x-pwr": {
+    "slug": "card-4x-pwr",
+    "title": "Index card PWR (4-wide)",
+    "blurb": "Divider card with an embossed PWR tab; drops into any side-wall slot of the 4x3x17 crate. Tabs are staggered across 5 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      164.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-4x-pwr.stl",
+      "step": "models/baglib/step/card-4x-pwr.step",
+      "svg": "models/baglib/preview/card-4x-pwr.svg"
+    }
+  },
+  "card-4x-misc": {
+    "slug": "card-4x-misc",
+    "title": "Index card MISC (4-wide)",
+    "blurb": "Divider card with an embossed MISC tab; drops into any side-wall slot of the 4x3x17 crate. Tabs are staggered across 5 positions.",
+    "material": "PLA or PETG (contrasting colour swap at the text layer)",
+    "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
+    "color": "#e8d44d",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      164.7,
+      112.9,
+      1.6
+    ],
+    "files": {
+      "stl": "models/baglib/stl/card-4x-misc.stl",
+      "step": "models/baglib/step/card-4x-misc.step",
+      "svg": "models/baglib/preview/card-4x-misc.svg"
+    }
+  },
+  "follower-4x": {
+    "slug": "follower-4x",
+    "title": "Bag follower (4-wide)",
+    "blurb": "Ribbed wedge that slides behind the last bag so a half-empty row stays upright; lift it out by the top of the front plate.",
+    "material": "PETG",
+    "print_notes": "As modelled (base plate on the bed), no supports, 20% infill. Drop a few washers between the ribs if it needs more weight.",
+    "color": "#c45b4a",
+    "footprint": "",
+    "assembly": null,
+    "size_mm": [
+      162.5,
+      45.0,
+      70.0
+    ],
+    "files": {
+      "stl": "models/baglib/stl/follower-4x.stl",
+      "step": "models/baglib/step/follower-4x.step",
+      "svg": "models/baglib/preview/follower-4x.svg"
+    }
+  }
+}

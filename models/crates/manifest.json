@@ -1,0 +1,182 @@
+{
+  "crate-1x1x3": {
+    "slug": "crate-1x1x3",
+    "title": "Crate 1x1x3",
+    "blurb": "Stackable crate, usable cavity 38x38x16 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "1x1x3",
+    "assembly": null,
+    "size_mm": [
+      41.5,
+      41.5,
+      25.0
+    ],
+    "files": {
+      "stl": "models/crates/stl/crate-1x1x3.stl",
+      "step": "models/crates/step/crate-1x1x3.step",
+      "svg": "models/crates/preview/crate-1x1x3.svg"
+    }
+  },
+  "crate-2x1x3": {
+    "slug": "crate-2x1x3",
+    "title": "Crate 2x1x3",
+    "blurb": "Stackable crate, usable cavity 80x38x16 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "2x1x3",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      41.5,
+      25.0
+    ],
+    "files": {
+      "stl": "models/crates/stl/crate-2x1x3.stl",
+      "step": "models/crates/step/crate-2x1x3.step",
+      "svg": "models/crates/preview/crate-2x1x3.svg"
+    }
+  },
+  "crate-2x2x3": {
+    "slug": "crate-2x2x3",
+    "title": "Crate 2x2x3",
+    "blurb": "Stackable crate, usable cavity 80x80x16 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "2x2x3",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      25.0
+    ],
+    "files": {
+      "stl": "models/crates/stl/crate-2x2x3.stl",
+      "step": "models/crates/step/crate-2x2x3.step",
+      "svg": "models/crates/preview/crate-2x2x3.svg"
+    }
+  },
+  "crate-2x2x6": {
+    "slug": "crate-2x2x6",
+    "title": "Crate 2x2x6",
+    "blurb": "Stackable crate, usable cavity 80x80x36 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "2x2x6",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      46.0
+    ],
+    "files": {
+      "stl": "models/crates/stl/crate-2x2x6.stl",
+      "step": "models/crates/step/crate-2x2x6.step",
+      "svg": "models/crates/preview/crate-2x2x6.svg"
+    }
+  },
+  "crate-3x2x6": {
+    "slug": "crate-3x2x6",
+    "title": "Crate 3x2x6",
+    "blurb": "Stackable crate, usable cavity 122x80x36 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "3x2x6",
+    "assembly": null,
+    "size_mm": [
+      125.5,
+      83.5,
+      46.0
+    ],
+    "files": {
+      "stl": "models/crates/stl/crate-3x2x6.stl",
+      "step": "models/crates/step/crate-3x2x6.step",
+      "svg": "models/crates/preview/crate-3x2x6.svg"
+    }
+  },
+  "cap-1x1": {
+    "slug": "cap-1x1",
+    "title": "Cap 1x1",
+    "blurb": "Lid that seats into any crate's stacking lip; recessed label on top.",
+    "material": "PETG",
+    "print_notes": "Upside down (plate on the bed), no supports.",
+    "color": "#f2a03d",
+    "footprint": "1x1",
+    "assembly": null,
+    "size_mm": [
+      41.5,
+      41.5,
+      7.2
+    ],
+    "files": {
+      "stl": "models/crates/stl/cap-1x1.stl",
+      "step": "models/crates/step/cap-1x1.step",
+      "svg": "models/crates/preview/cap-1x1.svg"
+    }
+  },
+  "cap-2x1": {
+    "slug": "cap-2x1",
+    "title": "Cap 2x1",
+    "blurb": "Lid that seats into any crate's stacking lip; recessed label on top.",
+    "material": "PETG",
+    "print_notes": "Upside down (plate on the bed), no supports.",
+    "color": "#f2a03d",
+    "footprint": "2x1",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      41.5,
+      7.2
+    ],
+    "files": {
+      "stl": "models/crates/stl/cap-2x1.stl",
+      "step": "models/crates/step/cap-2x1.step",
+      "svg": "models/crates/preview/cap-2x1.svg"
+    }
+  },
+  "cap-2x2": {
+    "slug": "cap-2x2",
+    "title": "Cap 2x2",
+    "blurb": "Lid that seats into any crate's stacking lip; recessed label on top.",
+    "material": "PETG",
+    "print_notes": "Upside down (plate on the bed), no supports.",
+    "color": "#f2a03d",
+    "footprint": "2x2",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      7.2
+    ],
+    "files": {
+      "stl": "models/crates/stl/cap-2x2.stl",
+      "step": "models/crates/step/cap-2x2.step",
+      "svg": "models/crates/preview/cap-2x2.svg"
+    }
+  },
+  "cap-3x2": {
+    "slug": "cap-3x2",
+    "title": "Cap 3x2",
+    "blurb": "Lid that seats into any crate's stacking lip; recessed label on top.",
+    "material": "PETG",
+    "print_notes": "Upside down (plate on the bed), no supports.",
+    "color": "#f2a03d",
+    "footprint": "3x2",
+    "assembly": null,
+    "size_mm": [
+      125.5,
+      83.5,
+      7.2
+    ],
+    "files": {
+      "stl": "models/crates/stl/cap-3x2.stl",
+      "step": "models/crates/step/cap-3x2.step",
+      "svg": "models/crates/preview/cap-3x2.svg"
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "sleeve-2x2x3": {
+    "slug": "sleeve-2x2x3",
+    "title": "Drawer sleeve 2x2x3",
+    "blurb": "Crate shell with an open front: same feet, lip and clip sockets as a crate, so sleeves stack into a cabinet and take a crate or a cap on top. Holds one drawer.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright on its feet, no supports. The lintel over the opening bridges 79.5 mm: print a bridge test first and keep part cooling at 100% for bridges. 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "2x2x3",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      25.0
+    ],
+    "files": {
+      "stl": "models/drawers/stl/sleeve-2x2x3.stl",
+      "step": "models/drawers/step/sleeve-2x2x3.step",
+      "svg": "models/drawers/preview/sleeve-2x2x3.svg"
+    }
+  },
+  "drawer-2x2x3": {
+    "slug": "drawer-2x2x3",
+    "title": "Drawer 2x2x3",
+    "blurb": "Drawer for the 2x2x3 sleeve, inside 75.6 x 79.4 x 11.0 mm, divider slots every 21 mm, label recess and finger cup on the front. Slides out 54 mm to a stop; lift the front to take it out.",
+    "material": "PETG (the detent tongues flex) or PLA",
+    "print_notes": "Upright on its floor, no supports: the groove under the floor bridges 7.6 mm, the finger cup grows at 45 deg. 4 walls (the walls are 1.6 mm), 15% infill.",
+    "color": "#f2a03d",
+    "footprint": "2x2x3",
+    "assembly": null,
+    "size_mm": [
+      83.0,
+      90.4,
+      20.5
+    ],
+    "files": {
+      "stl": "models/drawers/stl/drawer-2x2x3.stl",
+      "step": "models/drawers/step/drawer-2x2x3.step",
+      "svg": "models/drawers/preview/drawer-2x2x3.svg"
+    }
+  },
+  "rail-x-drawer-2x2x3": {
+    "slug": "rail-x-drawer-2x2x3",
+    "title": "X rail for drawer 2x2x3",
+    "blurb": "Divider rail sized for the 2x2x3 drawer, 9.0 mm tall, notched from below; goes in after the Y rail. Same profile as the crate rails.",
+    "material": "PLA",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#f0c419",
+    "footprint": "for drawer 2x2x3",
+    "assembly": null,
+    "size_mm": [
+      76.8,
+      1.5,
+      9.0
+    ],
+    "files": {
+      "stl": "models/drawers/stl/rail-x-drawer-2x2x3.stl",
+      "step": "models/drawers/step/rail-x-drawer-2x2x3.step",
+      "svg": "models/drawers/preview/rail-x-drawer-2x2x3.svg"
+    }
+  },
+  "rail-y-drawer-2x2x3": {
+    "slug": "rail-y-drawer-2x2x3",
+    "title": "Y rail for drawer 2x2x3",
+    "blurb": "Divider rail sized for the 2x2x3 drawer, 9.0 mm tall, notched from the top; goes in first. Same profile as the crate rails.",
+    "material": "PLA",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#e8a33d",
+    "footprint": "for drawer 2x2x3",
+    "assembly": null,
+    "size_mm": [
+      80.6,
+      1.5,
+      9.0
+    ],
+    "files": {
+      "stl": "models/drawers/stl/rail-y-drawer-2x2x3.stl",
+      "step": "models/drawers/step/rail-y-drawer-2x2x3.step",
+      "svg": "models/drawers/preview/rail-y-drawer-2x2x3.svg"
+    }
+  },
+  "sleeve-2x2x6": {
+    "slug": "sleeve-2x2x6",
+    "title": "Drawer sleeve 2x2x6",
+    "blurb": "Crate shell with an open front: same feet, lip and clip sockets as a crate, so sleeves stack into a cabinet and take a crate or a cap on top. Holds one drawer.",
+    "material": "PLA or PETG",
+    "print_notes": "Upright on its feet, no supports. The lintel over the opening bridges 79.5 mm: print a bridge test first and keep part cooling at 100% for bridges. 3 walls, 15% infill. Optional 6x2 mm magnets.",
+    "color": "#e8e3d6",
+    "footprint": "2x2x6",
+    "assembly": null,
+    "size_mm": [
+      83.5,
+      83.5,
+      46.0
+    ],
+    "files": {
+      "stl": "models/drawers/stl/sleeve-2x2x6.stl",
+      "step": "models/drawers/step/sleeve-2x2x6.step",
+      "svg": "models/drawers/preview/sleeve-2x2x6.svg"
+    }
+  },
+  "drawer-2x2x6": {
+    "slug": "drawer-2x2x6",
+    "title": "Drawer 2x2x6",
+    "blurb": "Drawer for the 2x2x6 sleeve, inside 75.6 x 79.4 x 32.0 mm, divider slots every 21 mm, label recess and finger cup on the front. Slides out 54 mm to a stop; lift the front to take it out.",
+    "material": "PETG (the detent tongues flex) or PLA",
+    "print_notes": "Upright on its floor, no supports: the groove under the floor bridges 7.6 mm, the finger cup grows at 45 deg. 4 walls (the walls are 1.6 mm), 15% infill.",
+    "color": "#f2a03d",
+    "footprint": "2x2x6",
+    "assembly": null,
+    "size_mm": [
+      83.0,
+      90.4,
+      41.5
+    ],
+    "files": {
+      "stl": "models/drawers/stl/drawer-2x2x6.stl",
+      "step": "models/drawers/step/drawer-2x2x6.step",
+      "svg": "models/drawers/preview/drawer-2x2x6.svg"
+    }
+  },
+  "rail-x-drawer-2x2x6": {
+    "slug": "rail-x-drawer-2x2x6",
+    "title": "X rail for drawer 2x2x6",
+    "blurb": "Divider rail sized for the 2x2x6 drawer, 30.0 mm tall, notched from below; goes in after the Y rail. Same profile as the crate rails.",
+    "material": "PLA",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#f0c419",
+    "footprint": "for drawer 2x2x6",
+    "assembly": null,
+    "size_mm": [
+      76.8,
+      1.5,
+      30.0
+    ],
+    "files": {
+      "stl": "models/drawers/stl/rail-x-drawer-2x2x6.stl",
+      "step": "models/drawers/step/rail-x-drawer-2x2x6.step",
+      "svg": "models/drawers/preview/rail-x-drawer-2x2x6.svg"
+    }
+  },
+  "rail-y-drawer-2x2x6": {
+    "slug": "rail-y-drawer-2x2x6",
+    "title": "Y rail for drawer 2x2x6",
+    "blurb": "Divider rail sized for the 2x2x6 drawer, 30.0 mm tall, notched from the top; goes in first. Same profile as the crate rails.",
+    "material": "PLA",
+    "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
+    "color": "#e8a33d",
+    "footprint": "for drawer 2x2x6",
+    "assembly": null,
+    "size_mm": [
+      80.6,
+      1.5,
+      30.0
+    ],
+    "files": {
+      "stl": "models/drawers/stl/rail-y-drawer-2x2x6.stl",
+      "step": "models/drawers/step/rail-y-drawer-2x2x6.step",
+      "svg": "models/drawers/preview/rail-y-drawer-2x2x6.svg"
+    }
+  }
+}
