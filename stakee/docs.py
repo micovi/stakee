@@ -1,11 +1,14 @@
 """Generate the wiki pages under ``models/`` from each family's manifest and module docstring.
 
 ``models/README.md`` is the catalogue; ``models/<module>/README.md`` is one page per family
-with its design notes, a parts table and print notes. Both are rewritten on every build, so
-edit the module docstring, ``stakee/families.py`` or the ``PartInfo`` in the module instead.
+with its design notes, a parts table and print notes; ``models/index.json`` lists the families
+for the docs site (parts are in each ``models/<module>/manifest.json``). All of them are
+rewritten on every build, so edit the module docstring, ``stakee/families.py`` or the
+``PartInfo`` in the module instead.
 """
 
 import ast
+import json
 import re
 from pathlib import Path
 
@@ -116,8 +119,24 @@ def catalogue_page(families: list[tuple[Family, list[dict]]]) -> str:
     return "\n".join(lines)
 
 
+def index_json(families: list[tuple[Family, list[dict]]]) -> str:
+    """Families in catalogue order, with the docstring that explains each one."""
+    entries = [
+        {
+            "module": item.module,
+            "title": item.title,
+            "summary": item.summary,
+            "description": _md(module_docstring(item.module)),
+            "manifest": f"models/{item.module}/manifest.json",
+            "parts": len(parts),
+        }
+        for item, parts in families
+    ]
+    return json.dumps({"families": entries}, indent=2, ensure_ascii=False) + "\n"
+
+
 def write_docs() -> list[Path]:
-    """Rewrite models/README.md and every built family's README.md; returns the paths."""
+    """Rewrite models/index.json, models/README.md and every family's README.md."""
     built: list[tuple[Family, list[dict]]] = []
     written: list[Path] = []
     for item in FAMILIES:
@@ -132,4 +151,6 @@ def write_docs() -> list[Path]:
         raise SystemExit(f"no manifests under {MODELS}; run `uv run stakee-build` first")
     index = MODELS / "README.md"
     index.write_text(catalogue_page(built))
-    return [index, *written]
+    catalogue = MODELS / "index.json"
+    catalogue.write_text(index_json(built))
+    return [catalogue, index, *written]

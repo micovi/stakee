@@ -1,0 +1,100 @@
+{
+  "families": [
+    {
+      "module": "crates",
+      "title": "Crates",
+      "summary": "Stackable crates and caps from 1x1 to 3x2 grid units: the base every other part fits.",
+      "description": "The base range: plain stackable crates and caps in the sizes people actually print.",
+      "manifest": "models/crates/manifest.json",
+      "parts": 9
+    },
+    {
+      "module": "dividers",
+      "title": "Dividers",
+      "summary": "Interlocking X/Y rails, hook-on plates and bridges that split a crate; all print flat.",
+      "description": "Modular dividers: interlocking rails plus short hook-on plates, all printed flat.\n\nSystem:\n- Rails span the whole cavity and sit in the core wall slots (every 21 mm). An X rail\n  (running along X) is notched from the bottom, a Y rail from the top, so any X and Y\n  rails cross like an egg crate. Rail ends are 1.5 mm thick in the 1.6 mm slot: they\n  stay put but slide out by hand.\n- Hook plates start in a wall slot and hang on an X rail with a hook over its top edge,\n  anywhere along it. Bridges hang between two X rails.\n- Hooks only go on X rails: a Y rail has notches in its top edge at every slot.\n\nEvery part is a profile in its local XZ plane, extruded through its thickness, so it\nprints flat with no supports. Local Y spans [-0.75, 0.45] (plate) and [-0.75, 0.75]\n(thick ends), so a part laid on its -Y face sits flat on the bed.",
+      "manifest": "models/dividers/manifest.json",
+      "parts": 18
+    },
+    {
+      "module": "inserts",
+      "title": "Inserts",
+      "summary": "Drop-in trays that turn a crate into a kit: dev-board dock, solder station, parts grid.",
+      "description": "Drop-in inserts: trays that sit on a crate floor and turn a generic crate into a kit.\n\nEvery insert is modelled in its own frame (centered on XY, bottom at z = 0) and is\nmeant to sit at z = FLOOR_Z inside the crate it names. Inserts keep CLEARANCE per side\nto the cavity walls and stay below the stacking seat (`size.lip_top - SEAT_DEPTH`),\nso a crate or cap still stacks on top.",
+      "manifest": "models/inserts/manifest.json",
+      "parts": 3
+    },
+    {
+      "module": "baglib",
+      "title": "Bag Library",
+      "summary": "A tall crate that files distributor zip bags upright like a card index, with tab cards.",
+      "description": "Bag Library: file distributor zip bags upright like a card index, labels facing up and out.\n\nA tall crate sized from `BoxSize.cavity` so a bag stands on its short edge and still clears\na cap, a thumb window in the front wall below the label/seat band, slot-keyed index cards with\nstaggered embossed tabs, and a sliding follower that props up a half-empty row.",
+      "manifest": "models/baglib/manifest.json",
+      "parts": 22
+    },
+    {
+      "module": "drawers",
+      "title": "Drawer cabinet",
+      "summary": "Stackable sleeves with an open front and the drawers that slide into them.",
+      "description": "Drawer cabinet: stackable sleeves with an open front, and the drawers that slide into them.\n\nA sleeve keeps the whole crate contract (core feet underneath, core lip pocket on top, clip\nsockets on the sides), so sleeves stack on each other at exactly 7 * h, sit on Gridfinity\nbaseplates and on any crate of the same footprint, and take a crate or a cap on top. Its front\nwall is cut away below a lintel; a stack of sleeves is the cabinet.\n\nFrames: a sleeve is centered on XY with its feet on z = 0 (front face -Y). A drawer is exported\nin the frame of its sleeve, lowered by FLOOR_Z: placed at (0, 0, FLOOR_Z) it is closed.\n\nMechanism, all in the printed geometry (no hardware):\n- Closing stop: the front plate is wider and taller than the opening; its back face lands on\n  the sleeve's front face (side walls and lintel). The tray keeps BACK_CLEARANCE to the back.\n- Retention stop: a 1 mm block on the sleeve floor, just behind the front wall, runs in a\n  groove under the drawer floor. A catch in the groove meets it after TRAVEL mm. The catch is\n  rigid: lift the drawer front (it tilts about its back edge, the lintel leaves TOP_CLEARANCE)\n  and the catch rises over the block, so the drawer comes out; pushing it back in, the 45 deg\n  ramp behind the catch lifts it the same way.\n- Closed detent: two tongues cut free in the drawer side walls carry 45 deg bumps that click\n  into vertical dimples in the sleeve walls when the drawer is closed. They only rub for the\n  first few mm of travel, then leave the sleeve.\n\nPrint: sleeves upright on their feet; the lintel is the only bridge (as wide as the cavity).\nDrawers upright on their floor; the groove under the floor bridges GROOVE_WIDTH. No supports.",
+      "manifest": "models/drawers/manifest.json",
+      "parts": 8
+    },
+    {
+      "module": "pocket",
+      "title": "Pocket box",
+      "summary": "A small hinged, latched box to carry around that still stacks like a crate.",
+      "description": "Pocket box: a small hinged, latched box you carry, that is still a Stakee box.\n\nClosed, base + lid have the envelope of a `BoxSize(nx, ny, 4)` crate: Gridfinity feet under\nthe base, a full stacking lip on top of the lid at `7 * h + 4`. So the closed box seats on\nany crate's lip at `7 * h_lower` and a crate or cap seats on it at `7 * h`.\n\nParting plane `z = split`: the base is the core crate cut there; the lid is a solid slab\n(printed on its flat underside) with the core lip pocket and a floor `STACK_CLEARANCE` below\nthe feet of whatever stacks on it.\n\nHinge (back, along X): a pin hinge for a length of 1.75 mm filament. The axis lies\n`KNUCKLE_R` in from the back face and `KNUCKLE_R` above the parting plane, so every knuckle\nstays inside the footprint and the lid's knuckles touch the bed. Five knuckles alternate base /\nlid / base / lid / base. Behind the axis the lid only keeps material above a 45 deg chord (inside\nthe knuckle radius, so it turns in place), and the base is recessed behind the axis down to\n`RECESS_BELOW_AXIS` under it: a lid point can only swing back into the footprint if it lies\nwithin `KNUCKLE_R / cos(angle / 2)` of the axis, so the recess sets the opening angle; at\nabout 120 deg the lid's back rests on the recess floor.\n\nLatch (front, center): a cantilever tab grown from the base inside a front pocket, flush with\nthe front face. Its inward bump clicks into a notch in the lid's front slot; the bump's flat\nunderside holds the lid shut, its 45 deg top lets the lid push it aside when closing. To open,\npull the tab top toward you by the nail groove (1.1 mm at the bump) and lift.",
+      "manifest": "models/pocket/manifest.json",
+      "parts": 6
+    },
+    {
+      "module": "kit",
+      "title": "Carry kit",
+      "summary": "Stack clip, tote handle cap, NFC label cap and tool-rack cap for a grab-and-go stack.",
+      "description": "Grab-and-go kit: accessories that turn a stack of crates into a carryable hacker kit.\n\nParts: a bayonet stack clip that locks two stacked crates together at the seam, a tote handle\ncap, an NFC label cap with a swappable snap-in text tile, and a tool rack cap.\n\nClip geometry is expressed relative to the seam `z = 7 * h_lower` (the stacking pitch):\nthe lower crate's lip socket sits at `LIP_ABOVE_NOMINAL - CLIP_SOCKET_LIP_Z` = +2.0 mm and\nthe upper part's base socket at `CLIP_SOCKET_BASE_Z` = +6.5 mm, for every box height.\nThe sockets are core's L pockets: the clip's L nubs go into the windows, then the clip slides\n`CLIP_SOCKET_LEG` along the face so the hooks sit behind the skin.",
+      "manifest": "models/kit/manifest.json",
+      "parts": 6
+    },
+    {
+      "module": "magtray",
+      "title": "Magnetic tray",
+      "summary": "A stackable screw tray with hidden magnets and one numbered compartment per step.",
+      "description": "Magnetic repair tray: a 1-unit stackable cap whose top is a numbered screw tray.\n\nDesign: the tray side is the top, so it never has to be flipped (a flipped tray would pour\nits screws out). The underside is the solid cap foot (same envelope as `make_cap`), so it\nseats in any crate's stacking lip at `z = 7 * h`. The rim is a full stacking lip at the\n1-unit height (lip top 11 mm, like a `BoxSize(nx, ny, 1)`), so crates and caps stack on\ntop of it at a 7 mm pitch: put the tray on a crate mid-repair, stack the next crate on it,\nand the screws stay put underneath. On the bench it stands on its flat foot.\n\nEach compartment (one per disassembly step, debossed step number in the back-left corner)\nhas filleted floor edges and one 10x2 mm N52 disc magnet at its center, sealed in by a print\npause under a 0.6 mm ceiling (3 layers at 0.2 mm). Divider tops stop 0.2 mm below the feet\nof a crate stacked on top; screws lying flat (M2.5 head <= 2.5 mm) clear those feet.",
+      "manifest": "models/magtray/manifest.json",
+      "parts": 2
+    },
+    {
+      "module": "esd",
+      "title": "ESD crates",
+      "summary": "Crates with a ground point (banana socket or snap stud) for dissipative filament.",
+      "description": "ESD crates: the standard Stakee crate with a ground point, for static-dissipative filament.\n\nThe ground point is a 6.5 mm through hole in the back (+Y) wall, backed by a pad on the inside\nthat makes the wall 6 mm thick there and carries a flat-top hex pocket for the nut. It takes\neither hardware option, both of which clamp metal against the printed wall from both sides:\n\n- a 4 mm banana socket with an M6 threaded body (the common panel-mount type, e.g. Electro-PJP\n  3240 / 3115: M6 stud, 10 mm A/F nut): collar outside, nut captive in the hex pocket, so it\n  tightens from outside with a spanner on the collar. Sockets made for an 8 mm hole (e.g. PJP\n  3230) fit after drilling the hole out to 8 mm; their nut then bears on the pad face.\n- a 10 mm male snap stud (the ESD wrist-strap / mat-cord snap) with a screw post or centre\n  hole: M3 or M4 screw through the hole, DIN 125 washer (9 mm OD) + nut in the hex pocket.\n\nLocation: centre x = GRID / 4 (10.5 mm), midway between the divider slots at x = 0 and 21 for\nevery footprint width, hole centre 12.75 mm above the bottom. That keeps the 18 mm pad 0.9 mm\nclear of both neighbouring divider plates, below the stacking seat (pad top 20.0 mm vs seat\n>= 21.0 mm), and the 14 mm outside clamp face away from clip sockets (+/-X) and label (-Y).\n\nStacked crates touch only through the feet resting in the lip. Printed-surface to\nprinted-surface contact resistance is high and unpredictable, so do not count on a stack\ngrounding itself: give every crate its own lead, or chain the jacks with banana leads.",
+      "manifest": "models/esd/manifest.json",
+      "parts": 3
+    },
+    {
+      "module": "wirespool",
+      "title": "Wire dispenser",
+      "summary": "A crate with a lift-out axle and one eyelet per spool for hookup wire.",
+      "description": "Wire dispenser: a crate that holds hookup-wire spools on an axle, with one eyelet per spool.\n\nPull the colour you need through its eyelet in the front (-Y) wall; the spools spin\nindependently on a lift-out axle, so nothing tangles.\n\nParts: the crate (core box + eyelet ledge + eyelets + optional snip slot), a drop-in cradle\nframe with two open-top U-cradles, a printed axle (or an 8 mm steel / M8 threaded rod) and\nspacer washers. Everything is parametric in `SpoolSpec`; the footprint and height are\nthe smallest that fit, so `uv run python -m stakee.modules.wirespool` re-plans the whole\ndispenser for your spools once you edit `DEFAULT_SPOOLS`.\n\nDefault spools: the common 6-colour 22 AWG kits (TUOFENG, Etokfoks...) ship six 9 m spools\nin a ~145 x 55 x 55 mm box, so each spool is about 52 mm across the flanges and 23 mm wide.\nSix of those need 158.5 mm of axle span, more than a 3-wide crate's 121.5 mm cavity: the\ndispenser is 4x2. A 3x2 dispenser fits six spools up to ~16.7 mm wide (see verify()).",
+      "manifest": "models/wirespool/manifest.json",
+      "parts": 4
+    },
+    {
+      "module": "wallrail",
+      "title": "Wall rail",
+      "summary": "A French cleat and shelves that hang crates on the wall above the bench.",
+      "description": "Wall rail: crates hang on the wall above the bench on a 45 deg French cleat.\n\nTwo parts:\n- Wall cleat: a strip screwed to the wall, top bevelled at 45 deg so it falls toward the\n  wall (the classic French cleat). 10 mm thick, 30 mm tall at its front face, 20 mm at the\n  wall face. 4 mm wood screws on a 42 mm pitch (one per grid cell), 90 deg countersinks\n  on the front face. Length is `n * 42 - 0.5` so strips butt end to end on the grid.\n- Shelf: a tray whose top is a grid of per-cell stacking lips (core `lip_pocket`, one per\n  42 mm cell, like a baseplate), so any crate footprint seats on it exactly as it seats on\n  another crate. Behind and below the tray: a hook with the matching 45 deg bevel, a back\n  plate, a bumper that rests on the wall, and a diagonal brace up to the tray front.\n\nSide profile (wall frame: `u` = distance from the wall face, `z` = up, 0 = cleat bottom).\nThe shelf back (tray, hook tip and bumper) is flat at `u = 0`. The hook rests on the cleat\nbevel; a 0.5 mm gap separates the back plate from the cleat's front face.\n\nTipping: the crates' centre of mass sits `d = depth / 2` in front of the wall. The cleat\npushes the hook up and toward the wall with equal components, and the bumper pushes back\nat a lever `L` below the cleat contact. Without friction the shelf stays hooked while\n`L >= d`; the bumper is placed at `L = 1.25 d` (and always low enough that lifting the\nshelf 10 mm to unhook it does not hit the cleat).\n\nLoads (assumed): a full 2x2x6 crate is 0.5-1 kg; design load 2 kg per shelf (two full\ncrates stacked), PETG, E ~ 2 GPa. At 2 kg the bumper and hook forces are ~16-20 N, spread\nover the full shelf width: stresses stay well under 1 MPa, so walls are sized for stiffness,\nimpact and printability (>= 2.4 mm), not strength. The weak links are the wall screws and\nanchors. PETG/ASA rather than PLA because PLA creeps under a sustained load.\n\nPrinting: the shelf is a constant side profile extruded across its width, so it prints on\nits side (an end face on the bed) with no supports and the bending loads lie in the layer\nplanes. The only overhangs are the lip pockets' end walls facing up the print: 45 deg\nchamfers and a 1.8 mm ledge, bridged across the pocket.",
+      "manifest": "models/wallrail/manifest.json",
+      "parts": 6
+    },
+    {
+      "module": "calibration",
+      "title": "Calibration",
+      "summary": "Small test prints that pick the lip clearance and divider fit for your printer.",
+      "description": "Calibration coupons: a small, cheap test print that picks the tolerances for YOUR printer.\n\nParts:\n- Lip coupons: 1x1x2 boxes (the shortest box the system allows), one per value in\n  CLEARANCES, with the clearance in hundredths of a mm debossed on the front (\"25\" = 0.25).\n  Every optional box feature is off and the floor has a window, to save filament and time.\n- Probe: a plain default 1x1x2 box; its feet are the gauge tried in every coupon.\n- Slot strip: an L of crate wall with a core divider slot in an X wall and in a Y wall.\n- Slot samples: a comb of divider ends (the 1.2 mm plate, then the thick-end candidates)\n  printed flat like the real dividers, each finger labelled with its thickness.\n\nLower limit: a foot's vertical face sits 2.15 mm in from the cell outline and the wall is\n2.0 mm thick, so below 0.15 mm of lip clearance the cavity wall, not the lip, sets the play.\n\nRerun with other values: `uv run python -m stakee.modules.calibration --clearances 0.2 0.3`.",
+      "manifest": "models/calibration/manifest.json",
+      "parts": 6
+    }
+  ]
+}
