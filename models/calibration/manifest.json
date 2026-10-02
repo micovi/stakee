@@ -7,7 +7,6 @@
     "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
     "color": "#e05d5d",
     "footprint": "1x1x2",
-    "assembly": null,
     "size_mm": [
       41.5,
       41.5,
@@ -27,7 +26,6 @@
     "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
     "color": "#f0c419",
     "footprint": "1x1x2",
-    "assembly": null,
     "size_mm": [
       41.5,
       41.5,
@@ -47,7 +45,6 @@
     "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
     "color": "#5dbb63",
     "footprint": "1x1x2",
-    "assembly": null,
     "size_mm": [
       41.5,
       41.5,
@@ -67,7 +64,6 @@
     "print_notes": "Upright, no supports, exactly the settings of your real crates (the feet are what is tested), 2 walls, 15% infill. About 11.3 cm\u00b3; keeps working as a crate.",
     "color": "#8a8f98",
     "footprint": "1x1x2",
-    "assembly": null,
     "size_mm": [
       41.5,
       41.5,
@@ -87,7 +83,6 @@
     "print_notes": "Floor on the bed, no supports, same settings as the crates. About 1.9 cm\u00b3.",
     "color": "#4f8fbf",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       22.0,
       22.0,
@@ -107,7 +102,6 @@
     "print_notes": "Flat, labels up, no supports, 100% infill, same layer height as the dividers: at 0.2 mm layers the slicer rounds 1.5 and 1.55 to whole layers, use 0.1 mm or less to see the difference. About 1.5 cm\u00b3.",
     "color": "#c47ed6",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       48.0,
       20.0,

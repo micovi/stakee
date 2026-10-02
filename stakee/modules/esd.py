@@ -13,8 +13,8 @@ either hardware option, both of which clamp metal against the printed wall from 
 
 Location: centre x = GRID / 4 (10.5 mm), midway between the divider slots at x = 0 and 21 for
 every footprint width, hole centre 12.75 mm above the bottom. That keeps the 18 mm pad 0.9 mm
-clear of both neighbouring divider plates, below the stacking seat (pad top 20.0 mm vs seat
->= 21.0 mm), and the 14 mm outside clamp face away from clip sockets (+/-X) and label (-Y).
+clear of both neighbouring divider plates, below the stacking seat (pad top 20.0 mm vs
+seat >= 21.0 mm), and the 14 mm outside clamp face away from clip sockets (+/-X) and label (-Y).
 
 Stacked crates touch only through the feet resting in the lip. Printed-surface to
 printed-surface contact resistance is high and unpredictable, so do not count on a stack

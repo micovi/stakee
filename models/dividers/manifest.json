@@ -7,7 +7,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#f0c419",
     "footprint": "for 2x2x3",
-    "assembly": null,
     "size_mm": [
       80.7,
       1.5,
@@ -27,7 +26,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#e8a33d",
     "footprint": "for 2x2x3",
-    "assembly": null,
     "size_mm": [
       80.7,
       1.5,
@@ -47,7 +45,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#4fb3bf",
     "footprint": "for 2x2x3",
-    "assembly": null,
     "size_mm": [
       21.3,
       1.5,
@@ -67,7 +64,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#4fb3bf",
     "footprint": "for 2x2x3",
-    "assembly": null,
     "size_mm": [
       42.3,
       1.5,
@@ -87,7 +83,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#7d8ce0",
     "footprint": "for 2x2x3",
-    "assembly": null,
     "size_mm": [
       25.2,
       1.2,
@@ -107,7 +102,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#7d8ce0",
     "footprint": "for 2x2x3",
-    "assembly": null,
     "size_mm": [
       46.2,
       1.2,
@@ -127,7 +121,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#f0c419",
     "footprint": "for 2x2x6",
-    "assembly": null,
     "size_mm": [
       80.7,
       1.5,
@@ -147,7 +140,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#e8a33d",
     "footprint": "for 2x2x6",
-    "assembly": null,
     "size_mm": [
       80.7,
       1.5,
@@ -167,7 +159,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#4fb3bf",
     "footprint": "for 2x2x6",
-    "assembly": null,
     "size_mm": [
       21.3,
       1.5,
@@ -187,7 +178,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#4fb3bf",
     "footprint": "for 2x2x6",
-    "assembly": null,
     "size_mm": [
       42.3,
       1.5,
@@ -207,7 +197,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#7d8ce0",
     "footprint": "for 2x2x6",
-    "assembly": null,
     "size_mm": [
       25.2,
       1.2,
@@ -227,7 +216,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#7d8ce0",
     "footprint": "for 2x2x6",
-    "assembly": null,
     "size_mm": [
       46.2,
       1.2,
@@ -247,7 +235,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#f0c419",
     "footprint": "for 3x2x6",
-    "assembly": null,
     "size_mm": [
       122.7,
       1.5,
@@ -267,7 +254,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#e8a33d",
     "footprint": "for 3x2x6",
-    "assembly": null,
     "size_mm": [
       80.7,
       1.5,
@@ -287,7 +273,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#4fb3bf",
     "footprint": "for 3x2x6",
-    "assembly": null,
     "size_mm": [
       21.3,
       1.5,
@@ -307,7 +292,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#4fb3bf",
     "footprint": "for 3x2x6",
-    "assembly": null,
     "size_mm": [
       42.3,
       1.5,
@@ -327,7 +311,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#7d8ce0",
     "footprint": "for 3x2x6",
-    "assembly": null,
     "size_mm": [
       25.2,
       1.2,
@@ -347,7 +330,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#7d8ce0",
     "footprint": "for 3x2x6",
-    "assembly": null,
     "size_mm": [
       46.2,
       1.2,

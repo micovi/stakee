@@ -25,4 +25,5 @@ jobs:
       - name: Generated model pages are up to date
         run: |
           uv run stakee-build --docs-only
-          git diff --exit-code -- models/
+          git status --porcelain -- models/
+          test -z "$(git status --porcelain -- models/)"

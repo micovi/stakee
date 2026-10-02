@@ -20,7 +20,7 @@ from dataclasses import dataclass
 from fractions import Fraction
 from pathlib import Path
 
-from build123d import Align, Box, FontStyle, Part, Pos, Text, export_step, export_stl, extrude
+from build123d import Align, Box, FontStyle, Part, Pos, Text, extrude
 
 from stakee.core import (
     DIVIDER_THICKNESS,
@@ -36,6 +36,7 @@ from stakee.core import (
     make_box,
     make_cap,
 )
+from stakee.export import write_step, write_stl
 from stakee.modules.dividers import make_rail, plate_height
 
 MAX_UNITS = 8  # 336 mm: already beyond most print beds
@@ -50,9 +51,6 @@ FONT_SIZE = 7.0
 MIN_FONT_SIZE = 3.5  # below this, 0.4 mm nozzles smear the strokes
 
 CAP_NOTES = "Plate on the bed (upside down), no supports."
-
-STL_TOLERANCE = 0.02
-STL_ANGULAR_TOLERANCE = 0.15
 
 SIZE_RE = re.compile(r"^(\d+)x(\d+)x(\d+)$")
 FOOTPRINT_RE = re.compile(r"^(\d+)x(\d+)$")
@@ -268,13 +266,8 @@ def write_part(out_dir: Path, item: OutPart) -> dict:
     if not item.part.is_valid:
         raise RuntimeError(f"{item.slug}: generated solid is not valid; please report this")
     stem = out_dir / item.slug
-    export_stl(
-        item.part,
-        f"{stem}.stl",
-        tolerance=STL_TOLERANCE,
-        angular_tolerance=STL_ANGULAR_TOLERANCE,
-    )
-    export_step(item.part, f"{stem}.step")
+    write_stl(item.part, stem.with_suffix(".stl"))
+    write_step(item.part, stem.with_suffix(".step"))
     bbox = item.part.bounding_box().size
     return {
         "slug": item.slug,

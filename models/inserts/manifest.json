@@ -7,11 +7,6 @@
     "print_notes": "Plate on the bed, no supports, 0.2 mm layers, 3 walls, 15% infill. Pegs are 2.35/1.7 mm: print slower for the top 3 mm or ream with a drill.",
     "color": "#3fa7d6",
     "footprint": "for 3x2x6",
-    "assembly": [
-      0.0,
-      0.0,
-      5.5
-    ],
     "size_mm": [
       120.9,
       78.9,
@@ -31,11 +26,6 @@
     "print_notes": "Upright, no supports, 3 walls, 10-15% infill. Round trough bottoms print as steep overhangs and come out fine; the 1 mm ribs between pockets need 0.4 mm nozzle.",
     "color": "#e4572e",
     "footprint": "for 3x2x6",
-    "assembly": [
-      0.0,
-      0.0,
-      5.5
-    ],
     "size_mm": [
       120.9,
       78.9,
@@ -55,11 +45,6 @@
     "print_notes": "Upright, no supports, 2 walls, 15% infill.",
     "color": "#8e7dbe",
     "footprint": "for 2x2x3",
-    "assembly": [
-      0.0,
-      0.0,
-      5.5
-    ],
     "size_mm": [
       78.9,
       78.9,

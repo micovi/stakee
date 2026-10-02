@@ -7,7 +7,6 @@
     "print_notes": "Upright, no supports (window arch bridges fine), 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#7fb3a6",
     "footprint": "2x4x17",
-    "assembly": null,
     "size_mm": [
       83.5,
       167.5,
@@ -27,7 +26,6 @@
     "print_notes": "Upside down (plate on the bed), no supports.",
     "color": "#f2a03d",
     "footprint": "2x4",
-    "assembly": null,
     "size_mm": [
       83.5,
       167.5,
@@ -47,7 +45,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       112.9,
@@ -67,7 +64,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       112.9,
@@ -87,7 +83,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       112.9,
@@ -107,7 +102,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       112.9,
@@ -127,7 +121,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       112.9,
@@ -147,7 +140,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       112.9,
@@ -167,7 +159,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       112.9,
@@ -187,7 +178,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       112.9,
@@ -207,7 +197,6 @@
     "print_notes": "As modelled (base plate on the bed), no supports, 20% infill. Drop a few washers between the ribs if it needs more weight.",
     "color": "#c45b4a",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       78.5,
       45.0,
@@ -227,7 +216,6 @@
     "print_notes": "Upright, no supports (window arch bridges fine), 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#7fb3a6",
     "footprint": "4x3x17",
-    "assembly": null,
     "size_mm": [
       167.5,
       125.5,
@@ -247,7 +235,6 @@
     "print_notes": "Upside down (plate on the bed), no supports.",
     "color": "#f2a03d",
     "footprint": "4x3",
-    "assembly": null,
     "size_mm": [
       167.5,
       125.5,
@@ -267,7 +254,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       164.7,
       112.9,
@@ -287,7 +273,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       164.7,
       112.9,
@@ -307,7 +292,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       164.7,
       112.9,
@@ -327,7 +311,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       164.7,
       112.9,
@@ -347,7 +330,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       164.7,
       112.9,
@@ -367,7 +349,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       164.7,
       112.9,
@@ -387,7 +368,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       164.7,
       112.9,
@@ -407,7 +387,6 @@
     "print_notes": "Flat, text up, no supports, 100% infill. Pause/colour change at 1.2 mm makes the text pop.",
     "color": "#e8d44d",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       164.7,
       112.9,
@@ -427,7 +406,6 @@
     "print_notes": "As modelled (base plate on the bed), no supports, 20% infill. Drop a few washers between the ribs if it needs more weight.",
     "color": "#c45b4a",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       162.5,
       45.0,

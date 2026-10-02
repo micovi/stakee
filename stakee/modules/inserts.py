@@ -491,7 +491,6 @@ def _dock_info() -> PartInfo:
         ),
         color="#3fa7d6",
         footprint=f"for {tag(DOCK_CRATE)}",
-        assembly=(0.0, 0.0, FLOOR_Z),
     )
 
 
@@ -510,7 +509,6 @@ def _station_info() -> PartInfo:
         ),
         color="#e4572e",
         footprint=f"for {tag(SOLDER_CRATE)}",
-        assembly=(0.0, 0.0, FLOOR_Z),
     )
 
 
@@ -526,7 +524,6 @@ def _grid_info() -> PartInfo:
         print_notes="Upright, no supports, 2 walls, 15% infill.",
         color="#8e7dbe",
         footprint=f"for {tag(GRID_CRATE)}",
-        assembly=(0.0, 0.0, FLOOR_Z),
     )
 
 

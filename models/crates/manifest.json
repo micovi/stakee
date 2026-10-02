@@ -7,7 +7,6 @@
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "1x1x3",
-    "assembly": null,
     "size_mm": [
       41.5,
       41.5,
@@ -27,7 +26,6 @@
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "2x1x3",
-    "assembly": null,
     "size_mm": [
       83.5,
       41.5,
@@ -47,7 +45,6 @@
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "2x2x3",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -67,7 +64,6 @@
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "2x2x6",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -87,7 +83,6 @@
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "3x2x6",
-    "assembly": null,
     "size_mm": [
       125.5,
       83.5,
@@ -107,7 +102,6 @@
     "print_notes": "Upside down (plate on the bed), no supports.",
     "color": "#f2a03d",
     "footprint": "1x1",
-    "assembly": null,
     "size_mm": [
       41.5,
       41.5,
@@ -127,7 +121,6 @@
     "print_notes": "Upside down (plate on the bed), no supports.",
     "color": "#f2a03d",
     "footprint": "2x1",
-    "assembly": null,
     "size_mm": [
       83.5,
       41.5,
@@ -147,7 +140,6 @@
     "print_notes": "Upside down (plate on the bed), no supports.",
     "color": "#f2a03d",
     "footprint": "2x2",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -167,7 +159,6 @@
     "print_notes": "Upside down (plate on the bed), no supports.",
     "color": "#f2a03d",
     "footprint": "3x2",
-    "assembly": null,
     "size_mm": [
       125.5,
       83.5,

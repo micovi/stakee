@@ -5,7 +5,6 @@ description = "Stackable, parametric 3D-printable storage for electronics hacker
 requires-python = ">=3.13"
 dependencies = [
     "build123d==0.13.0",
-    "trimesh==5.1.0",
 ]
 
 [project.scripts]
@@ -13,7 +12,7 @@ stakee = "stakee.cli:main"
 stakee-build = "stakee.build:main"
 
 [build-system]
-requires = ["uv_build>=0.8.0,<0.9"]
+requires = ["uv_build==0.12.22"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]

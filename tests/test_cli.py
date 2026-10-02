@@ -128,3 +128,13 @@ def test_rail_positions_are_distinct_real_slots_and_symmetric(units):
         assert len(set(rails)) == len(rails)
         assert all(rail in slots for rail in rails)
         assert sorted(-rail for rail in rails) == rails
+
+
+def test_default_output_folder_is_out_in_the_working_directory(capsys, tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+
+    code, out, err = run(capsys, "cap", "1x1", "--json")
+
+    assert code == 0, err
+    assert json.loads(out)["out_dir"] == str(tmp_path / "out" / "cap-1x1")
+    assert (tmp_path / "out" / "cap-1x1" / "cap-1x1.stl").is_file()

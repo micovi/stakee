@@ -7,7 +7,6 @@
     "print_notes": "Upright (foot on the bed), no supports, 0.2 mm layers including the first. Insert a pause at z = 3.0 mm (before the first layer over the pockets, i.e. after the 2.8 mm layer): drop 9 10x2 mm N52 magnets into the pockets, resume. The 0.6 mm ceiling prints on top of them; magnet polarity does not matter.",
     "color": "#e0529c",
     "footprint": "2x2x1",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -27,7 +26,6 @@
     "print_notes": "Upright (foot on the bed), no supports, 0.2 mm layers including the first. Insert a pause at z = 3.0 mm (before the first layer over the pockets, i.e. after the 2.8 mm layer): drop 12 10x2 mm N52 magnets into the pockets, resume. The 0.6 mm ceiling prints on top of them; magnet polarity does not matter.",
     "color": "#e0529c",
     "footprint": "3x2x1",
-    "assembly": null,
     "size_mm": [
       125.5,
       83.5,

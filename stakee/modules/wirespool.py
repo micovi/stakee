@@ -395,7 +395,6 @@ def _infos(lay: Layout) -> dict[str, PartInfo]:
             print_notes="Flat on its rails, U-cradles up, no supports. 3 walls, 20% infill.",
             color="#0f8b8d",
             footprint=f"{lay.size.nx}x{lay.size.ny}",
-            assembly=(0.0, 0.0, FLOOR_Z),
         ),
         "axle": PartInfo(
             slug=f"wire-axle-{spec.axle:g}mm",
@@ -411,7 +410,6 @@ def _infos(lay: Layout) -> dict[str, PartInfo]:
                 "needs a bed at least 165 mm long (print diagonally on smaller beds)."
             ),
             color="#1d3557",
-            assembly=(0.0, 0.0, axle_z_offset(lay)),
         ),
         "washer": PartInfo(
             slug=f"wire-spool-washer-{spec.axle:g}mm",

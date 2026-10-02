@@ -7,7 +7,6 @@
     "print_notes": "Upright on its feet, no supports: the knuckles and the back recess are chamfered 45 deg. 4 walls so the 1.6 mm tab is solid perimeters. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "2x1x4",
-    "assembly": null,
     "size_mm": [
       83.5,
       41.5,
@@ -27,7 +26,6 @@
     "print_notes": "On its flat underside, no supports (knuckle chamfers 45 deg). Hinge: push a 82.5 mm length of 1.75 mm filament through all five knuckles from one side.",
     "color": "#f2a03d",
     "footprint": "2x1",
-    "assembly": null,
     "size_mm": [
       83.5,
       41.5,
@@ -47,7 +45,6 @@
     "print_notes": "Flat, no supports.",
     "color": "#f2f2f2",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       38.7,
       1.2,
@@ -67,7 +64,6 @@
     "print_notes": "Upright on its feet, no supports: the knuckles and the back recess are chamfered 45 deg. 4 walls so the 1.6 mm tab is solid perimeters. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "2x2x4",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -87,7 +83,6 @@
     "print_notes": "On its flat underside, no supports (knuckle chamfers 45 deg). Hinge: push a 82.5 mm length of 1.75 mm filament through all five knuckles from one side.",
     "color": "#f2a03d",
     "footprint": "2x2",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -107,7 +102,6 @@
     "print_notes": "Flat, no supports.",
     "color": "#f2f2f2",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       80.7,
       1.2,

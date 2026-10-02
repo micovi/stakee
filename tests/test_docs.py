@@ -1,12 +1,11 @@
-"""Tests for the generated wiki pages and the build command's family selection."""
+"""Tests for the generated wiki pages: models/README.md, models/<family>/README.md, index.json."""
 
 import json
 
 import pytest
 
 from stakee import docs, export
-from stakee.build import parse_only
-from stakee.families import FAMILIES, MODULES, family
+from stakee.families import FAMILIES, family
 
 
 def fake_part(module: str, slug: str, notes: str = "Upright, no supports.") -> dict:
@@ -26,13 +25,6 @@ def fake_part(module: str, slug: str, notes: str = "Upright, no supports.") -> d
             "svg": f"models/{module}/preview/{slug}.svg",
         },
     }
-
-
-@pytest.fixture
-def models_dir(tmp_path, monkeypatch):
-    monkeypatch.setattr(export, "MODELS", tmp_path)
-    monkeypatch.setattr(docs, "MODELS", tmp_path)
-    return tmp_path
 
 
 def write_manifest(models_dir, module: str, parts: list[dict]) -> None:
@@ -104,33 +96,40 @@ def test_rst_literals_become_markdown_code():
     assert docs._md("seats at ``7 * h`` on ``BoxSize``") == "seats at `7 * h` on `BoxSize`"
 
 
-@pytest.mark.parametrize(
-    ("text", "expected"),
-    [
-        (None, list(MODULES)),
-        ("kit,crates", ["crates", "kit"]),
-        (" kit , kit ", ["kit"]),
-    ],
-)
-def test_parse_only_keeps_catalogue_order(text, expected):
-    assert parse_only(text) == expected
+def test_module_docstrings_render_as_plain_markdown():
+    """A docstring line starting with '>' or '#' would turn into a quote or heading."""
+    for item in FAMILIES:
+        for line in docs.module_docstring(item.module).splitlines():
+            assert not line.lstrip().startswith((">", "#")), f"{item.module}: {line!r}"
 
 
-@pytest.mark.parametrize("text", ["crate", "crates,nope", ",", ""])
-def test_parse_only_rejects_unknown_or_empty(text):
-    with pytest.raises(SystemExit, match="known: crates"):
-        parse_only(text)
+def test_module_without_docstring_is_refused(tmp_path, monkeypatch):
+    (tmp_path / "stakee" / "modules").mkdir(parents=True)
+    (tmp_path / "stakee" / "modules" / "bare.py").write_text("X = 1\n")
+    monkeypatch.setattr(docs, "ROOT", tmp_path)
+
+    with pytest.raises(ValueError, match="bare.py: module has no docstring"):
+        docs.module_docstring("bare")
 
 
-def test_save_is_byte_for_byte_repeatable(models_dir):
-    from stakee.core import make_cap
+def test_catalogue_links_previews_inside_the_family_folder():
+    page = docs.catalogue_page([(family("kit"), [fake_part("kit", "clip")])])
 
-    def export_once() -> list[bytes]:
-        info = export.save("crates", make_cap(1, 1), export.PartInfo("cap", "Cap", "b", "PLA", "n"))
-        assert info.files["step"] == "models/crates/step/cap.step"
-        folder = models_dir / "crates"
-        return [(folder / name).read_bytes() for name in ("step/cap.step", "manifest.json")]
+    assert '<img src="kit/preview/clip.svg" width="120" alt="Part clip">' in page
+    assert "[**Carry kit**](kit/README.md)" in page
 
-    first = export_once()
-    assert b"1970-01-01T00:00:00" in first[0]
-    assert export_once() == first
+
+def test_alt_text_is_html_escaped():
+    part = fake_part("crates", "a") | {"title": 'Cap "deep" <2x2>'}
+    page = docs.family_page(family("crates"), [part])
+
+    assert 'alt="Cap &quot;deep&quot; &lt;2x2&gt;"' in page
+
+
+def test_every_committed_manifest_lists_existing_files():
+    for item in FAMILIES:
+        parts = export.read_manifest(item.module)
+        assert parts, f"models/{item.module}/manifest.json is missing or empty"
+        for part in parts.values():
+            for path in part["files"].values():
+                assert (export.ROOT / path).is_file(), f"{item.module}: {path} missing"

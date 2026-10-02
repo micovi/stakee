@@ -17,14 +17,14 @@ STROKE = "#141414"
 STYLE = "path,line{stroke-width:1.15px;vector-effect:non-scaling-stroke}"
 
 
-def _visible_edges(shapes: list[Part], direction: tuple[float, float, float]):
-    compound = Compound(shapes)
+def _visible_edges(part: Part):
+    compound = Compound([part])
     box = compound.bounding_box()
     c = box.center()
     center = (c.X, c.Y, c.Z)
-    norm = sum(d * d for d in direction) ** 0.5
+    norm = sum(d * d for d in ISO_DIRECTION) ** 0.5
     reach = box.diagonal * 4
-    origin = tuple(center[i] + direction[i] / norm * reach for i in range(3))
+    origin = tuple(center[i] + ISO_DIRECTION[i] / norm * reach for i in range(3))
     visible, _hidden = compound.project_to_viewport(origin, viewport_up=(0, 0, 1), look_at=center)
     return visible
 
@@ -45,11 +45,9 @@ def _svg_paths(edges) -> tuple[str, str]:
     return re.sub(r"\s+", " ", inner.group(1)).strip(), box.group(1)
 
 
-def figure_svg(shapes: list[Part], direction: tuple[float, float, float] = ISO_DIRECTION) -> str:
-    """Render positioned solids as one isometric line drawing (visible edges only)."""
-    if not shapes:
-        raise ValueError("figure_svg needs at least one shape")
-    paths, view_box = _svg_paths(_visible_edges(shapes, direction))
+def figure_svg(part: Part) -> str:
+    """Render a part as an isometric line drawing (visible edges only)."""
+    paths, view_box = _svg_paths(_visible_edges(part))
     x0, y0, w, h = (float(v) for v in view_box.split())
     pad = max(w, h) * 0.04
     x, y, w, h = x0 - pad, y0 - pad, w + 2 * pad, h + 2 * pad
@@ -63,8 +61,7 @@ def figure_svg(shapes: list[Part], direction: tuple[float, float, float] = ISO_D
     )
 
 
-def write_figure(path: Path, shapes: list[Part]) -> Path:
-    """Write ``figure_svg(shapes)`` to ``path``, creating parent folders."""
+def write_figure(path: Path, part: Part) -> None:
+    """Write ``figure_svg(part)`` to ``path``, creating parent folders."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(figure_svg(shapes))
-    return path
+    path.write_text(figure_svg(part))

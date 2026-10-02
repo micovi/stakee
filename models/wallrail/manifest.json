@@ -7,7 +7,6 @@
     "print_notes": "On its side (an end face on the bed), no supports: the hook, back plate and brace are one constant profile. 4 walls, 25% gyroid. Design load 2 kg.",
     "color": "#6b8f71",
     "footprint": "2x1",
-    "assembly": null,
     "size_mm": [
       83.5,
       41.5,
@@ -27,7 +26,6 @@
     "print_notes": "On its side (an end face on the bed), no supports: the hook, back plate and brace are one constant profile. 4 walls, 25% gyroid. Design load 2 kg.",
     "color": "#6b8f71",
     "footprint": "2x2",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -47,7 +45,6 @@
     "print_notes": "On its side (an end face on the bed), no supports: the hook, back plate and brace are one constant profile. 4 walls, 25% gyroid. Design load 2 kg.",
     "color": "#6b8f71",
     "footprint": "3x2",
-    "assembly": null,
     "size_mm": [
       125.5,
       83.5,
@@ -67,7 +64,6 @@
     "print_notes": "On its side (an end face on the bed), no supports: the hook, back plate and brace are one constant profile. 4 walls, 25% gyroid. Design load 2 kg.",
     "color": "#6b8f71",
     "footprint": "4x1",
-    "assembly": null,
     "size_mm": [
       167.5,
       41.5,
@@ -87,7 +83,6 @@
     "print_notes": "Front face (the countersunk side) on the bed, bevel facing up, no supports. 4 walls, 30% infill. Use at least 2 screws with wall anchors.",
     "color": "#a0754f",
     "footprint": "2x1",
-    "assembly": null,
     "size_mm": [
       83.5,
       10.0,
@@ -107,7 +102,6 @@
     "print_notes": "Front face (the countersunk side) on the bed, bevel facing up, no supports. 4 walls, 30% infill. Use at least 2 screws with wall anchors.",
     "color": "#a0754f",
     "footprint": "4x1",
-    "assembly": null,
     "size_mm": [
       167.5,
       10.0,

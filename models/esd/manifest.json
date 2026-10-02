@@ -7,7 +7,6 @@
     "print_notes": "Upright, no supports: the hole has a 45 deg teardrop roof and the hex pocket a 6 mm flat bridge. Hardened nozzle (carbon-filled filaments are abrasive); 4+ walls and 40%+ infill so the body conducts well. Ground point: M6 4 mm banana socket (collar outside, 10 mm nut in the pocket; 3 mm clamped wall, needs >= 7 mm of thread) or 10 mm male snap stud on an M3/M4 screw with washer + nut in the pocket. A toothed lock washer under the outer collar bites through the printed skin. Ground it through a 1 Mohm cord (mat/common-point cord or the bench ground point), never straight to mains earth. Check it: meter between the stud and the inside floor or a far corner; dissipative parts read 1e5-1e9 ohm, above ~40 Mohm a multimeter is blind and you need a 10/100 V megohmmeter. Printed crates are not certified ESD packaging; resistance drifts with humidity, layer direction and wear.",
     "color": "#3a3f44",
     "footprint": "2x2x3",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -27,7 +26,6 @@
     "print_notes": "Upright, no supports: the hole has a 45 deg teardrop roof and the hex pocket a 6 mm flat bridge. Hardened nozzle (carbon-filled filaments are abrasive); 4+ walls and 40%+ infill so the body conducts well. Ground point: M6 4 mm banana socket (collar outside, 10 mm nut in the pocket; 3 mm clamped wall, needs >= 7 mm of thread) or 10 mm male snap stud on an M3/M4 screw with washer + nut in the pocket. A toothed lock washer under the outer collar bites through the printed skin. Ground it through a 1 Mohm cord (mat/common-point cord or the bench ground point), never straight to mains earth. Check it: meter between the stud and the inside floor or a far corner; dissipative parts read 1e5-1e9 ohm, above ~40 Mohm a multimeter is blind and you need a 10/100 V megohmmeter. Printed crates are not certified ESD packaging; resistance drifts with humidity, layer direction and wear.",
     "color": "#3a3f44",
     "footprint": "2x2x6",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -47,7 +45,6 @@
     "print_notes": "Upright, no supports: the hole has a 45 deg teardrop roof and the hex pocket a 6 mm flat bridge. Hardened nozzle (carbon-filled filaments are abrasive); 4+ walls and 40%+ infill so the body conducts well. Ground point: M6 4 mm banana socket (collar outside, 10 mm nut in the pocket; 3 mm clamped wall, needs >= 7 mm of thread) or 10 mm male snap stud on an M3/M4 screw with washer + nut in the pocket. A toothed lock washer under the outer collar bites through the printed skin. Ground it through a 1 Mohm cord (mat/common-point cord or the bench ground point), never straight to mains earth. Check it: meter between the stud and the inside floor or a far corner; dissipative parts read 1e5-1e9 ohm, above ~40 Mohm a multimeter is blind and you need a 10/100 V megohmmeter. Printed crates are not certified ESD packaging; resistance drifts with humidity, layer direction and wear.",
     "color": "#3a3f44",
     "footprint": "3x2x6",
-    "assembly": null,
     "size_mm": [
       125.5,
       83.5,

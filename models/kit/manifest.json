@@ -7,7 +7,6 @@
     "print_notes": "Print on its side, the detent-finger end (opposite the hooks) on the bed, so the hooks grow straight up from their stems; no supports, 100% infill, thin walls / Arachne on (hooks are 0.55 mm). To fit: tab down, push both hooks into the socket windows, slide 5 mm the way the hooks point until the detent clicks. To remove: slide back 5 mm, pull the tab. Two per side, four per seam.",
     "color": "#3d9df2",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       5.9,
       14.0,
@@ -27,7 +26,6 @@
     "print_notes": "Print on its front face (-Y on the bed): the handle profile then has only vertical walls and 45 deg window sides, and the L clip sockets only bridge 1.6 mm; no supports. 4 walls, 20% infill.",
     "color": "#2bb673",
     "footprint": "2x2",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -47,7 +45,6 @@
     "print_notes": "Print on its front face (-Y on the bed): the handle profile then has only vertical walls and 45 deg window sides, and the L clip sockets only bridge 1.6 mm; no supports. 4 walls, 20% infill.",
     "color": "#2bb673",
     "footprint": "3x2",
-    "assembly": null,
     "size_mm": [
       125.5,
       83.5,
@@ -67,7 +64,6 @@
     "print_notes": "Upright, no supports. Stick the NTAG215 in the round pocket, then snap the label tile over it.",
     "color": "#9b6bf2",
     "footprint": "2x2",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -87,7 +83,6 @@
     "print_notes": "Flat, text up, no supports. Filament swap at z = 1.6 mm for coloured text. Edit the text in make_label_tile().",
     "color": "#f2f2f2",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       53.0,
       30.0,
@@ -107,7 +102,6 @@
     "print_notes": "Upright, no supports (the L clip sockets in the rim only bridge 0.6-1.2 mm). 3 walls, 15% infill.",
     "color": "#e85d4a",
     "footprint": "2x2",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,

@@ -7,7 +7,6 @@
     "print_notes": "Upright on its feet, no supports. The lintel over the opening bridges 79.5 mm: print a bridge test first and keep part cooling at 100% for bridges. 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "2x2x3",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -27,7 +26,6 @@
     "print_notes": "Upright on its floor, no supports: the groove under the floor bridges 7.6 mm, the finger cup grows at 45 deg. 4 walls (the walls are 1.6 mm), 15% infill.",
     "color": "#f2a03d",
     "footprint": "2x2x3",
-    "assembly": null,
     "size_mm": [
       83.0,
       90.4,
@@ -47,7 +45,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#f0c419",
     "footprint": "for drawer 2x2x3",
-    "assembly": null,
     "size_mm": [
       76.8,
       1.5,
@@ -67,7 +64,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#e8a33d",
     "footprint": "for drawer 2x2x3",
-    "assembly": null,
     "size_mm": [
       80.6,
       1.5,
@@ -87,7 +83,6 @@
     "print_notes": "Upright on its feet, no supports. The lintel over the opening bridges 79.5 mm: print a bridge test first and keep part cooling at 100% for bridges. 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
     "footprint": "2x2x6",
-    "assembly": null,
     "size_mm": [
       83.5,
       83.5,
@@ -107,7 +102,6 @@
     "print_notes": "Upright on its floor, no supports: the groove under the floor bridges 7.6 mm, the finger cup grows at 45 deg. 4 walls (the walls are 1.6 mm), 15% infill.",
     "color": "#f2a03d",
     "footprint": "2x2x6",
-    "assembly": null,
     "size_mm": [
       83.0,
       90.4,
@@ -127,7 +121,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#f0c419",
     "footprint": "for drawer 2x2x6",
-    "assembly": null,
     "size_mm": [
       76.8,
       1.5,
@@ -147,7 +140,6 @@
     "print_notes": "Flat on the bed (the thick-end side up), no supports, 100% infill.",
     "color": "#e8a33d",
     "footprint": "for drawer 2x2x6",
-    "assembly": null,
     "size_mm": [
       80.6,
       1.5,

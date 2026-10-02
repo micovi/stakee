@@ -7,7 +7,6 @@
     "print_notes": "Upright, no supports: the eyelet ledge has a 45 deg underside and the 2.6 mm eyelets bridge cleanly. 3 walls, 15% infill. Ream eyelets with a 2.5 mm drill if your printer runs tight. No divider slots on this variant.",
     "color": "#c9a227",
     "footprint": "4x2x9",
-    "assembly": null,
     "size_mm": [
       167.5,
       83.5,
@@ -27,11 +26,6 @@
     "print_notes": "Flat on its rails, U-cradles up, no supports. 3 walls, 20% infill.",
     "color": "#0f8b8d",
     "footprint": "4x2",
-    "assembly": [
-      0.0,
-      0.0,
-      5.5
-    ],
     "size_mm": [
       162.9,
       78.9,
@@ -51,11 +45,6 @@
     "print_notes": "Lying on its 0.5 mm flat along X, no supports, 4 walls, 40% infill; needs a bed at least 165 mm long (print diagonally on smaller beds).",
     "color": "#1d3557",
     "footprint": "",
-    "assembly": [
-      0.0,
-      0.0,
-      31.979999999999997
-    ],
     "size_mm": [
       161.5,
       8.0,
@@ -75,7 +64,6 @@
     "print_notes": "Flat, no supports, 100% infill. Smooth side (bed side) toward a spool.",
     "color": "#8d99ae",
     "footprint": "",
-    "assembly": null,
     "size_mm": [
       18.0,
       18.0,
