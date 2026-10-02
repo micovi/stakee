@@ -10,6 +10,7 @@ Layout of one model family::
 """
 
 import json
+import re
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -22,6 +23,13 @@ MODELS = ROOT / "models"
 
 STL_TOLERANCE = 0.02
 STL_ANGULAR_TOLERANCE = 0.15
+
+# OpenCascade stamps every STEP file with the export time and a per-process counter, so an
+# unchanged part would show up as a diff after every rebuild. Both are pinned on export.
+STEP_VOLATILE = (
+    (re.compile(r"(FILE_NAME\('[^']*',)'[^']*'"), r"\1'1970-01-01T00:00:00'"),
+    (re.compile(r"NEXT_ASSEMBLY_USAGE_OCCURRENCE\('\d+'"), "NEXT_ASSEMBLY_USAGE_OCCURRENCE('1'"),
+)
 
 
 @dataclass
@@ -53,6 +61,15 @@ class PartInfo:
     files: dict[str, str] = field(default_factory=dict)
 
 
+def write_step(part: Part, path: Path) -> None:
+    """STEP export with the volatile header fields pinned (see ``STEP_VOLATILE``)."""
+    export_step(part, str(path))
+    text = path.read_text()
+    for pattern, replacement in STEP_VOLATILE:
+        text = pattern.sub(replacement, text, count=1)
+    path.write_text(text)
+
+
 def manifest_path(module: str) -> Path:
     return MODELS / module / "manifest.json"
 
@@ -81,12 +98,14 @@ def save(module: str, part: Part, info: PartInfo) -> PartInfo:
         tolerance=STL_TOLERANCE,
         angular_tolerance=STL_ANGULAR_TOLERANCE,
     )
-    export_step(part, str(files["step"]))
+    write_step(part, files["step"])
     write_figure(files["svg"], [part])
 
     size = part.bounding_box().size
     info.size_mm = (round(size.X, 1), round(size.Y, 1), round(size.Z, 1))
-    info.files = {kind: path.relative_to(ROOT).as_posix() for kind, path in files.items()}
+    info.files = {
+        kind: (Path("models") / path.relative_to(MODELS)).as_posix() for kind, path in files.items()
+    }
     manifest = read_manifest(module)
     manifest[info.slug] = asdict(info)
     manifest_path(module).write_text(json.dumps(manifest, indent=2) + "\n")
