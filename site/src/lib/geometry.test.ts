@@ -94,7 +94,9 @@ describe('validate', () => {
       '--dividers 5x1: a 2-unit side has 3 divider slot(s) along X (every 21 mm), ' +
         'so at most 4 compartments; got 5',
     ],
-    [{ lipClearance: 1.5 }, '--lip-clearance 1.5: must be between 0.0 and 1.0 mm'],
+    [{ lipClearance: 1.5 }, '--lip-clearance 1.5: must be >= 0.15 and < 1.0 mm'],
+    [{ lipClearance: 1 }, '--lip-clearance 1: must be >= 0.15 and < 1.0 mm'],
+    [{ lipClearance: 0.1 }, '--lip-clearance 0.1: must be >= 0.15 and < 1.0 mm'],
     [{ nx: 9, ny: 2, h: 4 }, '9x2x4: footprint must be <= 8 units per side'],
     [{ nx: 2, ny: 2, h: 41 }, '2x2x41: height must be <= 40 units'],
   ])('rejects %o like the CLI', (overrides, message) => {

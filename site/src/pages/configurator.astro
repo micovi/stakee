@@ -3,7 +3,8 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import {
   boxCommand,
   DEFAULT_OPTIONS,
-  LIP_CLEARANCE_RANGE,
+  LIP_CLEARANCE_MAX,
+  LIP_CLEARANCE_MIN,
   MAX_HEIGHT,
   MAX_UNITS,
   MIN_HEIGHT,
@@ -67,8 +68,8 @@ const opts = DEFAULT_OPTIONS;
             id="box-lip"
             name="lipClearance"
             type="number"
-            min={LIP_CLEARANCE_RANGE[0]}
-            max={LIP_CLEARANCE_RANGE[1]}
+            min={LIP_CLEARANCE_MIN}
+            max={LIP_CLEARANCE_MAX - 0.01}
             step="0.05"
             value={opts.lipClearance}
             required

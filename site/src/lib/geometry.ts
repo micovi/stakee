@@ -20,14 +20,15 @@ export const DIVIDER_THICKNESS = 1.2;
 export const LABEL_HEIGHT = 12.0;
 export const LABEL_MAX_WIDTH = 60.0;
 export const LABEL_MIN_HEIGHT_UNITS = 3;
-/** `FOOT_STATIONS[1][1] - WALL`: below this the cavity wall, not the lip, sets the play. */
-export const LIP_CLEARANCE_MIN = 2.15 - WALL;
+/** `LIP_CLEARANCE_MIN`: below this the cavity wall, not the lip, sets the play. */
+export const LIP_CLEARANCE_MIN = 0.15;
+/** `LIP_CLEARANCE_MAX`, exclusive. */
+export const LIP_CLEARANCE_MAX = 1.0;
 
 // stakee/cli.py
 export const MAX_UNITS = 8;
 export const MIN_HEIGHT = 2;
 export const MAX_HEIGHT = 40;
-export const LIP_CLEARANCE_RANGE = [0.0, 1.0] as const;
 export const TILE_CLEARANCE = 0.1;
 export const TILE_TEXT_MARGIN = 1.0;
 
@@ -194,17 +195,10 @@ function compartmentErrors(opts: BoxOptions): string[] {
 }
 
 function lipClearanceErrors(value: number): string[] {
-  const [low, high] = LIP_CLEARANCE_RANGE;
-  if (!Number.isFinite(value) || value < low || value > high) {
+  if (!Number.isFinite(value) || value < LIP_CLEARANCE_MIN || value >= LIP_CLEARANCE_MAX) {
     return [
-      `--lip-clearance ${value}: must be between ${low.toFixed(1)} and ${high.toFixed(1)} mm`,
-    ];
-  }
-  // The CLI range above is wider than what core.py's lip_pocket() accepts.
-  if (value < LIP_CLEARANCE_MIN || value >= 1.0) {
-    return [
-      `lip clearance ${value} mm out of range: below ${LIP_CLEARANCE_MIN.toFixed(2)} mm the ` +
-        'cavity wall, not the lip, sets the play; use 0.15-0.99 mm',
+      `--lip-clearance ${value}: must be >= ${LIP_CLEARANCE_MIN} and < ` +
+        `${LIP_CLEARANCE_MAX.toFixed(1)} mm`,
     ];
   }
   return [];
