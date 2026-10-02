@@ -82,6 +82,7 @@ stakee/
   modules/        one generator module per family
 models/           generated output, committed: <family>/{stl,step,preview}/, manifest.json, README.md
 docs/             hand-written documentation
+site/             docs site (Astro + Starlight), deployed to GitHub Pages
 tests/            pytest suite
 ```
 
