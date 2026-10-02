@@ -20,11 +20,18 @@ bun run test      # vitest
 - writes `src/generated/catalog.json` from `../models/index.json` and the family manifests;
 - converts `../docs/*.md` into Starlight pages in `src/content/docs/docs/`: the `# H1` becomes
   the title, the first paragraph the description, and repo-relative links are rewritten to site
-  pages or GitHub URLs. Set `STAKEE_DOCS_DIR` to read docs from another folder.
+  pages or GitHub URLs. Links must be relative to `docs/` and point at files that exist; any
+  broken link fails the sync.
 
 `public/models/`, `src/generated/` and `src/content/docs/docs/` are generated and gitignored.
 If `models/index.json` is missing, run `uv run stakee-build` from the repo root first.
 
 The configurator's formulas live in `src/lib/geometry.ts`, ported from `stakee/core.py` and
-`stakee/cli.py`; `src/lib/geometry.test.ts` pins them to numbers printed by the Python CLI.
-Pushes to `main` deploy through `.github/workflows/site.yml`.
+`stakee/cli.py`. `src/lib/geometry.test.ts` checks them against `src/lib/geometry.fixture.json`,
+which the Python test `tests/test_site_fixture.py` computes from the generator and fails on
+drift. After a change to the Python formulas, regenerate it from the repo root with
+`STAKEE_UPDATE_FIXTURES=1 uv run pytest tests/test_site_fixture.py`, then fix `geometry.ts`
+until `bun run test` passes.
+
+`.github/workflows/site.yml` checks, tests and builds every pull request; pushes to `main`
+also deploy to GitHub Pages.

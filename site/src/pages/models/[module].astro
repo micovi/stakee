@@ -1,5 +1,5 @@
 ---
-import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import { createSatteriMarkdownProcessor } from '@astrojs/markdown-satteri';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import type { GetStaticPaths } from 'astro';
 import Preview from '~/components/Preview.astro';
@@ -18,7 +18,8 @@ type Props = { family: Family };
 
 const { family } = Astro.props;
 const parts = partsOf(family);
-const markdown = await createMarkdownProcessor();
+// The Markdown engine Astro uses for content pages, so the family text renders the same way.
+const markdown = await createSatteriMarkdownProcessor();
 const description = (await markdown.render(family.description)).code;
 ---
 
@@ -66,7 +67,7 @@ const description = (await markdown.render(family.description)).code;
                 <dt>Print notes</dt>
                 <dd>{part.printNotes}</dd>
               </dl>
-              <button type="button" class="show-3d" data-part={part.slug}>
+              <button type="button" class="show-3d" data-part={part.slug} hidden>
                 Show in 3D view
               </button>
             </td>
@@ -148,6 +149,10 @@ const description = (await markdown.render(family.description)).code;
     font: inherit;
     font-size: var(--sl-text-sm);
     cursor: pointer;
+  }
+
+  .show-3d[hidden] {
+    display: none;
   }
 
   .show-3d:hover {

@@ -7,7 +7,13 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!src/content/docs/docs", "!src/generated", "!public/models"]
+    "includes": [
+      "**",
+      "!src/content/docs/docs",
+      "!src/generated",
+      "!public/models",
+      "!src/lib/geometry.fixture.json"
+    ]
   },
   "formatter": {
     "enabled": true,

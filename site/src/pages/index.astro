@@ -27,6 +27,8 @@ const actions = [
   frontmatter={{
     title: 'Stakee',
     description: 'Parametric, stackable, 3D-printable storage for electronics hackers.',
+    // The page title is the site title: skip Starlight's "<page> | <site>" suffix.
+    head: [{ tag: 'title', content: 'Stakee' }],
     template: 'splash',
     hero: {
       tagline:

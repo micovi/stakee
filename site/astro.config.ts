@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import starlight from '@astrojs/starlight';
 import { defineConfig } from 'astro/config';
 import type { Catalog, DocEntry } from './src/lib/catalog-types';
+import { SITE_BASE } from './src/lib/repo';
 
 function readGenerated<T>(name: string): T {
   const url = new URL(`./src/generated/${name}`, import.meta.url);
@@ -13,16 +14,9 @@ function readGenerated<T>(name: string): T {
 
 const catalog = readGenerated<Catalog>('catalog.json');
 const docs = readGenerated<DocEntry[]>('docs.json');
-const hasGettingStarted = docs.some((doc) => doc.slug === 'getting-started');
 
 const sidebar = [
-  {
-    label: 'Start',
-    items: [
-      { label: 'Home', link: '/' },
-      ...(hasGettingStarted ? [{ label: 'Getting started', slug: 'docs/getting-started' }] : []),
-    ],
-  },
+  { label: 'Home', link: '/' },
   {
     label: 'Models',
     items: [
@@ -50,7 +44,7 @@ const sidebar = [
 
 export default defineConfig({
   site: 'https://micovi.github.io',
-  base: '/stakee',
+  base: SITE_BASE,
   trailingSlash: 'always',
   vite: {
     // three.js (~560 kB) is one lazy chunk, loaded only when a family page's viewer is shown.

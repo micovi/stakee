@@ -4,14 +4,17 @@ import {
   boxCommand,
   cavity,
   compartmentSizes,
-  HEIGHT_UNIT,
   LABEL_MIN_HEIGHT_UNITS,
   labelTextWidth,
+  labelTileCount,
   outerSize,
   railPositions,
+  stackPitch,
   type Vec3,
   validate,
 } from '~/lib/geometry';
+
+const NO_COMMAND = '# fix the inputs above to get a command';
 
 function element<T extends HTMLElement>(id: string, type: new () => T): T {
   const found = document.getElementById(id);
@@ -49,7 +52,7 @@ function resultRows(opts: BoxOptions): [string, string][] {
   const rows: [string, string][] = [
     ['Outer size (W × D × H)', triple(outerSize(opts.nx, opts.ny, opts.h))],
     ['Cavity (W × D × H)', triple(inner)],
-    ['Stack pitch', `${mm(opts.h * HEIGHT_UNIT)} mm`],
+    ['Stack pitch', `${mm(stackPitch(opts.h))} mm`],
   ];
   if (opts.across > 1 || opts.along > 1) {
     const widths = compartmentSizes(inner.x, railPositions(opts.nx, opts.across));
@@ -61,11 +64,15 @@ function resultRows(opts: BoxOptions): [string, string][] {
     );
   }
   if (opts.label.trim() !== '') {
-    rows.push([
-      'Label text area',
-      `${mm(labelTextWidth(outerSize(opts.nx, opts.ny, opts.h).x))} mm wide; ` +
-        'the CLI shrinks long text down to a 3.5 mm font and rejects anything smaller',
-    ]);
+    const tiles = labelTileCount(opts.cap);
+    rows.push(
+      [
+        'Label text area',
+        `${mm(labelTextWidth(outerSize(opts.nx, opts.ny, opts.h).x))} mm wide; ` +
+          'the CLI shrinks long text down to a 3.5 mm font and rejects anything smaller',
+      ],
+      ['Label tiles', tiles === 1 ? '1, for the crate' : `${tiles}, for the crate and the cap`],
+    );
   } else if (opts.h < LABEL_MIN_HEIGHT_UNITS) {
     rows.push([
       'Label',
@@ -103,7 +110,7 @@ export function mountConfigurator(): void {
     for (const input of form.querySelectorAll<HTMLInputElement>('input')) {
       input.setAttribute('aria-invalid', String(!input.checkValidity()));
     }
-    command.textContent = boxCommand(opts);
+    command.textContent = problems.length === 0 ? boxCommand(opts) : NO_COMMAND;
     copy.disabled = problems.length > 0;
     copied.textContent = '';
     const rows = problems.length === 0 ? resultRows(opts) : [];

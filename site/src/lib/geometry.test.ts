@@ -4,81 +4,40 @@ import {
   cavity,
   compartmentSizes,
   DEFAULT_OPTIONS,
+  labelTextWidth,
+  labelTileCount,
   outerSize,
   railPositions,
+  stackPitch,
   validate,
 } from '~/lib/geometry';
+import fixture from '~/lib/geometry.fixture.json';
 
-// Expected numbers below were printed by the Python generator on 2026-10-02:
-//   uv run stakee list --json                     -> "examples" (cavity W, D, H)
-//   uv run stakee box 3x2x6 --dividers 3x3 --json -> outer_mm, cavity_mm, compartments
-//   uv run stakee box 4x1x2 --dividers 3x2 --json -> outer_mm, cavity_mm, compartments
-//   uv run stakee box 3x2x2 --dividers 4x1 --json -> outer_mm, cavity_mm, compartments
-//   error strings: `uv run stakee box ... --json` -> "error"
-// If core.py or cli.py change, re-run those commands and update both this file and geometry.ts.
+// geometry.fixture.json is computed from stakee/core.py and stakee/cli.py by
+// tests/test_site_fixture.py, which fails when the Python side changes without it.
+// The error strings below were printed by `uv run stakee box ... --json` ("error").
 
-const LIST_EXAMPLES: [string, [number, number, number]][] = [
-  ['1x1x3', [37.5, 37.5, 15.5]],
-  ['2x1x3', [79.5, 37.5, 15.5]],
-  ['2x2x3', [79.5, 79.5, 15.5]],
-  ['2x2x6', [79.5, 79.5, 36.5]],
-  ['3x2x6', [121.5, 79.5, 36.5]],
-  ['4x2x6', [163.5, 79.5, 36.5]],
-];
-
-function parseTag(tag: string): [number, number, number] {
-  const [nx = 0, ny = 0, h = 0] = tag.split('x').map(Number);
-  return [nx, ny, h];
-}
-
-describe('cavity', () => {
-  test.each(LIST_EXAMPLES)('%s matches `stakee list`', (tag, expected) => {
-    const c = cavity(...parseTag(tag));
-    expect([c.x, c.y, c.z]).toEqual(expected);
-  });
-});
-
-describe('box summary', () => {
-  test('3x2x6 with 3x3 dividers', () => {
-    const outer = outerSize(3, 2, 6);
-    const inner = cavity(3, 2, 6);
-    expect([outer.x, outer.y, outer.z]).toEqual([125.5, 83.5, 46.0]);
-    expect([inner.x, inner.y, inner.z]).toEqual([121.5, 79.5, 36.5]);
-    const yRails = railPositions(3, 3);
-    const xRails = railPositions(2, 3);
-    expect(yRails).toEqual([-21.0, 21.0]);
-    expect(xRails).toEqual([-21.0, 21.0]);
-    expect(compartmentSizes(inner.x, yRails)).toEqual([39.1, 40.8, 39.1]);
-    expect(compartmentSizes(inner.y, xRails)).toEqual([18.1, 40.8, 18.1]);
+describe('matches the Python generator (geometry.fixture.json)', () => {
+  test.each(fixture.boxes)('box $size', (entry) => {
+    const [nx = 0, ny = 0, h = 0] = entry.size;
+    const outer = outerSize(nx, ny, h);
+    const inner = cavity(nx, ny, h);
+    expect([outer.x, outer.y, outer.z]).toEqual(entry.outer_mm);
+    expect([inner.x, inner.y, inner.z]).toEqual(entry.cavity_mm);
+    expect(stackPitch(h)).toBe(entry.stack_pitch_mm);
+    expect(labelTextWidth(outer.x)).toBe(entry.label_text_width_mm);
   });
 
-  test('4x1x2 with 3x2 dividers', () => {
-    const outer = outerSize(4, 1, 2);
-    const inner = cavity(4, 1, 2);
-    expect([outer.x, outer.y, outer.z]).toEqual([167.5, 41.5, 18.0]);
-    expect([inner.x, inner.y, inner.z]).toEqual([163.5, 37.5, 8.5]);
-    const yRails = railPositions(4, 3);
-    const xRails = railPositions(1, 2);
-    expect(yRails).toEqual([-21.0, 21.0]);
-    expect(xRails).toEqual([0.0]);
-    expect(compartmentSizes(inner.x, yRails)).toEqual([60.1, 40.8, 60.1]);
-    expect(compartmentSizes(inner.y, xRails)).toEqual([18.1, 18.1]);
+  test.each(fixture.dividers)('$compartments compartments on $units units', (entry) => {
+    expect(cavity(entry.units, entry.units, 3).x).toBe(entry.span_mm);
+    const rails = railPositions(entry.units, entry.compartments);
+    expect(rails).toEqual(entry.rails_mm);
+    expect(compartmentSizes(entry.span_mm, rails)).toEqual(entry.sizes_mm);
   });
 
-  test('3x2x2 with 4x1 dividers rounds slot ties away from the center', () => {
-    const outer = outerSize(3, 2, 2);
-    const inner = cavity(3, 2, 2);
-    expect([outer.x, outer.y, outer.z]).toEqual([125.5, 83.5, 18.0]);
-    expect([inner.x, inner.y, inner.z]).toEqual([121.5, 79.5, 8.5]);
-    const yRails = railPositions(3, 4);
-    expect(yRails).toEqual([-42.0, 0.0, 42.0]);
-    expect(compartmentSizes(inner.x, yRails)).toEqual([18.1, 40.8, 40.8, 18.1]);
-    expect(compartmentSizes(inner.y, railPositions(2, 1))).toEqual([79.5]);
-  });
-
-  test('one compartment is the whole cavity', () => {
-    expect(railPositions(2, 1)).toEqual([]);
-    expect(compartmentSizes(79.5, [])).toEqual([79.5]);
+  test('covers every footprint size and compartment count', () => {
+    expect(new Set(fixture.dividers.map((entry) => entry.units)).size).toBe(8);
+    expect(fixture.boxes.length).toBeGreaterThan(0);
   });
 });
 
@@ -122,6 +81,21 @@ describe('validate', () => {
   test('fractional sizes are rejected', () => {
     expect(validate({ ...DEFAULT_OPTIONS, nx: 1.5 })).toHaveLength(1);
   });
+
+  test('empty number fields are named, without NaN', () => {
+    const errors = validate({ ...DEFAULT_OPTIONS, nx: Number.NaN, along: Number.NaN });
+    expect(errors).toEqual(['Enter a number for NX, B']);
+    expect(
+      validate({ ...DEFAULT_OPTIONS, lipClearance: Number.NaN, label: 'X', h: Number.NaN }),
+    ).toEqual(['Enter a number for H, lip clearance']);
+  });
+});
+
+describe('labelTileCount', () => {
+  test('one tile for the crate, a second for the cap', () => {
+    expect(labelTileCount(false)).toBe(1);
+    expect(labelTileCount(true)).toBe(2);
+  });
 });
 
 describe('boxCommand', () => {
@@ -143,14 +117,20 @@ describe('boxCommand', () => {
       lipClearance: 0.3,
     });
     expect(command).toBe(
-      "uv run stakee box 3x2x6 --dividers 2x3 --label 'Bob'\\''s ESP32' --cap --no-magnets " +
+      "uv run stakee box 3x2x6 --dividers 2x3 --label='Bob'\\''s ESP32' --cap --no-magnets " +
         '--no-sockets --lip-clearance 0.3',
     );
   });
 
-  test('simple labels are not quoted', () => {
-    expect(boxCommand({ ...DEFAULT_OPTIONS, label: ' ESP32 ' })).toBe(
-      'uv run stakee box 2x2x3 --label ESP32',
-    );
+  test.each([
+    [' ESP32 ', '--label=ESP32'],
+    ['-VCC', '--label=-VCC'],
+    ['--cap', '--label=--cap'],
+    ['GND -VCC', "--label='GND -VCC'"],
+    ['$HOME `id`', "--label='$HOME `id`'"],
+    ['say "hi"', `--label='say "hi"'`],
+    ["it's", "--label='it'\\''s'"],
+  ])('label %j is one shell word: %s', (label, flag) => {
+    expect(boxCommand({ ...DEFAULT_OPTIONS, label })).toBe(`uv run stakee box 2x2x3 ${flag}`);
   });
 });

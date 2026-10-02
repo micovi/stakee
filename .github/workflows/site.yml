@@ -3,21 +3,22 @@ name: Site
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
-permissions: {}
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+permissions:
+  contents: read
 
 jobs:
   build:
     name: Check, test and build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: site-build-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: ${{ github.event_name == 'pull_request' }}
     permissions:
       contents: read # checkout
-      pages: read # configure-pages reads the Pages settings
     defaults:
       run:
         working-directory: site
@@ -32,15 +33,22 @@ jobs:
       - run: bun run check
       - run: bun run test
       - run: bun run build
-      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6.0.0
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
+        if: github.event_name != 'pull_request'
         with:
           path: site/dist
 
   deploy:
     name: Deploy to GitHub Pages
     needs: build
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     permissions:
       pages: write # publish the artifact
       id-token: write # deploy-pages verifies the run with an OIDC token

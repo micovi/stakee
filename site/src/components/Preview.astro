@@ -2,15 +2,16 @@
 import { assetUrl } from '~/lib/catalog';
 import type { Part } from '~/lib/catalog-types';
 
-type Props = { part: Part; eager?: boolean };
+/** `decorative`: the image sits next to text that already names the part (empty alt). */
+type Props = { part: Part; eager?: boolean; decorative?: boolean };
 
-const { part, eager = false } = Astro.props;
+const { part, eager = false, decorative = false } = Astro.props;
 ---
 
 <div class="preview">
   <img
     src={assetUrl(part.files.svg)}
-    alt={`Line drawing of ${part.title}`}
+    alt={decorative ? '' : `Line drawing of ${part.title}`}
     loading={eager ? 'eager' : 'lazy'}
     decoding="async"
     width="400"

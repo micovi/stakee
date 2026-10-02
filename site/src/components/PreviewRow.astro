@@ -13,7 +13,7 @@ const picks = catalog.families.slice(0, 6).flatMap((family) => {
     picks.map(({ family, part }) => (
       <li>
         <a href={familyUrl(family.module)}>
-          <Preview part={part} eager />
+          <Preview part={part} eager decorative />
           <span>{family.title}</span>
         </a>
       </li>

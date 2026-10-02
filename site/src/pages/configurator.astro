@@ -70,7 +70,7 @@ const opts = DEFAULT_OPTIONS;
             type="number"
             min={LIP_CLEARANCE_MIN}
             max={LIP_CLEARANCE_MAX - 0.01}
-            step="0.05"
+            step="0.01"
             value={opts.lipClearance}
             required
           />
@@ -92,6 +92,10 @@ const opts = DEFAULT_OPTIONS;
       <button type="button" id="box-copy">Copy</button>
       <span id="box-copied" class="copied" role="status"></span>
     </div>
+    <p class="shell-note">
+      Quoted for POSIX shells (bash, zsh). fish reads it the same way unless the label contains a
+      backslash.
+    </p>
 
     <h2>Result</h2>
     <dl class="result" id="box-result" aria-live="polite"></dl>
@@ -218,9 +222,14 @@ const opts = DEFAULT_OPTIONS;
     cursor: pointer;
   }
 
-  .copied {
+  .copied,
+  .shell-note {
     font-size: var(--sl-text-sm);
     color: var(--sl-color-gray-2);
+  }
+
+  .shell-note {
+    margin-top: 0.4rem;
   }
 
   .result {

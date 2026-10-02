@@ -19,7 +19,7 @@ import { STLLoader } from 'three/addons/loaders/STLLoader.js';
 const GRID_MM = 42;
 const VIEW_DIRECTION = new Vector3(0.9, -1.4, 0.95).normalize();
 
-export type SceneOptions = { autoRotate: boolean; grid: boolean; wireframe: boolean };
+type SceneOptions = { autoRotate: boolean; grid: boolean; wireframe: boolean };
 
 export type Scene = {
   load: (part: { title: string; stl: string }, color: string) => Promise<void>;
@@ -60,6 +60,62 @@ function seat(geometry: BufferGeometry): Box3 {
   return geometry.boundingBox ?? box;
 }
 
+type View = {
+  renderer: WebGLRenderer;
+  scene: ThreeScene;
+  camera: PerspectiveCamera;
+  controls: OrbitControls;
+};
+
+/**
+ * Draw a frame only when asked; returns the function that asks. `controls.update()` fires
+ * `change` while auto-rotate is on or damping is still settling, which asks for the next
+ * frame, so the loop runs only while the camera moves. Nothing is drawn while the stage is
+ * scrolled out of view; the frame is drawn when it comes back.
+ */
+function renderOnDemand(view: View, stage: HTMLElement): () => void {
+  let visible = true;
+  let frameQueued = false;
+  const renderFrame = (): void => {
+    frameQueued = false;
+    if (!visible) {
+      return;
+    }
+    view.controls.update();
+    view.renderer.render(view.scene, view.camera);
+  };
+  const requestRender = (): void => {
+    if (!frameQueued) {
+      frameQueued = true;
+      requestAnimationFrame(renderFrame);
+    }
+  };
+  view.controls.addEventListener('change', requestRender);
+  new IntersectionObserver((entries) => {
+    visible = entries.some((entry) => entry.isIntersecting);
+    if (visible) {
+      requestRender();
+    }
+  }).observe(stage);
+  return requestRender;
+}
+
+/** Keep the canvas and camera aspect in step with the stage size. */
+function fitToStage(view: View, stage: HTMLElement, requestRender: () => void): void {
+  const resize = (): void => {
+    const { clientWidth, clientHeight } = stage;
+    if (clientWidth === 0 || clientHeight === 0) {
+      return;
+    }
+    view.renderer.setSize(clientWidth, clientHeight, false);
+    view.camera.aspect = clientWidth / clientHeight;
+    view.camera.updateProjectionMatrix();
+    requestRender();
+  };
+  new ResizeObserver(resize).observe(stage);
+  resize();
+}
+
 export function createScene(stage: HTMLElement, status: HTMLElement, options: SceneOptions): Scene {
   const renderer = createRenderer(stage);
   const scene = new ThreeScene();
@@ -83,6 +139,10 @@ export function createScene(stage: HTMLElement, status: HTMLElement, options: Sc
   let bounds = new Box3(new Vector3(-20, -20, 0), new Vector3(20, 20, 20));
   let loadId = 0;
 
+  const view: View = { renderer, scene, camera, controls };
+  const requestRender = renderOnDemand(view, stage);
+  fitToStage(view, stage, requestRender);
+
   const resetView = (): void => {
     const size = bounds.getSize(new Vector3());
     const radius = Math.max(size.length() / 2, 10);
@@ -93,30 +153,8 @@ export function createScene(stage: HTMLElement, status: HTMLElement, options: Sc
     camera.far = distance * 10;
     camera.updateProjectionMatrix();
     controls.update();
+    requestRender();
   };
-
-  const resize = (): void => {
-    const { clientWidth, clientHeight } = stage;
-    if (clientWidth === 0 || clientHeight === 0) {
-      return;
-    }
-    renderer.setSize(clientWidth, clientHeight, false);
-    camera.aspect = clientWidth / clientHeight;
-    camera.updateProjectionMatrix();
-  };
-  new ResizeObserver(resize).observe(stage);
-  resize();
-
-  let visible = true;
-  new IntersectionObserver((entries) => {
-    visible = entries.some((entry) => entry.isIntersecting);
-  }).observe(stage);
-  renderer.setAnimationLoop(() => {
-    if (visible) {
-      controls.update();
-      renderer.render(scene, camera);
-    }
-  });
 
   const load = async (part: { title: string; stl: string }, color: string): Promise<void> => {
     loadId += 1;
@@ -158,18 +196,22 @@ export function createScene(stage: HTMLElement, status: HTMLElement, options: Sc
     load,
     setColor: (color) => {
       material.color = new Color(color);
+      requestRender();
     },
     setWireframe: (on) => {
       material.wireframe = on;
+      requestRender();
     },
     setAutoRotate: (on) => {
       controls.autoRotate = on;
+      requestRender();
     },
     setGrid: (on) => {
       showGrid = on;
       if (grid) {
         grid.visible = on;
       }
+      requestRender();
     },
     resetView,
   };

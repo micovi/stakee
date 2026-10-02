@@ -2,7 +2,7 @@
 
 export type Size = { x: number; y: number; z: number };
 
-export type PartFiles = {
+type PartFiles = {
   /** Repo-relative paths; `stl` and `svg` are also served by the site at the same path. */
   stl: string;
   step: string;

@@ -4,21 +4,21 @@
  * Source of truth: `stakee/core.py` (constants, `BoxSize`, `lip_pocket`, `label_width`,
  * `divider_slot_positions`) and `stakee/cli.py` (ranges, `parse_compartments`,
  * `rail_positions`, `compartment_sizes`, the `--label` height rule). Keep the two in step:
- * `geometry.test.ts` pins these formulas to numbers printed by the Python CLI.
+ * `geometry.test.ts` checks these formulas against `geometry.fixture.json`, which
+ * `tests/test_site_fixture.py` computes with the Python code (and fails on drift).
  */
 
 // stakee/core.py
-export const GRID = 42.0;
-export const HEIGHT_UNIT = 7.0;
-export const GAP = 0.25;
-export const WALL = 2.0;
-export const FLOOR_Z = 5.5;
-export const LIP_CLEARANCE = 0.25;
-export const LIP_ABOVE_NOMINAL = 4.0;
-export const SEAT_DEPTH = 4.0;
-export const DIVIDER_THICKNESS = 1.2;
-export const LABEL_HEIGHT = 12.0;
-export const LABEL_MAX_WIDTH = 60.0;
+const GRID = 42.0;
+const HEIGHT_UNIT = 7.0;
+const GAP = 0.25;
+const WALL = 2.0;
+const FLOOR_Z = 5.5;
+const LIP_CLEARANCE = 0.25;
+const LIP_ABOVE_NOMINAL = 4.0;
+const SEAT_DEPTH = 4.0;
+const DIVIDER_THICKNESS = 1.2;
+const LABEL_MAX_WIDTH = 60.0;
 export const LABEL_MIN_HEIGHT_UNITS = 3;
 /** `LIP_CLEARANCE_MIN`: below this the cavity wall, not the lip, sets the play. */
 export const LIP_CLEARANCE_MIN = 0.15;
@@ -29,19 +29,24 @@ export const LIP_CLEARANCE_MAX = 1.0;
 export const MAX_UNITS = 8;
 export const MIN_HEIGHT = 2;
 export const MAX_HEIGHT = 40;
-export const TILE_CLEARANCE = 0.1;
-export const TILE_TEXT_MARGIN = 1.0;
+const TILE_CLEARANCE = 0.1;
+const TILE_TEXT_MARGIN = 1.0;
 
 export type Vec3 = { x: number; y: number; z: number };
 
 /** Outer width of an `n`-unit side (`BoxSize.width` / `BoxSize.depth`). */
-export function outerSpan(units: number): number {
+function outerSpan(units: number): number {
   return units * GRID - 2 * GAP;
 }
 
 /** Height of the stacking lip top above the bed (`BoxSize.lip_top`). */
-export function lipTop(h: number): number {
+function lipTop(h: number): number {
   return h * HEIGHT_UNIT + LIP_ABOVE_NOMINAL;
+}
+
+/** Height a crate adds to a stack (`stack_pitch_mm` in `stakee box --json`). */
+export function stackPitch(h: number): number {
+  return h * HEIGHT_UNIT;
 }
 
 /** Outer size (width, depth, lip top) in mm, as `stakee box --json` reports `outer_mm`. */
@@ -59,7 +64,7 @@ export function cavity(nx: number, ny: number, h: number): Vec3 {
 }
 
 /** Front label recess width for a part of outer `width` (`label_width`). */
-export function labelWidth(width: number): number {
+function labelWidth(width: number): number {
   return Math.min(width - 16.0, LABEL_MAX_WIDTH);
 }
 
@@ -69,7 +74,7 @@ export function labelTextWidth(width: number): number {
 }
 
 /** Divider slot centers along an `n`-unit axis, every 21 mm (`divider_slot_positions`). */
-export function dividerSlotPositions(n: number): number[] {
+function dividerSlotPositions(n: number): number[] {
   const slots: number[] = [];
   for (let k = 1; k < 2 * n; k += 1) {
     slots.push((k * GRID) / 2 - (n * GRID) / 2);
@@ -204,8 +209,27 @@ function lipClearanceErrors(value: number): string[] {
   return [];
 }
 
+const NUMBER_FIELDS = [
+  ['nx', 'NX'],
+  ['ny', 'NY'],
+  ['h', 'H'],
+  ['across', 'A'],
+  ['along', 'B'],
+  ['lipClearance', 'lip clearance'],
+] as const;
+
+/** Empty or unreadable number fields: the form gives `NaN` for those. */
+function missingErrors(opts: BoxOptions): string[] {
+  const missing = NUMBER_FIELDS.filter(([key]) => Number.isNaN(opts[key])).map(([, name]) => name);
+  return missing.length > 0 ? [`Enter a number for ${missing.join(', ')}`] : [];
+}
+
 /** Every rule `stakee box` would reject these options for, as one-line messages. */
 export function validate(opts: BoxOptions): string[] {
+  const missing = missingErrors(opts);
+  if (missing.length > 0) {
+    return missing;
+  }
   const errors = sizeErrors(opts);
   if (errors.length === 0) {
     errors.push(...compartmentErrors(opts));
@@ -220,7 +244,12 @@ export function validate(opts: BoxOptions): string[] {
   return errors;
 }
 
-/** Quote `text` for a POSIX shell. */
+/** Label tiles `stakee box --label` exports: one for the crate, one more with `--cap`. */
+export function labelTileCount(cap: boolean): number {
+  return cap ? 2 : 1;
+}
+
+/** Quote `text` for a POSIX shell (bash, zsh, fish). */
 function shellQuote(text: string): string {
   if (/^[A-Za-z0-9._-]+$/.test(text)) {
     return text;
@@ -228,7 +257,10 @@ function shellQuote(text: string): string {
   return `'${text.replaceAll("'", `'\\''`)}'`;
 }
 
-/** The `uv run stakee box ...` command for these options (defaults are left out). */
+/**
+ * The `uv run stakee box ...` command for options `validate` accepts (defaults are left out).
+ * The label is passed as `--label=TEXT` so text starting with `-` is not read as an option.
+ */
 export function boxCommand(opts: BoxOptions): string {
   const parts = ['uv run stakee box', `${opts.nx}x${opts.ny}x${opts.h}`];
   if (opts.across !== 1 || opts.along !== 1) {
@@ -236,7 +268,7 @@ export function boxCommand(opts: BoxOptions): string {
   }
   const label = opts.label.trim();
   if (label !== '') {
-    parts.push(`--label ${shellQuote(label)}`);
+    parts.push(`--label=${shellQuote(label)}`);
   }
   if (opts.cap) {
     parts.push('--cap');

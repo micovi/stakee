@@ -3,29 +3,21 @@
  *
  * - `../models/<family>/{stl,preview}/*` -> `public/models/...` (served at the same path)
  * - `../models/index.json` + manifests -> `src/generated/catalog.json`
- * - `../docs/*.md` (or `$STAKEE_DOCS_DIR`) -> `src/content/docs/docs/<slug>.md` + `src/generated/docs.json`
+ * - `../docs/*.md` -> `src/content/docs/docs/<slug>.md` + `src/generated/docs.json`
+ *   (fails on any broken link)
  *
- * Everything written here is gitignored and rebuilt from scratch on every run.
+ * Everything written here is gitignored and rebuilt from scratch on every run. Only
+ * `public/models/` is cleared, so hand-written files in `public/` (the favicon) stay.
  */
-import {
-  copyFileSync,
-  existsSync,
-  mkdirSync,
-  readdirSync,
-  readFileSync,
-  rmSync,
-  writeFileSync,
-} from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import type { Catalog, DocEntry, Family, Part } from '~/lib/catalog-types';
-import { docSlug, orderDocs, parseDoc, toStarlightPage } from '~/lib/docs-sync';
+import type { Catalog, Family, Part } from '~/lib/catalog-types';
+import { syncDocs } from '~/lib/docs-sync';
 import { materialTags } from '~/lib/materials';
+import { SITE_BASE } from '~/lib/repo';
 
-const BASE = '/stakee/';
 const SITE = resolve(import.meta.dir, '..');
 const REPO = resolve(SITE, '..');
-const { STAKEE_DOCS_DIR } = process.env;
-const DOCS_SRC = STAKEE_DOCS_DIR ? resolve(STAKEE_DOCS_DIR) : join(REPO, 'docs');
 const PUBLIC_MODELS = join(SITE, 'public', 'models');
 const DOCS_OUT = join(SITE, 'src', 'content', 'docs', 'docs');
 const GENERATED = join(SITE, 'src', 'generated');
@@ -161,32 +153,6 @@ function buildCatalog(): Catalog {
   return { families, parts };
 }
 
-function syncDocs(): DocEntry[] {
-  if (!existsSync(DOCS_SRC)) {
-    console.log(`sync: no docs folder at ${DOCS_SRC}; the site builds without docs`);
-    return [];
-  }
-  const files = readdirSync(DOCS_SRC).filter((name) => name.toLowerCase().endsWith('.md'));
-  const bySlug = new Map(files.map((name) => [docSlug(name), name]));
-  const broken: string[] = [];
-  const entries: DocEntry[] = [];
-  for (const slug of orderDocs(bySlug.keys())) {
-    const name = bySlug.get(slug) ?? `${slug}.md`;
-    const text = readFileSync(join(DOCS_SRC, name), 'utf8');
-    const page = toStarlightPage(name, text, {
-      base: BASE,
-      docSlugs: new Set(bySlug.keys()),
-      onBrokenLink: (target) => broken.push(`docs/${name} -> ${target}`),
-    });
-    writeFileSync(join(DOCS_OUT, `${slug}.md`), page);
-    entries.push({ slug, title: parseDoc(name, text).title });
-  }
-  for (const link of broken) {
-    console.warn(`sync: warning: broken link ${link}`);
-  }
-  return entries;
-}
-
 function main(): void {
   for (const dir of [PUBLIC_MODELS, DOCS_OUT, GENERATED]) {
     rmSync(dir, { recursive: true, force: true });
@@ -194,7 +160,12 @@ function main(): void {
   }
   const catalog = buildCatalog();
   writeFileSync(join(GENERATED, 'catalog.json'), `${JSON.stringify(catalog, null, 2)}\n`);
-  const docs = syncDocs();
+  const docs = syncDocs({
+    docsDir: join(REPO, 'docs'),
+    outDir: DOCS_OUT,
+    base: SITE_BASE,
+    repoPathExists: (repoPath) => existsSync(join(REPO, repoPath)),
+  });
   writeFileSync(join(GENERATED, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
   console.log(
     `sync: ${catalog.parts.length} parts in ${catalog.families.length} families, ${docs.length} docs`,

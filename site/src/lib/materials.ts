@@ -1,7 +1,7 @@
 const FILAMENTS = ['PLA', 'PETG', 'ASA', 'TPU', 'ABS'] as const;
 
-export const OTHER_MATERIAL = 'Other';
-export const ESD_MATERIAL = 'ESD';
+const OTHER_MATERIAL = 'Other';
+const ESD_MATERIAL = 'ESD';
 
 /**
  * Filament tags for a free-text manifest `material`, for the catalogue filter.

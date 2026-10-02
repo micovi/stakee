@@ -1,5 +1,8 @@
 export const REPO_URL = 'https://github.com/micovi/stakee';
 
+/** Deploy base (the GitHub Pages project path), shared by `astro.config.ts` and the sync. */
+export const SITE_BASE = '/stakee/';
+
 /** Raw download URL of a repo-relative path on main. */
 export function rawUrl(path: string): string {
   return `${REPO_URL}/raw/main/${path}`;
