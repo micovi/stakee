@@ -379,7 +379,8 @@ def _infos(lay: Layout) -> dict[str, PartInfo]:
             print_notes=(
                 "Upright, no supports: the eyelet ledge has a 45 deg underside and the 2.6 mm "
                 "eyelets bridge cleanly. 3 walls, 15% infill. Ream eyelets with a 2.5 mm drill "
-                "if your printer runs tight. No divider slots on this variant."
+                "if your printer runs tight. No divider slots on this variant. Optional 6x2 mm "
+                "magnets in the feet."
             ),
             color="#c9a227",
             footprint=tag,

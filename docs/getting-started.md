@@ -20,7 +20,7 @@ cd stakee
 uv sync
 ```
 
-`uv sync` creates `.venv/` with the pinned dependencies (`build123d`, `trimesh`, plus `pytest` and `ruff` for development). Check that it works:
+`uv sync` creates `.venv/` with the pinned dependencies (`build123d`, plus `pytest` and `ruff` for development). Check that it works:
 
 ```bash
 uv run stakee list

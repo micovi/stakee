@@ -2,7 +2,7 @@
   "crate-1x1x3": {
     "slug": "crate-1x1x3",
     "title": "Crate 1x1x3",
-    "blurb": "Stackable crate, usable cavity 38x38x16 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "blurb": "Stackable crate, usable cavity 37.5x37.5x15.5 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
     "material": "PLA or PETG",
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
@@ -21,7 +21,7 @@
   "crate-2x1x3": {
     "slug": "crate-2x1x3",
     "title": "Crate 2x1x3",
-    "blurb": "Stackable crate, usable cavity 80x38x16 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "blurb": "Stackable crate, usable cavity 79.5x37.5x15.5 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
     "material": "PLA or PETG",
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
@@ -40,7 +40,7 @@
   "crate-2x2x3": {
     "slug": "crate-2x2x3",
     "title": "Crate 2x2x3",
-    "blurb": "Stackable crate, usable cavity 80x80x16 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "blurb": "Stackable crate, usable cavity 79.5x79.5x15.5 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
     "material": "PLA or PETG",
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
@@ -59,7 +59,7 @@
   "crate-2x2x6": {
     "slug": "crate-2x2x6",
     "title": "Crate 2x2x6",
-    "blurb": "Stackable crate, usable cavity 80x80x36 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "blurb": "Stackable crate, usable cavity 79.5x79.5x36.5 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
     "material": "PLA or PETG",
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",
@@ -78,7 +78,7 @@
   "crate-3x2x6": {
     "slug": "crate-3x2x6",
     "title": "Crate 3x2x6",
-    "blurb": "Stackable crate, usable cavity 122x80x36 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
+    "blurb": "Stackable crate, usable cavity 121.5x79.5x36.5 mm. Divider slots every 21 mm, front label recess, clip sockets on the sides.",
     "material": "PLA or PETG",
     "print_notes": "Upright, no supports, 3 walls, 15% infill. Optional 6x2 mm magnets.",
     "color": "#e8e3d6",

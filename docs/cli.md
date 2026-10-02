@@ -34,7 +34,7 @@ Exports one crate, plus the optional cap, divider rails and label tile.
 | `--cap` | off | Also exports a cap for the same footprint. |
 | `--no-magnets` | off | Omits the 6.5 × 2.4 mm magnet pockets under the feet. |
 | `--no-sockets` | off | Omits the stack-clip sockets on the side walls. |
-| `--lip-clearance MM` | `0.25` | Horizontal play between an upper crate's feet and this crate's lip. Use 0.15 to 0.99. |
+| `--lip-clearance MM` | `0.25` | Horizontal play between an upper crate's feet and this crate's lip, 0.15 to under 1.0. |
 | `--name NAME` | derived | Name of the output folder under `./out/`. |
 | `--out DIR` | `./out/<name>/` | Output folder. |
 | `--json` | off | Prints a JSON summary on stdout instead of the text summary. |
@@ -71,10 +71,10 @@ With `--cap`, the tile `count` is 2: one for the crate front, one for the recess
 
 The clearance is cut into this crate's lip, so it sets the fit of whatever stacks on this crate. The feet are not changed. Pick the value with the [calibration coupons](printing.md#calibration).
 
-The CLI accepts 0.0 to 1.0 mm. The geometry accepts 0.15 mm up to, but not including, 1.0 mm. Values from 0.0 to below 0.15, and exactly 1.0, currently stop with a Python `ValueError` traceback and exit status 1:
+Accepted values: 0.15 mm up to, but not including, 1.0 mm (`LIP_CLEARANCE_MIN` and `LIP_CLEARANCE_MAX` in [`core.py`](../stakee/core.py)). Below 0.15 mm the cavity wall, not the lip, sets the play. Anything else is a usage error (exit status 2):
 
 ```text
-ValueError: lip clearance 0.1 mm out of range: below 0.15 mm the cavity wall, not the lip, sets the play; use 0.15-0.99 mm
+stakee box: error: --lip-clearance 0.1: must be >= 0.15 and < 1.0 mm
 ```
 
 ### `--name` and `--out`
@@ -127,7 +127,7 @@ Options:
   --no-magnets         omit the 6.5x2.4 mm magnet pockets under the feet
   --no-sockets         omit the stack-clip sockets on the side walls
   --lip-clearance MM   foot/lip play, default 0.25 (tune for your printer)
-  --name NAME          file/folder name (default derived from the options)
+  --name NAME          output folder name and summary name (default derived from the options)
   --out DIR            output folder (default ./out/<name>/)
   --json               print a machine-readable summary on stdout
 Dividers: AxB with A <= 2*NX and B <= 2*NY (slots every 21 mm).
@@ -159,7 +159,7 @@ Labels need box height >= 3.
     "--no-magnets": "omit the 6.5x2.4 mm magnet pockets under the feet",
     "--no-sockets": "omit the stack-clip sockets on the side walls",
     "--lip-clearance MM": "foot/lip play, default 0.25 (tune for your printer)",
-    "--name NAME": "file/folder name (default derived from the options)",
+    "--name NAME": "output folder name and summary name (default derived from the options)",
     "--out DIR": "output folder (default ./out/<name>/)",
     "--json": "print a machine-readable summary on stdout"
   },
@@ -304,7 +304,7 @@ Paths are absolute; `/path/to/out` above stands for the folder given with `--out
 | 0 | Success | Text summary, or the JSON object with `--json` |
 | 2 | Bad input | One line on stderr. With `--json`, also `{"ok": false, "error": "..."}` on stdout |
 | 2 | Unknown option, missing argument, non-numeric `--lip-clearance` | argparse usage and error on stderr, no JSON |
-| 1 | Unexpected error | Python traceback. Known case: `--lip-clearance` below 0.15 or exactly 1.0 |
+| 1 | Unexpected error | Python traceback (please report it) |
 
 Bad input is rejected before any file is written. Real error messages:
 
@@ -320,7 +320,7 @@ stakee box: error: --dividers 2: expected AxB, e.g. 2x3 (A across X, B along Y)
 stakee box: error: --label: a 2-unit box has no front label recess; use height >= 3
 stakee box: error: --label 'RASPBERRY PI': needs a 3.1 mm font to fit the 23.3 mm label area; minimum is 3.5 mm. Shorten the text or use a wider box.
 stakee box: error: --label: text must not be empty
-stakee box: error: --lip-clearance 1.5: must be between 0.0 and 1.0 mm
+stakee box: error: --lip-clearance 1.5: must be >= 0.15 and < 1.0 mm
 stakee box: error: --name 'bad name': use letters, digits, '.', '_' or '-' only
 stakee cap: error: 2x2x3: expected NXxNY, e.g. 2x2 (42 mm units)
 stakee cap: error: 9x9: footprint must be <= 8 units per side

@@ -30,6 +30,8 @@ from stakee.core import (
     LABEL_HEIGHT,
     LABEL_MIN_HEIGHT_UNITS,
     LIP_CLEARANCE,
+    LIP_CLEARANCE_MAX,
+    LIP_CLEARANCE_MIN,
     BoxSize,
     divider_slot_positions,
     label_width,
@@ -42,7 +44,6 @@ from stakee.modules.dividers import make_rail, plate_height
 MAX_UNITS = 8  # 336 mm: already beyond most print beds
 MAX_HEIGHT = 40  # 280 mm
 MIN_HEIGHT = 2
-LIP_CLEARANCE_RANGE = (0.0, 1.0)
 
 TILE_CLEARANCE = 0.1  # per side, against the label recess
 TILE_TEXT_HEIGHT = 0.4  # embossed above the tile, two 0.2 mm layers for a filament swap
@@ -124,9 +125,10 @@ def parse_compartments(text: str, size: BoxSize) -> tuple[int, int]:
 
 
 def parse_lip_clearance(value: float) -> float:
-    low, high = LIP_CLEARANCE_RANGE
-    if not low <= value <= high:
-        raise CliError(f"--lip-clearance {value}: must be between {low} and {high} mm")
+    if not LIP_CLEARANCE_MIN <= value < LIP_CLEARANCE_MAX:
+        raise CliError(
+            f"--lip-clearance {value}: must be >= {LIP_CLEARANCE_MIN} and < {LIP_CLEARANCE_MAX} mm"
+        )
     return value
 
 
@@ -391,7 +393,7 @@ OPTION_HELP = {
     "--no-magnets": "omit the 6.5x2.4 mm magnet pockets under the feet",
     "--no-sockets": "omit the stack-clip sockets on the side walls",
     "--lip-clearance MM": f"foot/lip play, default {LIP_CLEARANCE} (tune for your printer)",
-    "--name NAME": "file/folder name (default derived from the options)",
+    "--name NAME": "output folder name and summary name (default derived from the options)",
     "--out DIR": "output folder (default ./out/<name>/)",
     "--json": "print a machine-readable summary on stdout",
 }
@@ -441,7 +443,7 @@ def render_parts(summary: dict) -> str:
 
 
 def _common(sub: argparse.ArgumentParser) -> None:
-    sub.add_argument("--name", help="output name (default derived from the options)")
+    sub.add_argument("--name", help="output folder name (default derived from the options)")
     sub.add_argument("--out", help="output folder (default ./out/<name>/)")
     sub.add_argument("--json", action="store_true", help="machine-readable summary on stdout")
 

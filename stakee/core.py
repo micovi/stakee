@@ -33,6 +33,9 @@ FOOT_HEIGHT = 4.75
 # Gridfinity foot profile as (z, inset from cell outline) stations.
 FOOT_STATIONS = ((0.0, 2.95), (0.8, 2.15), (2.6, 2.15), (4.75, 0.0))
 LIP_CLEARANCE = 0.25  # horizontal clearance between foot and lip chamfers
+# Below the minimum the cavity wall, not the lip, sets the play (see lip_pocket).
+LIP_CLEARANCE_MIN = round(FOOT_STATIONS[1][1] - WALL, 6)  # 0.15 mm
+LIP_CLEARANCE_MAX = 1.0  # exclusive upper bound accepted by lip_pocket
 LIP_ABOVE_NOMINAL = 4.0  # lip top sits this far above 7 * h
 SEAT_DEPTH = 4.0  # how deep an upper box's feet sink below the lower lip top
 
@@ -152,11 +155,11 @@ def lip_pocket(size: BoxSize, clearance: float = LIP_CLEARANCE) -> Part:
     chamfers it still seats exactly at ``lip_top - SEAT_DEPTH`` (stack pitch stays 7 * h);
     only the play on the vertical faces changes.
     """
-    min_clearance = FOOT_STATIONS[1][1] - WALL
-    if not min_clearance <= clearance < 1.0:
+    if not LIP_CLEARANCE_MIN <= clearance < LIP_CLEARANCE_MAX:
         raise ValueError(
-            f"lip clearance {clearance} mm out of range: below {min_clearance:.2f} mm the cavity "
-            "wall, not the lip, sets the play; use 0.15-0.99 mm"
+            f"lip clearance {clearance} mm out of range: below {LIP_CLEARANCE_MIN:.2f} mm the "
+            f"cavity wall, not the lip, sets the play; use {LIP_CLEARANCE_MIN:.2f} to "
+            f"under {LIP_CLEARANCE_MAX} mm"
         )
     z0 = size.lip_top - SEAT_DEPTH + clearance
     stations = [

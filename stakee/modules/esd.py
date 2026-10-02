@@ -167,7 +167,8 @@ PRINT_NOTES = (
     "cord or the bench ground point), never straight to mains earth. Check it: meter between "
     "the stud and the inside floor or a far corner; dissipative parts read 1e5-1e9 ohm, above "
     "~40 Mohm a multimeter is blind and you need a 10/100 V megohmmeter. Printed crates are "
-    "not certified ESD packaging; resistance drifts with humidity, layer direction and wear."
+    "not certified ESD packaging; resistance drifts with humidity, layer direction and wear. "
+    "Optional 6x2 mm magnets in the feet."
 )
 
 

@@ -82,7 +82,7 @@ stakee/
   modules/        one generator module per family
 models/           generated output, committed: <family>/{stl,step,preview}/, manifest.json, README.md
 docs/             hand-written documentation
-tests/            pytest suite for the CLI
+tests/            pytest suite
 ```
 
 ## Documentation

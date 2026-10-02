@@ -2,7 +2,7 @@
   "lip-coupon-15": {
     "slug": "lip-coupon-15",
     "title": "Lip coupon 0.15 mm",
-    "blurb": "Stacking lip cut with 0.15 mm clearance (marked 15). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and use it as LIP_CLEARANCE in core.py (now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
+    "blurb": "Stacking lip cut with 0.15 mm clearance (marked 15). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and pass it to `stakee box --lip-clearance` (or set LIP_CLEARANCE in core.py, now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
     "material": "The filament you will print the crates in",
     "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
     "color": "#e05d5d",
@@ -21,7 +21,7 @@
   "lip-coupon-25": {
     "slug": "lip-coupon-25",
     "title": "Lip coupon 0.25 mm",
-    "blurb": "Stacking lip cut with 0.25 mm clearance (marked 25). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and use it as LIP_CLEARANCE in core.py (now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
+    "blurb": "Stacking lip cut with 0.25 mm clearance (marked 25). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and pass it to `stakee box --lip-clearance` (or set LIP_CLEARANCE in core.py, now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
     "material": "The filament you will print the crates in",
     "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
     "color": "#f0c419",
@@ -40,7 +40,7 @@
   "lip-coupon-35": {
     "slug": "lip-coupon-35",
     "title": "Lip coupon 0.35 mm",
-    "blurb": "Stacking lip cut with 0.35 mm clearance (marked 35). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and use it as LIP_CLEARANCE in core.py (now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
+    "blurb": "Stacking lip cut with 0.35 mm clearance (marked 35). Set the probe on each coupon: pick the tightest one the probe drops into by its own weight and that does not rattle when you shake the pair, and pass it to `stakee box --lip-clearance` (or set LIP_CLEARANCE in core.py, now 0.25). If even the loosest binds, fix elephant foot first; if the tightest rattles, rerun with smaller values (0.15 mm is the floor).",
     "material": "The filament you will print the crates in",
     "print_notes": "Upright, no supports, same nozzle, layer height and elephant-foot compensation as the real crates; 2 walls, 15% infill. About 8.2 cm\u00b3.",
     "color": "#5dbb63",

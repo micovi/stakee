@@ -14,6 +14,12 @@ uv sync
 
 uv installs Python 3.13 and the pinned dependencies, including `pytest` and `ruff`.
 
+Optional: install the git hooks with [prek](https://github.com/j178/prek) so ruff runs on every commit:
+
+```bash
+prek install
+```
+
 ## Checks
 
 Run these before you open a pull request:

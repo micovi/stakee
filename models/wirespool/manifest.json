@@ -4,7 +4,7 @@
     "title": "Wire dispenser crate 4x2x9",
     "blurb": "Holds 6 spools of 52 x 23 mm (hole 12) on a lift-out axle; pull each colour through its own rounded eyelet in the front wall. Pinch slot between the middle eyelets parks a cut end.",
     "material": "PLA or PETG",
-    "print_notes": "Upright, no supports: the eyelet ledge has a 45 deg underside and the 2.6 mm eyelets bridge cleanly. 3 walls, 15% infill. Ream eyelets with a 2.5 mm drill if your printer runs tight. No divider slots on this variant.",
+    "print_notes": "Upright, no supports: the eyelet ledge has a 45 deg underside and the 2.6 mm eyelets bridge cleanly. 3 walls, 15% infill. Ream eyelets with a 2.5 mm drill if your printer runs tight. No divider slots on this variant. Optional 6x2 mm magnets in the feet.",
     "color": "#c9a227",
     "footprint": "4x2x9",
     "size_mm": [

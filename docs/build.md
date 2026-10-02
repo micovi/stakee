@@ -16,12 +16,12 @@ uv run stakee-build --docs-only
 | --- | --- |
 | none | Verifies and builds every family, then rewrites the README pages. |
 | `--only A,B` | Verifies and builds only these families (comma-separated module names), then rewrites the README pages of all families. Families always run in catalogue order. |
-| `--docs-only` | Skips verify and build; only rewrites `models/index.json`, `models/README.md` and `models/<family>/README.md`. `--only` is ignored. |
+| `--docs-only` | Skips verify and build; only rewrites `models/index.json`, `models/README.md` and `models/<family>/README.md`. Cannot be combined with `--only`. |
 
 An unknown family name stops the build with exit status 1:
 
 ```text
---only 'foo': unknown family ['foo']; known: crates, dividers, inserts, baglib, drawers, pocket, kit, magtray, esd, wirespool, wallrail, calibration
+--only 'foo': no family named ['foo']; known: crates, dividers, inserts, baglib, drawers, pocket, kit, magtray, esd, wirespool, wallrail, calibration
 ```
 
 ## Verify, then build
@@ -31,7 +31,7 @@ For each selected family, in the order of [`stakee/families.py`](../stakee/famil
 1. Import `stakee.modules.<family>`. It must have callable `verify()` and `build()`, or the build stops.
 2. Run `verify()`. It must return `True`. Anything else stops the build, and this family exports nothing. Families earlier in the run are already written.
 3. Delete the family's `stl/`, `step/`, `preview/` and `manifest.json`, so the folder lists only what the generator exports now.
-4. Run `build()`. It calls `save()` once per part.
+4. Run `build()`. It calls `save()` once per part. If `build()` raises, the build stops with the error and the family's folder is left partly written: fix the error and rebuild, or restore it with `git checkout -- models/<family>`.
 
 `verify()` prints one line per check. For example, the crates family:
 
@@ -42,12 +42,12 @@ For each selected family, in the order of [`stakee/families.py`](../stakee/famil
 
 ## What `save()` writes
 
-`save(module, part, info)` in `export.py` refuses a solid that is not valid, then writes:
+`save(module, part, info)` in `export.py` refuses a slug that is not lowercase letters, digits, `.` and `-`, and a solid that is not valid, then writes (and raises if a writer reports failure):
 
 | File | Content |
 | --- | --- |
 | `models/<family>/stl/<slug>.stl` | Mesh for slicing, 0.02 mm linear and 0.15 rad angular tolerance |
-| `models/<family>/step/<slug>.step` | Exact solid for CAD |
+| `models/<family>/step/<slug>.step` | Exact solid for CAD; the header timestamp is pinned so an unchanged part exports byte for byte the same |
 | `models/<family>/preview/<slug>.svg` | Hidden-line line art, front-right-top view, white background |
 | `models/<family>/manifest.json` | The part's `PartInfo`, keyed by slug |
 
@@ -57,14 +57,13 @@ Each entry of `manifest.json` is a `PartInfo` from `export.py`:
 
 | Field | Type | Meaning |
 | --- | --- | --- |
-| `slug` | str | File stem, unique within the family |
+| `slug` | str | File stem, unique within the family: lowercase letters, digits, `.`, `-` |
 | `title` | str | Short human name |
 | `blurb` | str | One or two sentences: what it is and why you want it |
 | `material` | str | Recommended filament, e.g. `"PETG"` or `"PLA + TPU"` |
 | `print_notes` | str | Orientation, supports, infill, inserts (magnets, NFC…) |
-| `color` | str | Preview hex color, default `"#d9d4c7"` |
+| `color` | str | Suggested filament colour (hex), the default colour in the site's 3D viewer; default `"#d9d4c7"` |
 | `footprint` | str | e.g. `"2x2x6"` in grid units, or `""` for parts that are not boxes |
-| `assembly` | [x, y, z] or null | Where an insert sits in its crate, mm |
 | `size_mm` | [x, y, z] | Bounding box in mm, rounded to 0.1 mm; filled in by `save()` |
 | `files` | object | Repository-relative paths under the keys `stl`, `step` and `svg`; filled in by `save()` |
 
@@ -79,7 +78,6 @@ Example from `models/crates/manifest.json`:
   "print_notes": "Upside down (plate on the bed), no supports.",
   "color": "#f2a03d",
   "footprint": "2x2",
-  "assembly": null,
   "size_mm": [83.5, 83.5, 7.2],
   "files": {
     "stl": "models/crates/stl/cap-2x2.stl",
@@ -125,4 +123,4 @@ uv run ruff check .
 uv run ruff format --check .
 ```
 
-`tests/test_cli.py` runs the `stakee` CLI in-process into a temporary folder. Ruff uses a 100-character line length and the rule sets `E`, `F`, `I`, `B`, `UP` and `SIM` (see `pyproject.toml`).
+`tests/` mirrors the package: `test_cli.py` runs the `stakee` CLI in-process into a temporary folder, `test_export.py`, `test_build.py` and `test_docs.py` cover exporting, the build command and the generated pages. Ruff uses a 100-character line length and the rule sets `E`, `F`, `I`, `B`, `UP` and `SIM` (see `pyproject.toml`).

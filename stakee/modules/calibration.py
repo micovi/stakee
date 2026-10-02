@@ -31,6 +31,7 @@ from build123d import (
     extrude,
 )
 
+from stakee.build import clear_family
 from stakee.core import (
     DIVIDER_SLOT_DEPTH,
     DIVIDER_SLOT_WIDTH,
@@ -43,6 +44,7 @@ from stakee.core import (
     BoxSize,
     make_box,
 )
+from stakee.docs import write_docs
 from stakee.export import PartInfo, save
 from stakee.modules.dividers import END_LENGTH, END_THICKNESS, INSERT
 
@@ -219,8 +221,9 @@ def _coupon_info(index: int, clearance: float, volume: float) -> PartInfo:
         blurb=(
             f"Stacking lip cut with {clearance:.2f} mm clearance (marked {mark}). Set the probe "
             "on each coupon: pick the tightest one the probe drops into by its own weight and "
-            "that does not rattle when you shake the pair, and use it as LIP_CLEARANCE in "
-            f"core.py (now {LIP_CLEARANCE}). If even the loosest binds, fix elephant foot first; "
+            "that does not rattle when you shake the pair, and pass it to `stakee box "
+            f"--lip-clearance` (or set LIP_CLEARANCE in core.py, now {LIP_CLEARANCE}). "
+            "If even the loosest binds, fix elephant foot first; "
             "if the tightest rattles, rerun with smaller values (0.15 mm is the floor)."
         ),
         material="The filament you will print the crates in",
@@ -236,15 +239,15 @@ def _coupon_info(index: int, clearance: float, volume: float) -> PartInfo:
 def build(
     clearances: tuple[float, ...] = CLEARANCES, samples: tuple[float, ...] = SLOT_SAMPLES
 ) -> None:
-    """Verify, then export the coupons, probe, slot strip and sample comb into models/calibration/.
+    """Export the coupons, probe, slot strip and sample comb into models/calibration/.
+
+    Run ``verify`` with the same values first (``stakee-build`` and ``main`` do).
 
     Args:
         clearances: lip clearances to print one coupon each for, mm.
         samples: divider-end thicknesses to put on the sample comb, mm.
     """
     check_clearances(clearances)
-    if not verify(clearances, samples):
-        raise SystemExit("calibration verification failed, nothing exported")
     parts: list[tuple[Part, PartInfo]] = []
     for i, c in enumerate(clearances):
         coupon = make_coupon(c)
@@ -490,7 +493,12 @@ def main() -> None:
     parser.add_argument("--clearances", type=float, nargs="+", default=list(CLEARANCES))
     parser.add_argument("--samples", type=float, nargs="+", default=list(SLOT_SAMPLES))
     args = parser.parse_args()
-    build(tuple(args.clearances), tuple(args.samples))
+    clearances, samples = tuple(args.clearances), tuple(args.samples)
+    if not verify(clearances, samples):
+        raise SystemExit("calibration verification failed, nothing exported")
+    clear_family(MODULE)
+    build(clearances, samples)
+    write_docs()
 
 
 if __name__ == "__main__":

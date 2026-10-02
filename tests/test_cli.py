@@ -89,7 +89,7 @@ def test_list_json_describes_sizes_and_options(capsys):
         (["box", "1x1x2", "--label", "X"], "has no front label recess"),
         (["box", "1x1x3", "--label", "RASPBERRY PI PICO W"], "Shorten the text"),
         (["box", "1x1x3", "--label", "   "], "text must not be empty"),
-        (["box", "1x1x2", "--lip-clearance", "2"], "must be between 0.0 and 1.0 mm"),
+        (["box", "1x1x2", "--lip-clearance", "2"], "must be >= 0.15 and < 1.0 mm"),
         (["box", "1x1x2", "--name", "../evil"], "use letters, digits"),
         (["cap", "2x2x3"], "2x2x3: expected NXxNY"),
     ],
@@ -138,3 +138,13 @@ def test_default_output_folder_is_out_in_the_working_directory(capsys, tmp_path,
     assert code == 0, err
     assert json.loads(out)["out_dir"] == str(tmp_path / "out" / "cap-1x1")
     assert (tmp_path / "out" / "cap-1x1" / "cap-1x1.stl").is_file()
+
+
+@pytest.mark.parametrize("value", ["0.1", "1.0"])
+def test_lip_clearance_outside_the_lip_range_is_a_usage_error(capsys, tmp_path, value):
+    code, _out, err = run(capsys, "box", "1x1x2", "--lip-clearance", value, "--out", str(tmp_path))
+
+    assert code == 2
+    assert err.strip() == (
+        f"stakee box: error: --lip-clearance {value}: must be >= 0.15 and < 1.0 mm"
+    )

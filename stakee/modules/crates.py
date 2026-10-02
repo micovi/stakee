@@ -81,7 +81,7 @@ def build() -> None:
                 slug=f"crate-{tag}",
                 title=f"Crate {tag}",
                 blurb=(
-                    f"Stackable crate, usable cavity {cav_w:.0f}x{cav_d:.0f}x{cav_h:.0f} mm. "
+                    f"Stackable crate, usable cavity {cav_w:g}x{cav_d:g}x{cav_h:g} mm. "
                     "Divider slots every 21 mm, front label recess, clip sockets on the sides."
                 ),
                 material="PLA or PETG",

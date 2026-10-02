@@ -17,7 +17,7 @@ A crate with a lift-out axle and one eyelet per spool for hookup wire.
 
 ## Print notes
 
-- **Wire dispenser crate 4x2x9**: Upright, no supports: the eyelet ledge has a 45 deg underside and the 2.6 mm eyelets bridge cleanly. 3 walls, 15% infill. Ream eyelets with a 2.5 mm drill if your printer runs tight. No divider slots on this variant.
+- **Wire dispenser crate 4x2x9**: Upright, no supports: the eyelet ledge has a 45 deg underside and the 2.6 mm eyelets bridge cleanly. 3 walls, 15% infill. Ream eyelets with a 2.5 mm drill if your printer runs tight. No divider slots on this variant. Optional 6x2 mm magnets in the feet.
 - **Spool cradle frame 4x2x9**: Flat on its rails, U-cradles up, no supports. 3 walls, 20% infill.
 - **Spool axle 8 mm**: Lying on its 0.5 mm flat along X, no supports, 4 walls, 40% infill; needs a bed at least 165 mm long (print diagonally on smaller beds).
 - **Spool spacer washer**: Flat, no supports, 100% infill. Smooth side (bed side) toward a spool.
