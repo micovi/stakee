@@ -15,17 +15,17 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@astrojs/markdown-satteri": "0.4.2",
-    "@astrojs/starlight": "0.42.5",
-    "astro": "7.3.5",
-    "three": "0.186.1"
+    "@astrojs/markdown-satteri": "0.4.7",
+    "@astrojs/starlight": "0.42.9",
+    "astro": "7.4.7",
+    "three": "0.187.0"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.10",
-    "@biomejs/biome": "2.5.15",
-    "@types/bun": "1.4.2",
-    "@types/three": "0.186.0",
-    "typescript": "6.0.3",
-    "vitest": "5.0.3"
+    "@astrojs/check": "0.9.12",
+    "@biomejs/biome": "2.6.5",
+    "@types/bun": "1.4.4",
+    "@types/three": "0.187.0",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
   }
 }
